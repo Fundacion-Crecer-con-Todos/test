@@ -1,20 +1,30 @@
 /* Alianzas */
-.alliances-page{background:#fff;color:var(--fcct-ink)}
-.alliances-hero{position:relative;padding:168px 0 76px;overflow:hidden;background:linear-gradient(135deg,#f6f0f7 0%,#ffffff 54%,#edf9fb 100%)}
-.alliances-hero:before{content:"";position:absolute;right:-110px;top:90px;width:330px;height:330px;border:38px solid rgba(134,68,144,.07);border-radius:68px;transform:rotate(16deg)}
-.alliances-hero:after{content:"";position:absolute;left:-80px;bottom:-130px;width:260px;height:260px;border:32px solid rgba(0,177,209,.07);border-radius:56px;transform:rotate(-14deg)}
+.alliances-page{background:#fff;color:var(--fcct-ink);overflow:hidden}
+.alliances-hero{position:relative;padding:150px 0 64px;overflow:hidden;background:linear-gradient(135deg,#f7eef8 0%,#fff 52%,#eaf8fb 100%)}
+.alliances-hero:before{content:"";position:absolute;right:-84px;top:72px;width:280px;height:280px;border:30px solid rgba(134,68,144,.075);border-radius:62px;transform:rotate(14deg)}
+.alliances-hero:after{content:"";position:absolute;left:-72px;bottom:-122px;width:230px;height:230px;border:26px solid rgba(0,177,209,.08);border-radius:52px;transform:rotate(-13deg)}
 .alliances-hero .container{position:relative;z-index:2}
-.alliances-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fcct-p);font-weight:500}
-.alliances-kicker:before{content:"";width:7px;height:7px;border-radius:2px;background:var(--fcct-c);box-shadow:10px 0 0 var(--fcct-p),20px 0 0 var(--fcct-o);margin-right:29px}
-.alliances-hero h1{font-size:clamp(52px,6vw,84px);line-height:.98;letter-spacing:-.05em;font-weight:400;max-width:900px}
-.alliances-intro{padding:92px 0 36px}
-.alliances-intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
-.alliances-intro h2{font-size:clamp(36px,4vw,56px);line-height:1.06;letter-spacing:-.04em;font-weight:400;max-width:620px}
-.alliances-intro p{font-size:17px;line-height:1.7;color:var(--fcct-muted);font-weight:300;max-width:560px;padding-top:6px}
-.alliances-showcase{padding:34px 0 110px}
-.alliances-frame{position:relative;border:1px solid rgba(34,36,40,.12);background:#fff;padding:46px 42px;overflow:hidden}
-.alliances-frame:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,177,209,.028),transparent 35%,rgba(134,68,144,.035));pointer-events:none}
+.alliances-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--fcct-p);font-weight:600}
+.alliances-kicker:before{content:"";width:8px;height:8px;border-radius:2px;background:var(--fcct-c);box-shadow:12px 0 0 var(--fcct-p),24px 0 0 var(--fcct-o);margin-right:24px}
+.alliances-hero h1{font-size:clamp(48px,5.3vw,72px);line-height:1;letter-spacing:-.05em;font-weight:400;max-width:860px}
+
+.alliances-intro{padding:86px 0 74px;background:#fff;position:relative}
+.alliances-intro:after{content:"";position:absolute;left:50%;bottom:0;width:min(1180px,calc(100% - 40px));height:1px;background:linear-gradient(90deg,transparent,rgba(34,36,40,.1),transparent);transform:translateX(-50%)}
+.alliances-intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:86px;align-items:end}
+.alliances-intro h2{font-size:clamp(34px,3.7vw,52px);line-height:1.06;letter-spacing:-.04em;font-weight:400;max-width:600px}
+.alliances-intro p{font-size:16px;line-height:1.78;color:var(--fcct-muted);font-weight:300;max-width:520px;padding-bottom:4px}
+
+.alliances-showcase{position:relative;padding:96px 0 116px;background:linear-gradient(180deg,#e8f8fb 0%,#f6fbfc 72%,#fff 100%);overflow:hidden}
+.alliances-showcase:before{content:"";position:absolute;left:-54px;top:54px;width:150px;height:150px;border-radius:32px;background:rgba(255,135,13,.11);transform:rotate(16deg)}
+.alliances-showcase:after{content:"";position:absolute;right:-48px;bottom:72px;width:184px;height:184px;border-radius:42px;background:rgba(134,68,144,.09);transform:rotate(-17deg)}
+.alliances-showcase .container{position:relative;z-index:2}
+.alliances-frame{position:relative;background:#fff;border:0;border-radius:28px;padding:42px 46px 48px;overflow:hidden;box-shadow:0 22px 60px rgba(24,77,88,.1);transform:rotate(-.6deg);transition:transform .35s ease,box-shadow .35s ease}
+.alliances-frame:before{content:"";position:absolute;left:34px;top:28px;width:9px;height:9px;border-radius:2px;background:var(--fcct-c);box-shadow:14px 0 0 var(--fcct-p),28px 0 0 var(--fcct-o)}
+.alliances-frame:after{content:"";position:absolute;right:34px;bottom:30px;width:88px;height:88px;border:12px solid rgba(192,81,160,.09);border-radius:24px;transform:rotate(12deg)}
 .alliances-frame img{position:relative;z-index:1;display:block;width:100%;height:auto;object-fit:contain;transition:transform .5s cubic-bezier(.2,.8,.2,1),filter .35s ease}
-@media(hover:hover) and (pointer:fine){.alliances-frame:hover img{transform:scale(1.012);filter:saturate(1.02)}}
-@media(max-width:900px){.alliances-hero{padding:142px 0 64px}.alliances-intro-grid{grid-template-columns:1fr;gap:24px}.alliances-intro{padding-top:68px}.alliances-frame{padding:32px 26px}}
-@media(max-width:560px){.alliances-hero{padding:120px 0 52px}.alliances-hero h1{font-size:48px}.alliances-intro{padding:54px 0 24px}.alliances-intro h2{font-size:37px}.alliances-intro p{font-size:15px}.alliances-showcase{padding:24px 0 78px}.alliances-frame{padding:20px 14px}}
+@media(hover:hover) and (pointer:fine){.alliances-frame:hover{transform:rotate(0) translateY(-4px);box-shadow:0 28px 70px rgba(24,77,88,.14)}.alliances-frame:hover img{transform:scale(1.012);filter:saturate(1.03)}}
+
+.alliances-page .join{padding-top:88px}
+
+@media(max-width:900px){.alliances-hero{padding:136px 0 58px}.alliances-intro-grid{grid-template-columns:1fr;gap:26px}.alliances-intro{padding:66px 0 58px}.alliances-showcase{padding:70px 0 88px}.alliances-frame{padding:38px 28px 34px;border-radius:24px;transform:none}.alliances-frame:before{left:24px;top:22px}}
+@media(max-width:560px){.alliances-hero{padding:116px 0 50px}.alliances-hero h1{font-size:44px}.alliances-intro{padding:52px 0 46px}.alliances-intro h2{font-size:35px}.alliances-intro p{font-size:15px}.alliances-showcase{padding:56px 0 72px}.alliances-frame{padding:32px 14px 20px;border-radius:20px}.alliances-frame:before{left:16px;top:15px}.alliances-frame:after{display:none}.alliances-page .join{padding-top:68px}}
