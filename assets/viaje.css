@@ -34,6 +34,6 @@
 
 
 /* Más ancho útil y menos borde exterior en las secciones de Viaje por las Letras */
-.viaje-page .container{width:min(1320px,calc(100% - 80px))}
-@media(max-width:900px){.viaje-page .container{width:calc(100% - 48px)}}
-@media(max-width:560px){.viaje-page .container{width:calc(100% - 32px)}}
+.viaje-page .container{width:min(1320px,calc(100% - 80px))!important}
+@media(max-width:900px){.viaje-page .container{width:calc(100% - 48px)!important}}
+@media(max-width:560px){.viaje-page .container{width:calc(100% - 32px)!important}}
