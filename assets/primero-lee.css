@@ -89,3 +89,23 @@
 .system-figure i:after{content:"";position:absolute;right:0;top:-4px;width:8px;height:8px;border-top:2px solid #73bdcc;border-right:2px solid #73bdcc;transform:rotate(45deg)}
 @media(max-width:900px){.features-list{grid-template-columns:1fr}.feature-articulated{grid-column:auto}}
 @media(max-width:560px){.feature-item{padding:17px}.levels-strip{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.level-book{min-height:125px;padding:10px 8px}.level-book span,.level-book small{font-size:8px}.level-book strong{font-size:27px}.system-figure{grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr) 18px minmax(0,1fr);gap:4px}.system-figure span{min-height:56px;padding:9px 4px;font-size:10px}}
+
+
+/* Mejor legibilidad en características y bloque de Viaje por las Letras */
+.model-intro{font-size:16px;line-height:1.65}
+.feature-item h3,.feature-item:nth-child(1) h3{font-size:16px;line-height:1.3}
+.feature-item p{font-size:14px;line-height:1.58}
+.level-book span,.level-book small{font-size:10px}
+.system-figure span{font-size:13px}
+.bridge-card .mini{font-size:11px}
+.bridge-card h2{font-size:clamp(30px,3vw,42px)}
+.bridge-card p{font-size:15px;line-height:1.6}
+.bridge-card a{font-size:13px}
+@media(max-width:560px){
+  .model-intro{font-size:14px}
+  .feature-item h3,.feature-item:nth-child(1) h3{font-size:15px}
+  .feature-item p{font-size:13.5px}
+  .level-book span,.level-book small{font-size:9px}
+  .system-figure span{font-size:10.5px}
+  .bridge-card p{font-size:14px}
+}
