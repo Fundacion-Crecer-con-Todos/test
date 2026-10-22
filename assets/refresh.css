@@ -39,3 +39,13 @@ footer{background:#252529;padding:58px 0 24px}.footer-grid-v2{grid-template-colu
 @media(max-width:900px){.nav{width:min(100% - 28px,1240px)}.links{top:82px}.hero{min-height:auto}.hero-inner{min-height:auto;grid-template-columns:1fr;padding-top:125px;padding-bottom:70px;gap:30px}.hero-inner:after{min-height:460px}.mission-grid,.impact-grid,.program-grid,.testimonial-grid,.faq-grid{grid-template-columns:1fr}.stats-band{grid-template-columns:1fr 1fr 1fr}.impact-photo{border-right:0;border-bottom:1px solid rgba(0,141,168,.22)}.program-grid{border:0}.program-photo{min-height:430px}.faq-grid{gap:44px}}
 @media(max-width:700px){.footer-grid-v2{grid-template-columns:1fr 1fr}.footer-intro{grid-column:1 / -1;grid-row:auto}.footer-contact{grid-column:auto}.social-links{flex-wrap:wrap}}
 @media(max-width:560px){.nav{width:calc(100% - 20px);min-height:72px}.brand img{height:35px}.hero-inner{padding-top:105px;padding-bottom:56px}.hero h1{font-size:44px}.hero p{font-size:15px}.hero-inner:after{min-height:350px}.stats-band{grid-template-columns:1fr}.stat-box{border-right:0;border-bottom:1px solid rgba(34,36,40,.14)}.stat-box:last-child{border-bottom:0}.impact-cards{grid-template-columns:1fr}.impact-card{min-height:220px;border-right:0!important;border-bottom:1px solid rgba(0,141,168,.22)!important}.impact-card:last-child{border-bottom:0!important}.program-copy{padding:26px}.program-copy h3{font-size:32px}.testimonial-photo{min-height:350px}.join-card{padding:50px 24px;min-height:400px}.join-card h2{font-size:39px}.footer-grid-v2{grid-template-columns:1fr}.footer-brand-small img{width:210px}.bottom{flex-direction:column;gap:8px}}
+
+
+/* Ajustes solicitados para el inicio */
+.nav-wrap .nav{width:min(1180px,calc(100% - 96px));min-height:90px}
+.brand img{height:52px;max-width:270px}
+.lang{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.lang .lang-flag{font-size:15px;line-height:1}
+.title{font-size:clamp(42px,4.25vw,62px)}
+.mission-copy h2{font-size:clamp(42px,4.3vw,62px)}
+@media(max-width:560px){.nav-wrap .nav{width:calc(100% - 36px)}.brand img{height:40px}.title{font-size:40px!important}.mission-copy h2{font-size:42px}}

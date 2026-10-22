@@ -1,7 +1,7 @@
 (()=>{
 const params=new URLSearchParams(location.search);const isEN=params.get('lang')==='en';
 const langLink=document.querySelector('.lang');
-if(langLink){if(isEN){langLink.textContent='ES';const u=new URL(location.href);u.searchParams.delete('lang');langLink.href=u.pathname+u.search+u.hash}else{langLink.textContent='EN';const u=new URL(location.href);u.searchParams.set('lang','en');langLink.href=u.pathname+u.search+u.hash}}
+if(langLink){if(isEN){langLink.innerHTML='<span class="lang-flag" aria-hidden="true">🇨🇱</span><span>ES</span>';langLink.setAttribute('aria-label','Cambiar idioma a español');langLink.title='Cambiar a español';const u=new URL(location.href);u.searchParams.delete('lang');langLink.href=u.pathname+u.search+u.hash}else{langLink.innerHTML='<span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span>';langLink.setAttribute('aria-label','Switch language to English');langLink.title='Switch to English';const u=new URL(location.href);u.searchParams.set('lang','en');langLink.href=u.pathname+u.search+u.hash}}
 if(!isEN)return;
 document.documentElement.lang='en';
 
