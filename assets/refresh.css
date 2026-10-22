@@ -52,3 +52,16 @@ footer{background:#252529;padding:58px 0 24px}.footer-grid-v2{grid-template-colu
 
 @media(max-width:900px){.container{width:calc(100% - 48px)}}
 @media(max-width:560px){.container{width:calc(100% - 32px)}}
+
+/* Igualar el ancho de la navbar y el footer al contenido de todas las secciones */
+.nav-wrap .nav{width:min(1320px,calc(100% - 80px))!important}
+footer .container{width:min(1320px,calc(100% - 80px));max-width:none}
+footer .footer-grid-v2{width:100%;max-width:none}
+@media(max-width:900px){
+  .nav-wrap .nav{width:calc(100% - 48px)!important}
+  footer .container{width:calc(100% - 48px)}
+}
+@media(max-width:560px){
+  .nav-wrap .nav{width:calc(100% - 32px)!important}
+  footer .container{width:calc(100% - 32px)}
+}
