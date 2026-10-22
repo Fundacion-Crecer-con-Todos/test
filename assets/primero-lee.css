@@ -61,4 +61,4 @@
 @media(max-width:360px){.model-node strong{font-size:7.5px}.model-number{width:16px;font-size:9px}}
 
 .model-center{overflow:hidden}
-.model-center img{display:block;position:absolute;left:50%;top:50%;width:145%;max-width:none;height:auto;transform:translate(-45%,-56%);pointer-events:none}
+.model-center img{display:block;position:absolute;left:50%;top:50%;width:120%;max-width:none;height:auto;transform:translate(-45%,-56%);pointer-events:none}
