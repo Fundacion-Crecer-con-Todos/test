@@ -37,3 +37,5 @@
 .viaje-page .container{width:min(1320px,calc(100% - 80px))!important}
 @media(max-width:900px){.viaje-page .container{width:calc(100% - 48px)!important}}
 @media(max-width:560px){.viaje-page .container{width:calc(100% - 32px)!important}}
+
+html[lang="en"] .viaje-hero-grid>div:last-child:after{content:"Read · write · move forward"}
