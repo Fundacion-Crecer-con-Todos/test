@@ -24,3 +24,12 @@
 
 @media(max-width:900px){.primero-hero-grid{grid-template-columns:1fr}.learn-panel{margin-top:4px;transform:none}.axes-layout{grid-template-columns:1fr}.axes-center{margin:6px auto}.features-list{grid-template-columns:1fr}.feature-item{min-height:0}}
 @media(max-width:560px){.primero-hero{padding:132px 0 58px}.primero-hero h1{font-size:38px}.primero-hero p{font-size:13px;line-height:1.58}.learn-grid{grid-template-columns:1fr 1fr}.learn-panel{border-radius:20px;padding:13px}.learn-card{min-height:96px;padding:12px}.learn-card strong{font-size:11px}.primero-section{padding:62px 0}.axes-center{width:148px;height:148px;font-size:21px}.axis-card{min-height:72px;font-size:11.8px}.feature-item{grid-template-columns:1fr;padding:16px}.feature-item:nth-child(1) h3{font-size:14.5px}.bridge-card{padding:26px 20px;border-radius:18px}.hero-actions{flex-direction:column}.hero-actions a{width:100%}.primero-page .join-card{padding:42px 24px}.primero-page .join-card h2{font-size:34px}.primero-page .join-card a{margin-top:20px}}
+
+/* Refuerzo de identidad en la cuadrícula de aprendizajes */
+.learn-card:nth-child(n){background:#fff;border:1px solid #eee7f1;box-shadow:0 4px 14px rgba(42,29,50,.045)}
+.learn-card:nth-child(1) .ico,.learn-card:nth-child(6) .ico{background:#864490}
+.learn-card:nth-child(2) .ico{background:#00a9c7}
+.learn-card:nth-child(3) .ico{background:#f28a16}
+.learn-card:nth-child(4) .ico{background:#7b9b48}
+.learn-card:nth-child(5) .ico{background:#c45e8f}
+.learn-card:hover{border-color:#d8c8df;box-shadow:0 10px 24px rgba(42,29,50,.09)}
