@@ -1,0 +1,57 @@
+/* Noticias — Fundación Crecer con Todos */
+.news-home{background:#fff;padding:96px 0}
+.news-home-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:34px}
+.news-home-head .title{max-width:720px;margin:10px 0 0}
+.news-home-all{display:inline-flex;align-items:center;gap:8px;color:var(--fcct-p,#008da8);text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+.news-feature{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);min-height:510px;border-radius:24px;overflow:hidden;background:#f3f8f9}
+.news-feature-media{display:block;min-height:510px;overflow:hidden;background:#dcebed}
+.news-feature-media img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .45s ease}
+.news-feature:hover .news-feature-media img{transform:scale(1.018)}
+.news-feature-copy{padding:48px 46px;display:flex;flex-direction:column;justify-content:center}
+.news-date{display:block;margin-bottom:18px;color:#637077;font-size:12px;line-height:1.2;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.news-feature h3{margin:0 0 18px;font-size:clamp(29px,3.1vw,44px);line-height:1.03;letter-spacing:-.035em;color:var(--fcct-ink,#25282a);font-weight:500}
+.news-feature p{margin:0 0 28px;color:#59666c;font-size:15px;line-height:1.65}
+.news-read{display:inline-flex;align-items:center;gap:8px;color:var(--fcct-p,#008da8);text-decoration:none;font-size:14px;font-weight:600}
+
+.news-page{padding-top:92px;background:#fff}
+.news-hero{padding:92px 0 62px}
+.news-eyebrow{display:block;margin-bottom:15px;color:var(--fcct-p,#008da8);font-size:12px;text-transform:uppercase;letter-spacing:.09em;font-weight:600}
+.news-hero h1{max-width:900px;margin:0;font-size:clamp(48px,7vw,88px);line-height:.95;letter-spacing:-.055em;color:var(--fcct-ink,#25282a);font-weight:400}
+.news-hero p{max-width:690px;margin:26px 0 0;color:#5e686d;font-size:18px;line-height:1.6}
+.news-list{padding:0 0 110px}
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.news-card{display:flex;flex-direction:column;text-decoration:none;color:inherit;border-radius:20px;overflow:hidden;background:#f6f8f9;min-height:100%}
+.news-card-media{aspect-ratio:16/10;overflow:hidden;background:#e6eeee}
+.news-card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.news-card:hover .news-card-media img{transform:scale(1.025)}
+.news-card-body{padding:25px 25px 28px;display:flex;flex:1;flex-direction:column}
+.news-card h2{margin:0 0 14px;font-size:25px;line-height:1.13;letter-spacing:-.025em;font-weight:500;color:var(--fcct-ink,#25282a)}
+.news-card p{margin:0 0 24px;color:#647077;font-size:14px;line-height:1.58}
+.news-card .news-read{margin-top:auto}
+
+.article-page{padding-top:92px;background:#fff}
+.article-head{padding:74px 0 38px}
+.article-head-inner{max-width:1050px}
+.article-head h1{max-width:1040px;margin:0 0 26px;font-size:clamp(42px,6vw,76px);line-height:.99;letter-spacing:-.05em;font-weight:400;color:var(--fcct-ink,#25282a)}
+.article-deck{max-width:900px;margin:0 0 25px;font-size:19px;line-height:1.58;color:#536067;font-weight:400}
+.article-meta{display:flex;align-items:center;gap:12px;color:#747d82;font-size:13px}
+.article-meta span+span:before{content:'•';margin-right:12px;color:#9aa2a6}
+.article-hero{margin:0 auto 62px;max-width:1360px;padding:0 28px}
+.article-hero img{display:block;width:100%;height:auto;max-height:720px;object-fit:cover;border-radius:24px}
+.article-layout{display:grid;grid-template-columns:minmax(0,760px) minmax(220px,300px);gap:90px;align-items:start;max-width:1160px;margin:0 auto;padding:0 28px 110px}
+.article-body{font-size:17px;line-height:1.78;color:#3d474c}
+.article-body p{margin:0 0 25px}
+.article-body h2{margin:56px 0 20px;font-size:clamp(30px,3.2vw,43px);line-height:1.08;letter-spacing:-.035em;font-weight:500;color:var(--fcct-ink,#25282a)}
+.article-body blockquote{margin:40px 0;padding:27px 30px;border-left:4px solid var(--fcct-p,#008da8);background:#eef8fa;border-radius:0 18px 18px 0;color:#304047;font-size:19px;line-height:1.65}
+.article-body blockquote cite{display:block;margin-top:16px;font-size:13px;line-height:1.4;color:#69777d;font-style:normal;font-weight:600}
+.article-photo{margin:42px 0}
+.article-photo img{display:block;width:100%;height:auto;border-radius:20px}
+.article-photo figcaption{margin-top:10px;color:#81898d;font-size:12px;line-height:1.45}
+.article-side{position:sticky;top:128px;padding-top:8px}
+.article-side-card{padding:24px;border-radius:18px;background:#f4f7f8}
+.article-side-card strong{display:block;margin-bottom:12px;color:var(--fcct-ink,#25282a);font-size:15px}
+.article-side-card p{margin:0 0 16px;color:#68747a;font-size:13px;line-height:1.55}
+.article-back{display:inline-flex;align-items:center;gap:8px;color:var(--fcct-p,#008da8);text-decoration:none;font-weight:600;font-size:13px}
+
+@media(max-width:980px){.news-feature{grid-template-columns:1fr}.news-feature-media{min-height:360px}.news-feature-copy{padding:34px}.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.article-layout{grid-template-columns:1fr;gap:40px}.article-side{position:static;order:-1}.article-side-card{display:flex;align-items:center;justify-content:space-between;gap:20px}.article-side-card p{display:none}}
+@media(max-width:700px){.news-home{padding:72px 0}.news-home-head{align-items:flex-start;flex-direction:column}.news-feature{border-radius:18px}.news-feature-media{min-height:240px}.news-feature-copy{padding:28px 23px}.news-feature h3{font-size:31px}.news-grid{grid-template-columns:1fr}.news-hero{padding:66px 0 46px}.news-hero h1{font-size:48px}.news-hero p{font-size:16px}.article-head{padding:56px 0 30px}.article-head h1{font-size:43px}.article-deck{font-size:17px}.article-hero{padding:0 18px;margin-bottom:42px}.article-hero img{border-radius:17px}.article-layout{padding:0 20px 80px}.article-body{font-size:16px}.article-body h2{margin-top:45px}.article-body blockquote{margin:32px 0;padding:23px 22px;font-size:17px}.article-side-card{padding:18px}}
