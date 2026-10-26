@@ -38,7 +38,7 @@
 .article-meta span+span:before{content:'•';margin-right:12px;color:#9aa2a6}
 .article-hero{margin:0 auto 62px;max-width:1360px;padding:0 28px}
 .article-hero img{display:block;width:100%;height:auto;max-height:720px;object-fit:cover;border-radius:24px}
-.article-layout{display:block;max-width:700px;margin:0 auto;padding:0 28px 110px}
+.article-layout{display:block;max-width:1050px;margin:0 auto;padding:0 28px 110px;box-sizing:border-box}
 .article-body{font-size:17px;line-height:1.78;color:#3d474c}
 .article-body p{margin:0 0 25px}
 .article-body h2{margin:56px 0 20px;font-size:clamp(30px,3.2vw,43px);line-height:1.08;letter-spacing:-.035em;font-weight:500;color:var(--fcct-ink,#25282a)}
