@@ -32,10 +32,12 @@
 @media(max-width:900px){.viaje-hero-grid,.section-head,.implement-grid{grid-template-columns:1fr}.viaje-hero-grid>div:last-child{min-height:300px;transform:none}.metric-grid{grid-template-columns:1fr 1fr}.audience-list{grid-template-columns:1fr}.method-intro{display:block}.method-intro p{margin-top:16px}.six-steps{grid-template-columns:repeat(3,1fr);align-items:stretch}.step-card{min-height:185px!important}.steps-days{display:none}.materials-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.viaje-hero{padding:132px 0 58px}.viaje-hero h1{font-size:38px}.viaje-lead{font-size:13px;line-height:1.58}.viaje-hero-grid{gap:28px}.viaje-hero-grid>div:last-child{min-height:220px;border-radius:20px}.viaje-hero-grid>div:last-child:before{left:20px;top:22px;font-size:54px}.viaje-hero-grid>div:last-child:after{left:20px;right:20px;bottom:20px;font-size:11px}.viaje-section{padding:62px 0}.metric-grid{grid-template-columns:1fr;gap:9px;margin-top:-18px}.metric-card{min-height:138px}.audience-item{min-height:155px}.implement-note{min-height:195px;padding:22px}.implement-note strong{font-size:20px}.steps-wrap{padding:14px;border-radius:17px}.six-steps{grid-template-columns:1fr 1fr}.step-card{min-height:155px!important}.materials-grid{grid-template-columns:1fr}.section-head{gap:14px}.section-head h2,.implement-copy h2,.method-intro h2{font-size:34px}.viaje-page .join-card{padding:42px 16px}.viaje-page .join-card h2{font-size:34px}}
 
-
 /* Más ancho útil y menos borde exterior en las secciones de Viaje por las Letras */
 .viaje-page .container{width:min(1320px,calc(100% - 80px))!important}
 @media(max-width:900px){.viaje-page .container{width:calc(100% - 48px)!important}}
 @media(max-width:560px){.viaje-page .container{width:calc(100% - 32px)!important}}
+
+/* El CTA final debe ocupar todo el ancho de la ventana; evita que la foto se vea cortada por la regla global del container */
+.viaje-page .join>.container{width:100%!important;max-width:none!important}
 
 html[lang="en"] .viaje-hero-grid>div:last-child:after{content:"Read · write · move forward"}
