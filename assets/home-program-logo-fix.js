@@ -10,6 +10,6 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
     }
     img.src='/assets/primero-lee-logo.png';
     img.alt='Primero LEE';
-    img.style.cssText='display:block!important;width:174px!important;max-width:174px!important;height:auto!important;max-height:none!important;margin:0!important;padding:0!important;transform:none!important;object-fit:contain!important;object-position:left center!important;mix-blend-mode:multiply!important;background:transparent!important;';
+    img.style.cssText='display:block!important;width:150px!important;max-width:150px!important;height:auto!important;max-height:none!important;margin:0!important;padding:0!important;transform:none!important;object-fit:contain!important;object-position:left center!important;mix-blend-mode:multiply!important;background:transparent!important;';
   }
 }
