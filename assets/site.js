@@ -17,3 +17,20 @@ const teamPhotoMap={
 if(document.querySelector('.team-page')){window.addEventListener('load',()=>{document.querySelectorAll('.team-page .photo-loader[data-alt]').forEach(box=>{const file=teamPhotoMap[box.dataset.alt];if(!file)return;const img=new Image();img.alt=box.dataset.alt;img.onload=()=>{box.querySelectorAll('img').forEach(x=>x.remove());box.appendChild(img);const card=box.closest('.person-card');if(card)card.classList.remove('no-photo')};img.src='/assets/'+file})})}
 document.querySelectorAll('.drop a[href="/app"]').forEach(a=>{a.href='https://play.google.com/store/apps/details?id=fundacion.crecer.primeroLee&hl=es_CL';a.target='_blank';a.rel='noopener noreferrer'});
 const i18nScript=document.createElement('script');i18nScript.src='/assets/i18n.js?v=container-wide-v3-20261022';document.body.appendChild(i18nScript);
+
+/* Home impact: compact composition with photo + two clear CTAs */
+if(location.pathname==='/'||location.pathname==='/index.html'){
+  const impactCards=document.querySelector('#impacto .impact-cards');
+  if(impactCards){
+    if(!impactCards.querySelector('.impact-photo')){
+      const photo=document.createElement('div');photo.className='impact-photo';photo.setAttribute('role','img');photo.setAttribute('aria-label','Niños y niñas aprendiendo a leer en comunidad');impactCards.prepend(photo);
+    }
+    const firstCard=impactCards.querySelector('.impact-card');
+    if(firstCard&&!firstCard.querySelector('a[href="/impacto#evaluaciones"]')){
+      const evalLink=document.createElement('a');evalLink.className='text-link';evalLink.href='/impacto#evaluaciones';evalLink.textContent='Ver evaluaciones →';firstCard.appendChild(evalLink);
+    }
+    const impactStyle=document.createElement('style');
+    impactStyle.textContent=`#impacto .impact-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}#impacto .impact-photo{display:block!important;min-height:210px!important;border-radius:20px!important;background:url('/assets/impacto-principal.jpg') center/cover no-repeat!important;box-shadow:0 10px 24px rgba(35,39,44,.08)}#impacto .impact-card{min-height:210px!important;padding:23px 24px!important}#impacto .impact-card .text-link{margin-top:auto;padding-top:16px;font-size:13px;font-weight:600}#impacto .impact-card strong{margin-bottom:12px!important}@media(max-width:700px){#impacto .impact-cards{grid-template-columns:1fr!important}#impacto .impact-photo{min-height:220px!important}#impacto .impact-card{min-height:0!important}}`;
+    document.head.appendChild(impactStyle);
+  }
+}
