@@ -34,11 +34,11 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
   }
 }
 
-/* Home programs: stable brand marks, no crop/translate */
+/* Home programs: use main brand artwork for Primero LEE instead of the screenshot asset */
 if(location.pathname==='/'||location.pathname==='/index.html'){
   const programItems=[...document.querySelectorAll('#programas .acc-item')];
   const programLogos=[
-    {src:'/assets/primero-lee-logo.png',alt:'Primero LEE',cls:'program-brand program-brand--primero'},
+    {src:'/assets/logo-black.jpg',alt:'Primero LEE',cls:'program-brand program-brand--primero'},
     {src:'/assets/viaje-por-las-letras.jpg',alt:'Viaje por las Letras',cls:'program-brand program-brand--viaje'}
   ];
   programItems.slice(0,2).forEach((item,i)=>{
@@ -49,7 +49,7 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
     body.prepend(wrap);
   });
   const programStyle=document.createElement('style');
-  programStyle.textContent=`#programas .program-brand{display:flex!important;align-items:center!important;justify-content:flex-start!important;width:100%!important;min-height:0!important;margin:0 0 12px!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;overflow:visible!important}#programas .program-brand img{display:block!important;height:auto!important;transform:none!important;background:transparent!important;object-fit:contain!important;object-position:left center!important}#programas .program-brand--primero img{width:176px!important;max-width:176px!important;max-height:none!important;margin:0!important;mix-blend-mode:multiply}#programas .program-brand--viaje img{width:184px!important;max-width:184px!important;max-height:68px!important;margin:0!important;border-radius:0!important;mix-blend-mode:multiply}@media(max-width:600px){#programas .program-brand--primero img{width:160px!important;max-width:160px!important}#programas .program-brand--viaje img{width:166px!important;max-width:166px!important}}`;
+  programStyle.textContent=`#programas .program-brand{display:flex!important;align-items:center!important;justify-content:flex-start!important;margin:0 0 12px!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}#programas .program-brand--primero{width:188px!important;height:68px!important;overflow:hidden!important;position:relative!important;background-image:url('/assets/logo-black.jpg')!important;background-repeat:no-repeat!important;background-size:200% auto!important;background-position:right center!important}#programas .program-brand--primero img{display:none!important}#programas .program-brand--viaje{width:100%!important;min-height:0!important;overflow:visible!important}#programas .program-brand--viaje img{display:block!important;width:184px!important;max-width:184px!important;max-height:68px!important;height:auto!important;object-fit:contain!important;object-position:left center!important;margin:0!important;border-radius:0!important;mix-blend-mode:multiply}@media(max-width:600px){#programas .program-brand--primero{width:170px!important;height:62px!important}#programas .program-brand--viaje img{width:166px!important;max-width:166px!important}}`;
   document.head.appendChild(programStyle);
 }
 
