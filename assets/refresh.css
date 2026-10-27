@@ -65,3 +65,8 @@ footer .footer-grid-v2{width:100%;max-width:none}
   .nav-wrap .nav{width:calc(100% - 32px)!important}
   footer .container{width:calc(100% - 32px)}
 }
+
+/* Logo de Primero LEE alineado con el título del programa */
+.program-copy .acc-item:first-child .acc-btn>span:first-child{display:inline-flex;align-items:center;gap:16px;min-width:0}
+.program-copy .acc-item:first-child .acc-btn>span:first-child:after{content:"";display:inline-block;width:92px;height:40px;flex:0 0 92px;background:url('primero-lee-logo.png') center/contain no-repeat}
+@media(max-width:560px){.program-copy .acc-item:first-child .acc-btn>span:first-child{gap:10px}.program-copy .acc-item:first-child .acc-btn>span:first-child:after{width:72px;height:32px;flex-basis:72px}}
