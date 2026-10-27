@@ -53,24 +53,25 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
   document.head.appendChild(programStyle);
 }
 
-/* Primero LEE: articulated books image spans the full feature card */
+/* Primero LEE: articulated books image spans the entire row */
 if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.html'){
   const articulated=document.querySelector('.feature-articulated');
   if(articulated){
+    articulated.style.gridColumn='1 / -1';
+    articulated.style.gridTemplateColumns='36px minmax(0,1fr)';
     const artImg=articulated.querySelector('img[src*="articulado.png"]');
     if(artImg){
       const holder=artImg.parentElement;
-      articulated.style.gridTemplateColumns='36px minmax(0,1fr)';
       if(holder){
         holder.style.gridColumn='1 / -1';
         holder.style.width='100%';
-        holder.style.marginTop='10px';
+        holder.style.marginTop='14px';
         holder.style.display='flex';
         holder.style.justifyContent='center';
       }
       artImg.style.display='block';
-      artImg.style.width='100%';
-      artImg.style.maxWidth='760px';
+      artImg.style.width='min(100%, 980px)';
+      artImg.style.maxWidth='980px';
       artImg.style.height='auto';
       artImg.style.objectFit='contain';
       artImg.style.margin='0 auto';
