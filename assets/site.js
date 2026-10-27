@@ -34,11 +34,11 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
   }
 }
 
-/* Home programs: use main brand artwork for Primero LEE instead of the screenshot asset */
+/* Home programs: restored earlier Primero LEE logo treatment */
 if(location.pathname==='/'||location.pathname==='/index.html'){
   const programItems=[...document.querySelectorAll('#programas .acc-item')];
   const programLogos=[
-    {src:'/assets/logo-black.jpg',alt:'Primero LEE',cls:'program-brand program-brand--primero'},
+    {src:'/assets/primero-lee-logo.png',alt:'Primero LEE',cls:'program-brand program-brand--primero'},
     {src:'/assets/viaje-por-las-letras.jpg',alt:'Viaje por las Letras',cls:'program-brand program-brand--viaje'}
   ];
   programItems.slice(0,2).forEach((item,i)=>{
@@ -49,7 +49,7 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
     body.prepend(wrap);
   });
   const programStyle=document.createElement('style');
-  programStyle.textContent=`#programas .program-brand{display:flex!important;align-items:center!important;justify-content:flex-start!important;margin:0 0 12px!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}#programas .program-brand--primero{width:188px!important;height:68px!important;overflow:hidden!important;position:relative!important;background-image:url('/assets/logo-black.jpg')!important;background-repeat:no-repeat!important;background-size:200% auto!important;background-position:right center!important}#programas .program-brand--primero img{display:none!important}#programas .program-brand--viaje{width:100%!important;min-height:0!important;overflow:visible!important}#programas .program-brand--viaje img{display:block!important;width:184px!important;max-width:184px!important;max-height:68px!important;height:auto!important;object-fit:contain!important;object-position:left center!important;margin:0!important;border-radius:0!important;mix-blend-mode:multiply}@media(max-width:600px){#programas .program-brand--primero{width:170px!important;height:62px!important}#programas .program-brand--viaje img{width:166px!important;max-width:166px!important}}`;
+  programStyle.textContent=`#programas .program-brand{display:flex;align-items:center;margin:0 0 14px;min-height:52px;background:transparent!important;box-shadow:none!important;border:0!important;padding:0!important}#programas .program-brand img{display:block;height:auto;object-fit:contain;background:transparent!important}#programas .program-brand--primero{width:132px;height:46px;min-height:46px;overflow:hidden;margin-left:-8px!important;margin-top:0!important;margin-bottom:10px!important}#programas .program-brand--primero img{width:174px;max-width:none;max-height:none;transform:translate(-24px,-4px);transform-origin:left top;mix-blend-mode:multiply}#programas .program-brand--viaje img{width:180px;max-width:100%;max-height:62px;object-position:left center;border-radius:0!important;mix-blend-mode:multiply}@media(max-width:600px){#programas .program-brand--primero{width:122px;height:42px;min-height:42px;margin-left:-6px!important}#programas .program-brand--primero img{width:160px;transform:translate(-22px,-3px)}#programas .program-brand--viaje img{width:160px}}`;
   document.head.appendChild(programStyle);
 }
 
