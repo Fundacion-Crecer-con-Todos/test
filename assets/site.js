@@ -34,3 +34,22 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
     document.head.appendChild(impactStyle);
   }
 }
+
+/* Home programs: brand marks */
+if(location.pathname==='/'||location.pathname==='/index.html'){
+  const programItems=[...document.querySelectorAll('#programas .acc-item')];
+  const programLogos=[
+    {src:'/assets/primero-lee-logo.png',alt:'Primero LEE',cls:'program-brand program-brand--primero'},
+    {src:'/assets/viaje-por-las-letras.jpg',alt:'Viaje por las Letras',cls:'program-brand program-brand--viaje'}
+  ];
+  programItems.slice(0,2).forEach((item,i)=>{
+    const body=item.querySelector('.acc-body > div');
+    if(!body||body.querySelector('.program-brand'))return;
+    const wrap=document.createElement('div');wrap.className=programLogos[i].cls;
+    const img=document.createElement('img');img.src=programLogos[i].src;img.alt=programLogos[i].alt;wrap.appendChild(img);
+    body.prepend(wrap);
+  });
+  const programStyle=document.createElement('style');
+  programStyle.textContent=`#programas .program-brand{display:flex;align-items:center;margin:0 0 14px;min-height:52px}#programas .program-brand img{display:block;max-width:100%;height:auto;object-fit:contain}#programas .program-brand--primero img{width:168px;max-height:58px;object-position:left center}#programas .program-brand--viaje img{width:180px;max-height:62px;object-position:left center;border-radius:6px}@media(max-width:600px){#programas .program-brand--primero img{width:150px}#programas .program-brand--viaje img{width:160px}}`;
+  document.head.appendChild(programStyle);
+}
