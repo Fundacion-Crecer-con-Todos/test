@@ -12,11 +12,11 @@
 .alliances-showcase:before{content:"";position:absolute;left:-54px;top:54px;width:150px;height:150px;border-radius:32px;background:rgba(255,135,13,.11);transform:rotate(16deg)}
 .alliances-showcase:after{content:"";position:absolute;right:-48px;bottom:72px;width:184px;height:184px;border-radius:42px;background:rgba(134,68,144,.09);transform:rotate(-17deg)}
 .alliances-showcase .container{position:relative;z-index:2}
-.alliances-frame{position:relative;background:#fff;border:0;border-radius:28px;padding:42px 46px 48px;overflow:hidden;box-shadow:0 22px 60px rgba(24,77,88,.1);transform:rotate(-.6deg);transition:transform .35s ease,box-shadow .35s ease}
+.alliances-frame{position:relative;background:#fff;border:0;border-radius:28px;padding:42px 46px 48px;overflow:hidden;box-shadow:0 22px 60px rgba(24,77,88,.1);transform:none;transition:transform .35s ease,box-shadow .35s ease}
 .alliances-frame:before{content:"";position:absolute;left:34px;top:28px;width:9px;height:9px;border-radius:2px;background:var(--fcct-c);box-shadow:14px 0 0 var(--fcct-p),28px 0 0 var(--fcct-o)}
 .alliances-frame:after{content:"";position:absolute;right:34px;bottom:30px;width:88px;height:88px;border:12px solid rgba(192,81,160,.09);border-radius:24px;transform:rotate(12deg)}
 .alliances-frame img{position:relative;z-index:1;display:block;width:100%;height:auto;object-fit:contain;transition:transform .5s cubic-bezier(.2,.8,.2,1),filter .35s ease}
-@media(hover:hover) and (pointer:fine){.alliances-frame:hover{transform:rotate(0) translateY(-4px);box-shadow:0 28px 70px rgba(24,77,88,.14)}.alliances-frame:hover img{transform:scale(1.012);filter:saturate(1.03)}}
+@media(hover:hover) and (pointer:fine){.alliances-frame:hover{transform:translateY(-4px);box-shadow:0 28px 70px rgba(24,77,88,.14)}.alliances-frame:hover img{transform:scale(1.012);filter:saturate(1.03)}}
 /* compact final CTA */
 .alliances-page .join{padding:0!important;margin:0;background:var(--fcct-p)!important}
 .alliances-page .join-card{min-height:315px!important;padding:52px max(40px,calc((100vw - 1320px)/2))!important;display:flex;flex-direction:column;justify-content:center}
