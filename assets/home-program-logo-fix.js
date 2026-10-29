@@ -51,16 +51,18 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       max-width:105px!important;
     }
 
-    /* Impacto: foto completa a la izquierda + 3 evidencias a la derecha */
+    /* Impacto: foto a la izquierda + 3 cards apiladas a la derecha */
     #impacto .impact-grid{
       display:grid!important;
-      grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr)!important;
-      gap:18px!important;
+      grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr)!important;
+      grid-template-areas:'photo cards'!important;
+      gap:20px!important;
       align-items:stretch!important;
       margin-top:42px!important;
       border:0!important;
     }
     #impacto .impact-photo{
+      grid-area:photo!important;
       display:flex!important;
       align-items:center!important;
       justify-content:center!important;
@@ -75,17 +77,19 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       width:100%!important;
       height:100%!important;
       max-height:500px!important;
-      object-fit:contain!important;
+      object-fit:cover!important;
       object-position:center center!important;
       background:#fff!important;
     }
     #impacto .impact-cards{
+      grid-area:cards!important;
       display:grid!important;
       grid-template-columns:1fr!important;
-      grid-template-rows:repeat(3,1fr)!important;
+      grid-template-rows:repeat(3,minmax(0,1fr))!important;
       gap:12px!important;
       align-content:stretch!important;
       border:0!important;
+      min-width:0!important;
     }
     #impacto .impact-cards>.impact-card:nth-child(n){
       min-height:0!important;
@@ -117,9 +121,12 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       margin:0!important;
     }
     @media(max-width:900px){
-      #impacto .impact-grid{grid-template-columns:1fr!important}
+      #impacto .impact-grid{
+        grid-template-columns:1fr!important;
+        grid-template-areas:'photo' 'cards'!important;
+      }
       #impacto .impact-photo{min-height:0!important}
-      #impacto .impact-photo img{height:auto!important;max-height:none!important}
+      #impacto .impact-photo img{height:auto!important;max-height:none!important;object-fit:contain!important}
       #impacto .impact-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:none!important}
       #impacto .impact-cards>.impact-card:nth-child(n){min-height:210px!important}
     }
@@ -156,10 +163,12 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       impactPhoto.className='impact-photo';
       impactPhoto.setAttribute('role','img');
       impactPhoto.setAttribute('aria-label','Niños y niñas participantes de Primero LEE');
-      impactGrid.prepend(impactPhoto);
     }
     if(!impactPhoto.querySelector('img')){
       impactPhoto.innerHTML='<img src="/assets/impacto-principal.jpg" alt="Niños y niñas participantes de Primero LEE">';
     }
+    const impactCards=impactGrid.querySelector('.impact-cards');
+    impactGrid.insertBefore(impactPhoto, impactGrid.firstChild);
+    if(impactCards) impactGrid.appendChild(impactCards);
   }
 }
