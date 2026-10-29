@@ -54,15 +54,15 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
               <circle cx="280" cy="280" r="54" fill="#f28a31" stroke="#fff" stroke-width="3"/>
               <g fill="#fff" font-family="Fredoka, sans-serif" font-weight="500" text-anchor="middle">
                 <text x="280" y="62" font-size="12"><tspan x="280">Movilización del sistema,</tspan><tspan x="280" dy="14">reconocimiento e incentivos</tspan></text>
-                <text x="448" y="188" font-size="12"><tspan x="448">Planeamiento y</tspan><tspan x="448" dy="14">monitoreo</tspan></text>
-                <text x="420" y="360" font-size="11"><tspan x="420">Recursos para la</tspan><tspan x="420" dy="13">continuidad</tspan></text>
-                <text x="280" y="468" font-size="11"><tspan x="280">Condiciones para la</tspan><tspan x="280" dy="13">enseñanza y el aprendizaje</tspan></text>
-                <text x="140" y="360" font-size="11"><tspan x="140">Liderazgo y compromiso</tspan><tspan x="140" dy="13">político</tspan></text>
-                <text x="108" y="188" font-size="12"><tspan x="108">Fortalecimiento</tspan><tspan x="108" dy="14">de la gestión</tspan></text>
+                <text x="450" y="188" font-size="12"><tspan x="450">Planeamiento y</tspan><tspan x="450" dy="14">monitoreo</tspan></text>
+                <text x="437" y="392" font-size="11.5"><tspan x="437">Recursos para la</tspan><tspan x="437" dy="14">continuidad</tspan></text>
+                <text x="280" y="486" font-size="11.5"><tspan x="280">Condiciones para la</tspan><tspan x="280" dy="14">enseñanza y el aprendizaje</tspan></text>
+                <text x="123" y="392" font-size="11.5"><tspan x="123">Liderazgo y compromiso</tspan><tspan x="123" dy="14">político</tspan></text>
+                <text x="110" y="188" font-size="12"><tspan x="110">Fortalecimiento</tspan><tspan x="110" dy="14">de la gestión</tspan></text>
                 <text x="280" y="158" font-size="10.5"><tspan x="280">Formación y acompañamiento a</tspan><tspan x="280" dy="12">docentes y equipos directivos</tspan></text>
                 <text x="390" y="271" font-size="10.5"><tspan x="390">Materiales</tspan><tspan x="390" dy="12">de calidad</tspan></text>
-                <text x="338" y="322" font-size="8.7"><tspan x="338">Lineamientos</tspan><tspan x="338" dy="10">pedagógico-</tspan><tspan x="338" dy="10">curriculares</tspan></text>
-                <text x="222" y="322" font-size="8.7"><tspan x="222">Reforzamiento y</tspan><tspan x="222" dy="10">aceleración de</tspan><tspan x="222" dy="10">aprendizajes</tspan></text>
+                <text x="365" y="348" font-size="9"><tspan x="365">Lineamientos</tspan><tspan x="365" dy="10.5">pedagógico-</tspan><tspan x="365" dy="10.5">curriculares</tspan></text>
+                <text x="195" y="348" font-size="9"><tspan x="195">Reforzamiento y</tspan><tspan x="195" dy="10.5">aceleración de</tspan><tspan x="195" dy="10.5">aprendizajes</tspan></text>
                 <text x="170" y="271" font-size="10.5"><tspan x="170">Evaluación de</tspan><tspan x="170" dy="12">aprendizajes</tspan></text>
                 <text x="280" y="287" font-size="18" font-weight="600">Aprendizaje</text>
               </g>
