@@ -5,29 +5,53 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     visual.className='scale-visual';
     visual.setAttribute('aria-label','Implementación de Primero LEE en 15 regiones, 80 comunas, zonas urbanas y rurales');
     visual.innerHTML=`
-      <div class="scale-map-wrap">
-        <img class="scale-map-image" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Regions_of_Chile_(Blank).png" alt="Mapa de las regiones de Chile" loading="lazy">
+      <div class="scale-intro">
+        <span class="scale-kicker">Presencia territorial</span>
+        <h4>Implementación en<br>diversos contextos</h4>
+        <div class="scale-line"></div>
+        <p>Experiencia implementando el programa en distintas realidades del sistema educativo.</p>
+        <div class="scale-blocks" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
       </div>
-      <div class="scale-stats">
-        <div class="scale-stat"><span class="scale-dot"></span><strong>15 regiones</strong></div>
-        <div class="scale-stat"><span class="scale-dot"></span><strong>80 comunas</strong></div>
-        <div class="scale-stat"><span class="scale-dot"></span><strong>Zona urbana</strong></div>
-        <div class="scale-stat"><span class="scale-dot"></span><strong>Zona rural</strong></div>
+      <div class="scale-panel">
+        <div class="scale-map-wrap">
+          <img class="scale-map-image" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Regions_of_Chile_(Blank).png" alt="Mapa de las regiones de Chile" loading="lazy">
+        </div>
+        <div class="scale-stats">
+          <div class="scale-stat"><span class="scale-arrow">▶</span><strong>15 regiones</strong></div>
+          <div class="scale-stat"><span class="scale-arrow">▶</span><strong>80 comunas</strong></div>
+          <div class="scale-stat"><span class="scale-arrow">▶</span><strong>Zona urbana</strong></div>
+          <div class="scale-stat"><span class="scale-arrow">▶</span><strong>Zona rural</strong></div>
+        </div>
       </div>`;
     card.appendChild(visual);
 
     const style=document.createElement('style');
     style.textContent=`
-      .feature-scalable{grid-column:1/-1;align-content:start}
-      .scale-visual{grid-column:1/-1;margin-top:14px;display:grid;grid-template-columns:minmax(180px,260px) minmax(0,1fr);gap:28px;align-items:center;background:#fff;border-radius:20px;padding:24px;border:1px solid rgba(134,68,144,.08);box-shadow:0 10px 24px rgba(35,38,42,.08)}
-      .scale-map-wrap{display:flex;align-items:center;justify-content:center;min-height:360px;padding:14px;background:#f5f2f7;border-radius:16px;overflow:hidden}
-      .scale-map-image{display:block;max-width:100%;width:auto;height:340px;object-fit:contain;filter:grayscale(1) contrast(1.08);opacity:.95}
-      .scale-stats{display:grid;gap:2px}
-      .scale-stat{display:grid;grid-template-columns:14px 1fr;gap:12px;align-items:center;padding:20px 0;border-bottom:1px solid #eee7f1}
-      .scale-stat:last-child{border-bottom:0}
-      .scale-dot{width:10px;height:10px;border-radius:50%;background:#864490;box-shadow:0 0 0 5px rgba(134,68,144,.1)}
-      .scale-stat strong{font-size:clamp(20px,2.4vw,32px);line-height:1.1;color:#4d3d68;font-weight:600;letter-spacing:-.02em}
-      @media(max-width:700px){.scale-visual{grid-template-columns:1fr;gap:18px;padding:16px}.scale-map-wrap{min-height:320px}.scale-map-image{height:300px}.scale-stat{padding:14px 0}.scale-stat strong{font-size:22px}}
+      .feature-scalable{grid-column:1/-1;align-content:start;overflow:hidden}
+      .scale-visual{grid-column:1/-1;margin-top:16px;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:18px;align-items:stretch;background:#fff;border-radius:24px;padding:18px;border:1px solid rgba(134,68,144,.08);box-shadow:0 14px 34px rgba(35,38,42,.08)}
+      .scale-intro{position:relative;min-height:430px;padding:48px 34px 34px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;border-radius:18px;background:linear-gradient(145deg,#fbfdfe 0%,#f5fbfc 100%)}
+      .scale-kicker{display:block;margin-bottom:14px;font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:#00a9c7}
+      .scale-intro h4{margin:0;font-size:clamp(28px,3vw,42px);line-height:1.06;letter-spacing:-.035em;font-weight:600;color:#13aeca}
+      .scale-line{width:min(100%,360px);height:4px;margin:22px 0 18px;border-radius:999px;background:#13b4ce}
+      .scale-intro p{max-width:430px;margin:0;font-size:14px;line-height:1.55;color:#59636b}
+      .scale-blocks{display:flex;align-items:flex-end;gap:5px;margin-top:auto;padding-top:32px}
+      .scale-blocks i{display:block;width:22px;height:22px;border-radius:3px;background:#8cc63f}
+      .scale-blocks i:nth-child(2),.scale-blocks i:nth-child(8){height:14px;background:#ef4e4e}
+      .scale-blocks i:nth-child(3),.scale-blocks i:nth-child(9){background:#f28a16}
+      .scale-blocks i:nth-child(4),.scale-blocks i:nth-child(7),.scale-blocks i:nth-child(11){background:#5b3f9b}
+      .scale-blocks i:nth-child(5),.scale-blocks i:nth-child(12){background:#13b4ce}
+      .scale-blocks i:nth-child(6),.scale-blocks i:nth-child(10){background:#c3549a}
+      .scale-panel{min-height:430px;display:grid;grid-template-columns:minmax(135px,.72fr) minmax(0,1.28fr);gap:20px;align-items:center;padding:30px 28px;border-radius:18px;background:#ececec;overflow:hidden}
+      .scale-map-wrap{display:flex;align-items:center;justify-content:center;height:100%;min-height:360px;overflow:hidden}
+      .scale-map-image{display:block;width:auto;max-width:100%;height:355px;object-fit:contain;filter:sepia(.1) saturate(.8) hue-rotate(210deg) contrast(1.08);mix-blend-mode:multiply}
+      .scale-stats{display:grid;gap:0}
+      .scale-stat{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:center;padding:23px 0}
+      .scale-arrow{font-size:22px;line-height:1;color:#5b3f9b;transform:scaleX(.9)}
+      .scale-stat strong{font-size:clamp(21px,2.3vw,31px);line-height:1.08;color:#5b3f9b;font-weight:700;letter-spacing:-.025em}
+      @media(max-width:900px){.scale-visual{grid-template-columns:1fr}.scale-intro{min-height:0;padding:32px 28px}.scale-blocks{margin-top:28px;padding-top:0}.scale-panel{min-height:380px}}
+      @media(max-width:620px){.scale-visual{padding:10px;border-radius:20px}.scale-intro{padding:26px 20px;border-radius:15px}.scale-intro h4{font-size:30px}.scale-intro p{font-size:13px}.scale-panel{grid-template-columns:105px minmax(0,1fr);gap:12px;min-height:330px;padding:20px 16px;border-radius:15px}.scale-map-wrap{min-height:290px}.scale-map-image{height:285px}.scale-stat{grid-template-columns:20px 1fr;gap:8px;padding:16px 0}.scale-arrow{font-size:16px}.scale-stat strong{font-size:18px}.scale-blocks i{width:18px;height:18px}}
     `;
     document.head.appendChild(style);
   }
