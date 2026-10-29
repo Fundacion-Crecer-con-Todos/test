@@ -9,7 +9,6 @@ document.querySelectorAll('.chev').forEach(c=>{c.innerHTML='<svg viewBox="0 0 12
 const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const arrowNodes=[];while(walker.nextNode())arrowNodes.push(walker.currentNode);arrowNodes.forEach(n=>{n.nodeValue=n.nodeValue.replace(/([→↗↑])(?!\uFE0E)/g,'$1\uFE0E')});
 const navLinks=document.getElementById('links');if(navLinks&&!navLinks.querySelector('a[href="/noticias"]')){const newsNav=document.createElement('a');newsNav.className='nav-direct';newsNav.href='/noticias';newsNav.textContent='Noticias';const transparency=navLinks.querySelector('a[href="/transparencia"]');navLinks.insertBefore(newsNav,transparency||navLinks.querySelector('.lang')||null)}
 document.querySelectorAll('.fcol').forEach(col=>{const heading=col.querySelector('h4');if(heading&&heading.textContent.trim()==='Recursos'&&!col.querySelector('a[href="/noticias"]')){const newsLink=document.createElement('a');newsLink.href='/noticias';newsLink.textContent='Noticias';const transparency=col.querySelector('a[href="/transparencia"]');col.insertBefore(newsLink,transparency||null)}});
-/* Global discovery for Impacto */
 const aboutButton=[...document.querySelectorAll('.nav-btn')].find(b=>b.textContent.replace(/\s+/g,' ').trim().startsWith('Quiénes somos'));
 if(aboutButton){const aboutDrop=aboutButton.nextElementSibling;if(aboutDrop&&aboutDrop.classList.contains('drop')&&!aboutDrop.querySelector('a[href="/impacto"]')){const impactLink=document.createElement('a');impactLink.href='/impacto';impactLink.textContent='Impacto';aboutDrop.appendChild(impactLink)}}
 document.querySelectorAll('.fcol').forEach(col=>{const heading=col.querySelector('h4');if(heading&&heading.textContent.trim()==='Quiénes somos'&&!col.querySelector('a[href="/impacto"]')){const impactLink=document.createElement('a');impactLink.href='/impacto';impactLink.textContent='Impacto';col.appendChild(impactLink)}});
@@ -21,64 +20,41 @@ if(document.querySelector('.team-page')){window.addEventListener('load',()=>{doc
 document.querySelectorAll('.drop a[href="/app"]').forEach(a=>{a.href='https://play.google.com/store/apps/details?id=fundacion.crecer.primeroLee&hl=es_CL';a.target='_blank';a.rel='noopener noreferrer'});
 const i18nScript=document.createElement('script');i18nScript.src='/assets/i18n.js?v=container-wide-v3-20261022';document.body.appendChild(i18nScript);
 
-/* Home impact: compact composition with photo + two clear CTAs */
 if(location.pathname==='/'||location.pathname==='/index.html'){
   const impactCards=document.querySelector('#impacto .impact-cards');
   if(impactCards){
-    if(!impactCards.querySelector('.impact-photo')){
-      const photo=document.createElement('div');photo.className='impact-photo';photo.setAttribute('role','img');photo.setAttribute('aria-label','Niños y niñas aprendiendo a leer en comunidad');impactCards.prepend(photo);
-    }
-    const firstCard=impactCards.querySelector('.impact-card');
-    if(firstCard&&!firstCard.querySelector('a[href="/impacto#evaluaciones"]')){
-      const evalLink=document.createElement('a');evalLink.className='text-link';evalLink.href='/impacto#evaluaciones';evalLink.textContent='Ver evaluaciones →';firstCard.appendChild(evalLink);
-    }
-    const impactStyle=document.createElement('style');
-    impactStyle.textContent=`#impacto .impact-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}#impacto .impact-photo{display:block!important;min-height:210px!important;border-radius:20px!important;background:url('/assets/impacto-principal.jpg') center/cover no-repeat!important;box-shadow:0 10px 24px rgba(35,39,44,.08)}#impacto .impact-card{min-height:210px!important;padding:23px 24px!important}#impacto .impact-card .text-link{margin-top:auto;padding-top:16px;font-size:13px;font-weight:600}#impacto .impact-card strong{margin-bottom:12px!important}@media(max-width:700px){#impacto .impact-cards{grid-template-columns:1fr!important}#impacto .impact-photo{min-height:220px!important}#impacto .impact-card{min-height:0!important}}`;
-    document.head.appendChild(impactStyle);
+    if(!impactCards.querySelector('.impact-photo')){const photo=document.createElement('div');photo.className='impact-photo';photo.setAttribute('role','img');photo.setAttribute('aria-label','Niños y niñas aprendiendo a leer en comunidad');impactCards.prepend(photo)}
+    const firstCard=impactCards.querySelector('.impact-card');if(firstCard&&!firstCard.querySelector('a[href="/impacto#evaluaciones"]')){const evalLink=document.createElement('a');evalLink.className='text-link';evalLink.href='/impacto#evaluaciones';evalLink.textContent='Ver evaluaciones →';firstCard.appendChild(evalLink)}
+    const impactStyle=document.createElement('style');impactStyle.textContent=`#impacto .impact-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}#impacto .impact-photo{display:block!important;min-height:210px!important;border-radius:20px!important;background:url('/assets/impacto-principal.jpg') center/cover no-repeat!important;box-shadow:0 10px 24px rgba(35,39,44,.08)}#impacto .impact-card{min-height:210px!important;padding:23px 24px!important}#impacto .impact-card .text-link{margin-top:auto;padding-top:16px;font-size:13px;font-weight:600}#impacto .impact-card strong{margin-bottom:12px!important}@media(max-width:700px){#impacto .impact-cards{grid-template-columns:1fr!important}#impacto .impact-photo{min-height:220px!important}#impacto .impact-card{min-height:0!important}}`;document.head.appendChild(impactStyle)
   }
 }
 
-/* Home programs: restored earlier Primero LEE logo treatment */
 if(location.pathname==='/'||location.pathname==='/index.html'){
-  const programItems=[...document.querySelectorAll('#programas .acc-item')];
-  const programLogos=[
-    {src:'/assets/primero-lee-logo.png',alt:'Primero LEE',cls:'program-brand program-brand--primero'},
-    {src:'/assets/viaje-por-las-letras.jpg',alt:'Viaje por las Letras',cls:'program-brand program-brand--viaje'}
-  ];
-  programItems.slice(0,2).forEach((item,i)=>{
-    const body=item.querySelector('.acc-body > div');
-    if(!body||body.querySelector('.program-brand'))return;
-    const wrap=document.createElement('div');wrap.className=programLogos[i].cls;
-    const img=document.createElement('img');img.src=programLogos[i].src;img.alt=programLogos[i].alt;wrap.appendChild(img);
-    body.prepend(wrap);
-  });
-  const programStyle=document.createElement('style');
-  programStyle.textContent=`#programas .program-brand{display:flex;align-items:center;margin:0 0 14px;min-height:52px;background:transparent!important;box-shadow:none!important;border:0!important;padding:0!important}#programas .program-brand img{display:block;height:auto;object-fit:contain;background:transparent!important}#programas .program-brand--primero{width:132px;height:46px;min-height:46px;overflow:hidden;margin-left:-8px!important;margin-top:0!important;margin-bottom:10px!important}#programas .program-brand--primero img{width:174px;max-width:none;max-height:none;transform:translate(-24px,-4px);transform-origin:left top;mix-blend-mode:multiply}#programas .program-brand--viaje img{width:180px;max-width:100%;max-height:62px;object-position:left center;border-radius:0!important;mix-blend-mode:multiply}@media(max-width:600px){#programas .program-brand--primero{width:122px;height:42px;min-height:42px;margin-left:-6px!important}#programas .program-brand--primero img{width:160px;transform:translate(-22px,-3px)}#programas .program-brand--viaje img{width:160px}}`;
-  document.head.appendChild(programStyle);
+  const programItems=[...document.querySelectorAll('#programas .acc-item')];const programLogos=[{src:'/assets/primero-lee-logo.png',alt:'Primero LEE',cls:'program-brand program-brand--primero'},{src:'/assets/viaje-por-las-letras.jpg',alt:'Viaje por las Letras',cls:'program-brand program-brand--viaje'}];
+  programItems.slice(0,2).forEach((item,i)=>{const body=item.querySelector('.acc-body > div');if(!body||body.querySelector('.program-brand'))return;const wrap=document.createElement('div');wrap.className=programLogos[i].cls;const img=document.createElement('img');img.src=programLogos[i].src;img.alt=programLogos[i].alt;wrap.appendChild(img);body.prepend(wrap)});
+  const programStyle=document.createElement('style');programStyle.textContent=`#programas .program-brand{display:flex;align-items:center;margin:0 0 14px;min-height:52px;background:transparent!important;box-shadow:none!important;border:0!important;padding:0!important}#programas .program-brand img{display:block;height:auto;object-fit:contain;background:transparent!important}#programas .program-brand--primero{width:132px;height:46px;min-height:46px;overflow:hidden;margin-left:-8px!important;margin-top:0!important;margin-bottom:10px!important}#programas .program-brand--primero img{width:174px;max-width:none;max-height:none;transform:translate(-24px,-4px);transform-origin:left top;mix-blend-mode:multiply}#programas .program-brand--viaje img{width:180px;max-width:100%;max-height:62px;object-position:left center;border-radius:0!important;mix-blend-mode:multiply}@media(max-width:600px){#programas .program-brand--primero{width:122px;height:42px;min-height:42px;margin-left:-6px!important}#programas .program-brand--primero img{width:160px;transform:translate(-22px,-3px)}#programas .program-brand--viaje img{width:160px}}`;document.head.appendChild(programStyle)
 }
 
-/* Primero LEE: articulated books image spans the entire row */
 if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.html'){
-  const articulated=document.querySelector('.feature-articulated');
-  if(articulated){
-    articulated.style.gridColumn='1 / -1';
-    articulated.style.gridTemplateColumns='36px minmax(0,1fr)';
-    const artImg=articulated.querySelector('img[src*="articulado.png"]');
-    if(artImg){
-      const holder=artImg.parentElement;
-      if(holder){
-        holder.style.gridColumn='1 / -1';
-        holder.style.width='100%';
-        holder.style.marginTop='14px';
-        holder.style.display='flex';
-        holder.style.justifyContent='center';
-      }
-      artImg.style.display='block';
-      artImg.style.width='min(100%, 980px)';
-      artImg.style.maxWidth='980px';
-      artImg.style.height='auto';
-      artImg.style.objectFit='contain';
-      artImg.style.margin='0 auto';
-    }
+  const articulated=document.querySelector('.feature-articulated');if(articulated){articulated.style.gridColumn='1 / -1';articulated.style.gridTemplateColumns='36px minmax(0,1fr)';const artImg=articulated.querySelector('img[src*="articulado.png"]');if(artImg){const holder=artImg.parentElement;if(holder){holder.style.gridColumn='1 / -1';holder.style.width='100%';holder.style.marginTop='14px';holder.style.display='flex';holder.style.justifyContent='center'}artImg.style.display='block';artImg.style.width='min(100%, 980px)';artImg.style.maxWidth='980px';artImg.style.height='auto';artImg.style.objectFit='contain';artImg.style.margin='0 auto'}}
+
+  const diagram=document.querySelector('.model-diagram');
+  if(diagram){
+    const content=[
+      {title:'Primero LEE',text:'Primero LEE se basa en un modelo pedagógico balanceado que desarrolla de manera sistemática los distintos ejes del lenguaje: lectura, escritura y comunicación oral. Para ello, cuenta con planificaciones estructuradas y una Guía del Estudiante que articulan el trabajo en torno a unidades temáticas y la lectura de cuentos, facilitando una implementación organizada y consistente en el aula.'},
+      {title:'Programa innovador y equilibrado',text:'El programa articula una propuesta pedagógica estructurada y equilibrada para trabajar lectura, escritura y comunicación oral de manera sistemática, con unidades temáticas, cuentos y recursos que facilitan una implementación consistente en el aula.'},
+      {title:'Sistema de evaluación y monitoreo',text:'Primero LEE cuenta con un sistema de evaluación permanente que permite monitorear el avance de los aprendizajes a lo largo del año. Los resultados se disponibilizan a través de una plataforma de resultados, reportería e informes, facilitando la identificación de brechas y la toma de decisiones pedagógicas basadas en evidencia, tanto a nivel de curso como de cada estudiante.'},
+      {title:'Apoyo a niños y niñas con aprendizajes descendidos',text:'Primero LEE cuenta con programas de refuerzo focalizados para estudiantes que presentan mayores brechas de aprendizaje. A partir de los resultados de las evaluaciones, se identifican sus necesidades y se entregan recursos pedagógicos específicos a través de Primero LEE+, Refuerzo Lector y Plan de Aceleramiento, para fortalecer habilidades clave y favorecer el avance de cada estudiante.'},
+      {title:'Acompañamiento',text:'Primero LEE cuenta con mentoras que acompañan a docentes y equipos directivos en cada escuela, a través de visitas presenciales y acompañamiento virtual. Estas instancias incluyen modelaje de estrategias, retroalimentación, reflexión pedagógica y análisis de dato, contribuyendo al desarrollo de capacidades y a la sostenibilidad de la mejora en el tiempo.'},
+      {title:'Capacitaciones',text:'Primero LEE ofrece instancias de formación continua para docentes y equipos directivos, abordando contenidos y estrategias pedagógicas clave para la enseñanza de la lectura y la escritura. Estas capacitaciones buscan fortalecer sus conocimientos, potenciar la implementación del programa y su impacto en el aprendizaje de los estudiantes.'},
+      {title:'Trabajo con familias',text:'Primero LEE promueve la participación de las familias en el proceso de aprendizaje de niños y niñas, entregando orientaciones y recursos que les permiten acompañar y reforzar la lectura y la escritura desde el hogar. De esta manera, se busca fortalecer el vínculo entre la escuela y las familias y favorecer el desarrollo de hábitos lectores.'}
+    ];
+    const panel=document.createElement('div');panel.className='model-detail';panel.setAttribute('aria-live','polite');panel.innerHTML='<span class="model-detail-kicker">Explora el modelo</span><h3></h3><p></p>';diagram.insertAdjacentElement('afterend',panel);
+    const title=panel.querySelector('h3'),body=panel.querySelector('p');
+    const items=[diagram.querySelector('.model-center'),...diagram.querySelectorAll('.model-node')];
+    function show(i){items.forEach((el,j)=>el&&el.classList.toggle('is-active',j===i));title.textContent=content[i].title;body.textContent=content[i].text;panel.classList.add('is-visible')}
+    items.forEach((el,i)=>{if(!el)return;el.setAttribute('role','button');el.setAttribute('tabindex','0');el.setAttribute('aria-label','Ver información: '+content[i].title);el.addEventListener('click',()=>show(i));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(i)}})});
+    show(0);
+    const modelStyle=document.createElement('style');modelStyle.textContent=`.model-center,.model-node{cursor:pointer}.model-center:focus-visible,.model-node:focus-visible{outline:3px solid rgba(134,68,144,.34);outline-offset:4px}.model-node.is-active{box-shadow:0 0 0 5px rgba(255,255,255,.72),0 12px 26px rgba(30,51,57,.2);transform:translate(-50%,-50%) scale(1.035)}.model-center.is-active{box-shadow:0 0 0 5px rgba(255,255,255,.72),0 12px 26px rgba(30,51,57,.2)}.model-detail{width:min(100%,780px);margin:28px auto 0;padding:24px 26px;border-radius:20px;background:#fff;box-shadow:0 14px 36px rgba(30,51,57,.09);border:1px solid rgba(0,169,199,.12);opacity:0;transform:translateY(6px);transition:.2s ease}.model-detail.is-visible{opacity:1;transform:none}.model-detail-kicker{display:block;margin-bottom:8px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#00a9c7}.model-detail h3{margin:0;font-size:22px;line-height:1.2;font-weight:500;color:#3a3440}.model-detail p{margin:10px 0 0;font-size:14px;line-height:1.65;color:#5e6871}@media(max-width:560px){.model-detail{margin-top:20px;padding:19px 18px;border-radius:16px}.model-detail h3{font-size:18px}.model-detail p{font-size:13px;line-height:1.58}}`;document.head.appendChild(modelStyle)
   }
 }
