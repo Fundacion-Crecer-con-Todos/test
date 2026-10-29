@@ -61,8 +61,8 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
                 <text x="108" y="188" font-size="12"><tspan x="108">Fortalecimiento</tspan><tspan x="108" dy="14">de la gestión</tspan></text>
                 <text x="280" y="158" font-size="10.5"><tspan x="280">Formación y acompañamiento a</tspan><tspan x="280" dy="12">docentes y equipos directivos</tspan></text>
                 <text x="390" y="271" font-size="10.5"><tspan x="390">Materiales</tspan><tspan x="390" dy="12">de calidad</tspan></text>
-                <text x="372" y="374" font-size="10.5"><tspan x="372">Lineamientos</tspan><tspan x="372" dy="12">pedagógico-</tspan><tspan x="372" dy="12">curriculares</tspan></text>
-                <text x="188" y="374" font-size="10.5"><tspan x="188">Reforzamiento y</tspan><tspan x="188" dy="12">aceleración de</tspan><tspan x="188" dy="12">aprendizajes</tspan></text>
+                <text x="355" y="340" font-size="9.5"><tspan x="355">Lineamientos</tspan><tspan x="355" dy="11">pedagógico-</tspan><tspan x="355" dy="11">curriculares</tspan></text>
+                <text x="205" y="340" font-size="9.5"><tspan x="205">Reforzamiento y</tspan><tspan x="205" dy="11">aceleración de</tspan><tspan x="205" dy="11">aprendizajes</tspan></text>
                 <text x="170" y="271" font-size="10.5"><tspan x="170">Evaluación de</tspan><tspan x="170" dy="12">aprendizajes</tspan></text>
                 <text x="280" y="287" font-size="18" font-weight="600">Aprendizaje</text>
               </g>
