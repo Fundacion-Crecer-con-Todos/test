@@ -50,47 +50,83 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       max-height:42px!important;
       max-width:105px!important;
     }
+
+    /* Impacto: foto completa a la izquierda + 3 evidencias a la derecha */
     #impacto .impact-grid{
       display:grid!important;
-      grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr)!important;
+      grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr)!important;
       gap:18px!important;
       align-items:stretch!important;
       margin-top:42px!important;
+      border:0!important;
     }
     #impacto .impact-photo{
-      display:block!important;
-      min-height:610px!important;
+      display:flex!important;
+      align-items:center!important;
+      justify-content:center!important;
+      min-height:500px!important;
       border-radius:22px!important;
-      background:url('impacto-principal.jpg') center center/cover no-repeat!important;
       overflow:hidden!important;
+      background:#fff!important;
+      box-shadow:0 12px 34px rgba(36,42,48,.06)!important;
+    }
+    #impacto .impact-photo img{
+      display:block!important;
+      width:100%!important;
+      height:100%!important;
+      max-height:500px!important;
+      object-fit:contain!important;
+      object-position:center center!important;
+      background:#fff!important;
     }
     #impacto .impact-cards{
       display:grid!important;
       grid-template-columns:1fr!important;
+      grid-template-rows:repeat(3,1fr)!important;
       gap:12px!important;
       align-content:stretch!important;
+      border:0!important;
     }
     #impacto .impact-cards>.impact-card:nth-child(n){
       min-height:0!important;
-      padding:24px 26px!important;
+      padding:22px 24px!important;
+      border:0!important;
       border-radius:18px!important;
+      display:flex!important;
+      flex-direction:column!important;
       justify-content:center!important;
+      box-shadow:none!important;
     }
+    #impacto .impact-cards>.impact-card:nth-of-type(1){background:#e8f8fb!important}
+    #impacto .impact-cards>.impact-card:nth-of-type(2){background:#f4edf6!important}
+    #impacto .impact-cards>.impact-card:nth-of-type(3){background:#fff1df!important}
     #impacto .impact-cards>.impact-card strong{
-      font-size:clamp(28px,2.6vw,38px)!important;
-      margin-bottom:10px!important;
+      font-size:clamp(27px,2.3vw,36px)!important;
+      line-height:1.05!important;
+      margin:0 0 8px!important;
+      color:var(--fcct-p)!important;
+    }
+    #impacto .impact-cards>.impact-card h3{
+      font-size:15px!important;
+      line-height:1.3!important;
+      margin:0 0 7px!important;
+    }
+    #impacto .impact-cards>.impact-card p{
+      font-size:12.5px!important;
+      line-height:1.5!important;
+      margin:0!important;
     }
     @media(max-width:900px){
       #impacto .impact-grid{grid-template-columns:1fr!important}
-      #impacto .impact-photo{min-height:420px!important}
-      #impacto .impact-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important}
-      #impacto .impact-cards>.impact-card:nth-child(n){min-height:220px!important}
+      #impacto .impact-photo{min-height:0!important}
+      #impacto .impact-photo img{height:auto!important;max-height:none!important}
+      #impacto .impact-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:none!important}
+      #impacto .impact-cards>.impact-card:nth-child(n){min-height:210px!important}
     }
     @media(max-width:700px){
       #programas .acc-btn .program-title-with-logo{gap:10px!important}
       #programas .acc-btn .program-brand img{height:31px!important;max-height:31px!important;max-width:86px!important}
       #programas .acc-btn .program-brand--viaje img{height:34px!important;max-height:34px!important;max-width:82px!important}
-      #impacto .impact-photo{min-height:300px!important}
       #impacto .impact-cards{grid-template-columns:1fr!important}
       #impacto .impact-cards>.impact-card:nth-child(n){min-height:0!important}
     }
@@ -113,11 +149,17 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
   });
 
   const impactGrid=document.querySelector('#impacto .impact-grid');
-  if(impactGrid&&!impactGrid.querySelector('.impact-photo')){
-    const impactPhoto=document.createElement('div');
-    impactPhoto.className='impact-photo';
-    impactPhoto.setAttribute('role','img');
-    impactPhoto.setAttribute('aria-label','Niños y niñas participantes de Primero LEE');
-    impactGrid.prepend(impactPhoto);
+  if(impactGrid){
+    let impactPhoto=impactGrid.querySelector('.impact-photo');
+    if(!impactPhoto){
+      impactPhoto=document.createElement('div');
+      impactPhoto.className='impact-photo';
+      impactPhoto.setAttribute('role','img');
+      impactPhoto.setAttribute('aria-label','Niños y niñas participantes de Primero LEE');
+      impactGrid.prepend(impactPhoto);
+    }
+    if(!impactPhoto.querySelector('img')){
+      impactPhoto.innerHTML='<img src="/assets/impacto-principal.jpg" alt="Niños y niñas participantes de Primero LEE">';
+    }
   }
 }
