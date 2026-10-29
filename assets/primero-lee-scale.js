@@ -13,11 +13,6 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
       <div class="scale-panel">
         <div class="scale-map-stage">
           <img class="scale-map-image" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Chile_blank_map.svg" alt="Mapa de Chile" loading="lazy">
-          <img class="scale-pin pin-1" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
-          <img class="scale-pin pin-2" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
-          <img class="scale-pin pin-3" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
-          <img class="scale-pin pin-4" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
-          <img class="scale-pin pin-5" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
         </div>
         <div class="scale-stats">
           <div class="scale-stat"><span class="scale-arrow">▶</span><strong>15 regiones</strong></div>
@@ -39,14 +34,12 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
       .scale-panel{min-height:430px;display:grid;grid-template-columns:minmax(170px,.82fr) minmax(0,1.18fr);gap:28px;align-items:center;padding:24px 30px 24px 22px;border-radius:18px;background:#dedede;overflow:hidden}
       .scale-map-stage{position:relative;height:380px;display:flex;align-items:center;justify-content:center}
       .scale-map-image{display:block;width:auto;max-width:100%;height:360px;object-fit:contain;filter:invert(27%) sepia(35%) saturate(1700%) hue-rotate(224deg) brightness(82%) contrast(90%)}
-      .scale-pin{position:absolute;z-index:2;width:54px;height:auto;object-fit:contain;filter:drop-shadow(0 2px 5px rgba(33,24,42,.12));transform:translate(-50%,-50%)}
-      .pin-1{left:54%;top:17%}.pin-2{left:49%;top:34%}.pin-3{left:45%;top:51%}.pin-4{left:41%;top:68%}.pin-5{left:35%;top:85%}
       .scale-stats{display:grid;gap:8px}
       .scale-stat{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:center;padding:20px 0}
       .scale-arrow{font-size:22px;line-height:1;color:#5b3f9b;transform:scaleX(.88)}
       .scale-stat strong{font-size:clamp(21px,2.35vw,31px);line-height:1.07;color:#5b3f9b;font-weight:700;letter-spacing:-.025em}
       @media(max-width:900px){.scale-visual{grid-template-columns:1fr}.scale-intro{min-height:0;padding:32px 28px}.scale-panel{min-height:390px}}
-      @media(max-width:620px){.scale-visual{padding:10px;border-radius:20px}.scale-intro{padding:26px 20px;border-radius:15px}.scale-intro h4{font-size:30px}.scale-intro p{font-size:13px}.scale-panel{grid-template-columns:125px minmax(0,1fr);gap:10px;min-height:330px;padding:18px 14px;border-radius:15px}.scale-map-stage{height:300px}.scale-map-image{height:292px}.scale-pin{width:40px}.scale-stat{grid-template-columns:20px 1fr;gap:7px;padding:14px 0}.scale-arrow{font-size:16px}.scale-stat strong{font-size:18px}}
+      @media(max-width:620px){.scale-visual{padding:10px;border-radius:20px}.scale-intro{padding:26px 20px;border-radius:15px}.scale-intro h4{font-size:30px}.scale-intro p{font-size:13px}.scale-panel{grid-template-columns:125px minmax(0,1fr);gap:10px;min-height:330px;padding:18px 14px;border-radius:15px}.scale-map-stage{height:300px}.scale-map-image{height:292px}.scale-stat{grid-template-columns:20px 1fr;gap:7px;padding:14px 0}.scale-arrow{font-size:16px}.scale-stat strong{font-size:18px}}
     `;
     document.head.appendChild(style);
   }
