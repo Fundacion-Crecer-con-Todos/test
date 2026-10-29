@@ -5,11 +5,9 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     systemic.style.gridTemplateColumns='36px minmax(0,1fr)';
     const figure=systemic.querySelector('.system-figure');
     if(figure){
-      figure.style.gridColumn='1 / -1';
-      figure.style.width='100%';
-      figure.style.maxWidth='760px';
-      figure.style.margin='18px auto 2px';
-      figure.style.justifyContent='center';
+      figure.className='systemic-image-wrap';
+      figure.setAttribute('aria-label','Primero LEE en el aula, la escuela y el SLEP');
+      figure.innerHTML='<img class="systemic-graphic" src="/assets/primero-lee-niveles.png" alt="Primero LEE en el aula, la escuela y el SLEP">';
     }
   }
 
@@ -81,7 +79,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
 
   const style=document.createElement('style');
   style.textContent=`
-    .feature-systemic{grid-column:1/-1!important}.feature-systemic .system-figure{grid-column:1/-1!important;width:100%;max-width:760px;margin:18px auto 2px;justify-content:center}
+    .feature-systemic{grid-column:1/-1!important}.systemic-image-wrap{grid-column:1/-1!important;width:100%;margin:20px 0 2px;border-radius:20px;overflow:hidden;background:#fff}.systemic-graphic{display:block;width:100%;height:auto;object-fit:contain}
     .feature-scalable{grid-column:1/-1;align-content:start;overflow:hidden}.scale-visual{grid-column:1/-1;margin-top:16px;display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:8px;align-items:stretch;background:#f7f3f8;border-radius:24px;padding:12px;border:1px solid rgba(134,68,144,.06);box-shadow:0 10px 24px rgba(35,38,42,.05)}
     .scale-intro{min-height:430px;padding:54px 36px;display:flex;flex-direction:column;justify-content:center;border-radius:18px;background:#f7f7f7}.scale-intro h4{margin:0;font-size:clamp(30px,3.15vw,44px);line-height:1.08;letter-spacing:-.035em;font-weight:600;color:#13aeca}.scale-line{width:min(100%,360px);height:4px;margin:22px 0 20px;border-radius:999px;background:#13b4ce}.scale-intro p{max-width:450px;margin:0;font-size:14px;line-height:1.55;color:#59636b}
     .scale-panel{min-height:430px;display:grid;grid-template-columns:minmax(170px,.82fr) minmax(0,1.18fr);gap:28px;align-items:center;padding:24px 30px 24px 22px;border-radius:18px;background:#d6d6d6;overflow:hidden}.scale-map-stage{position:relative;height:380px;display:flex;align-items:center;justify-content:center}.scale-map-image{display:block;width:auto;max-width:100%;height:360px;object-fit:contain;filter:invert(27%) sepia(35%) saturate(1700%) hue-rotate(224deg) brightness(82%) contrast(90%)}
