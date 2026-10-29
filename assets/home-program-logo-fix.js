@@ -78,7 +78,9 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       height:100%!important;
       max-height:500px!important;
       object-fit:cover!important;
-      object-position:center center!important;
+      object-position:center 48%!important;
+      transform:scale(1.12)!important;
+      transform-origin:center center!important;
       background:#fff!important;
     }
     #impacto .impact-cards{
@@ -126,7 +128,7 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
         grid-template-areas:'photo' 'cards'!important;
       }
       #impacto .impact-photo{min-height:0!important}
-      #impacto .impact-photo img{height:auto!important;max-height:none!important;object-fit:contain!important}
+      #impacto .impact-photo img{height:auto!important;max-height:none!important;object-fit:cover!important;transform:scale(1.08)!important}
       #impacto .impact-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-template-rows:none!important}
       #impacto .impact-cards>.impact-card:nth-child(n){min-height:210px!important}
     }
