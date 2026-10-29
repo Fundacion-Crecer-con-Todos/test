@@ -1,0 +1,49 @@
+/* Viaje por las Letras — capa visual inspirada en la guía didáctica */
+.viaje-hero-grid{grid-template-columns:1fr 1fr!important}
+.viaje-hero-visual{min-height:430px!important;position:relative!important;border-radius:30px!important;background:linear-gradient(145deg,#173c8f 0%,#175bb0 56%,#1b8bd0 100%)!important;box-shadow:0 28px 65px rgba(25,44,104,.28)!important;overflow:hidden!important;transform:rotate(1deg)!important}
+.viaje-hero-visual:before{content:""!important;position:absolute!important;inset:auto -12% -30% 12%!important;height:62%!important;background:linear-gradient(90deg,#ef3340 0 11%,#f58b1f 11% 22%,#f4d83f 22% 33%,#75bd43 33% 44%,#16b3c7 44% 55%,#3775c8 55% 66%,#6744a7 66% 77%,#be4e9d 77% 88%,#ef3340 88%)!important;clip-path:polygon(0 52%,100% 0,100% 34%,0 88%)!important;opacity:.96!important}
+.viaje-hero-visual:after{content:""!important;position:absolute!important;inset:0!important;background:radial-gradient(circle at 74% 18%,rgba(255,255,255,.13) 0 3px,transparent 4px),radial-gradient(circle at 15% 26%,rgba(255,255,255,.16) 0 2px,transparent 3px),radial-gradient(circle at 87% 48%,rgba(255,255,255,.13) 0 3px,transparent 4px)!important;background-size:150px 150px,110px 110px,180px 180px!important}
+.viaje-visual-title{position:absolute;z-index:3;left:36px;top:34px;color:#fff;font-size:clamp(38px,4.3vw,60px);line-height:.92;font-weight:650;letter-spacing:-.055em;text-transform:uppercase;text-shadow:0 4px 0 rgba(32,22,95,.28)}
+.viaje-visual-title span{display:block;color:#ffd84a;font-size:.75em;letter-spacing:-.035em}
+.viaje-visual-sub{position:absolute;z-index:3;left:38px;top:154px;color:rgba(255,255,255,.86);font-size:12px;max-width:260px;line-height:1.45}
+.viaje-orbits{position:absolute;z-index:3;inset:0}
+.viaje-orbit{position:absolute;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#ffd83f;color:#1d2d63;border:4px solid #182f72;font-size:15px;font-weight:700;box-shadow:0 6px 0 rgba(20,34,85,.25)}
+.viaje-orbit:nth-child(1){right:44px;top:46px}.viaje-orbit:nth-child(2){right:112px;top:116px}.viaje-orbit:nth-child(3){right:44px;top:198px}.viaje-orbit:nth-child(4){left:48px;bottom:84px}.viaje-orbit:nth-child(5){left:176px;bottom:38px}
+.viaje-characters{position:absolute;z-index:4;right:52px;bottom:50px;display:flex;align-items:end;gap:12px}
+.viaje-character{width:92px;height:120px;border-radius:48% 48% 44% 44%;position:relative;box-shadow:0 12px 22px rgba(20,34,85,.18)}
+.viaje-character.fox{background:#edf2f6;border:5px solid #2b4775;transform:rotate(-6deg)}
+.viaje-character.chinchilla{background:#aab8bd;border:5px solid #4f6572;height:104px;width:82px;transform:rotate(5deg)}
+.viaje-character:before,.viaje-character:after{content:"";position:absolute;top:-22px;width:30px;height:36px;border-radius:50% 50% 45% 45%;background:inherit;border:inherit}
+.viaje-character:before{left:5px;transform:rotate(-22deg)}.viaje-character:after{right:5px;transform:rotate(22deg)}
+.viaje-character b{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);font-size:12px;color:#29405f;white-space:nowrap}
+
+.viaje-route-section{padding:86px 0;background:#f7fbff;position:relative;overflow:hidden}
+.viaje-route-section:after{content:"";position:absolute;right:-120px;top:-100px;width:320px;height:320px;border:40px solid rgba(23,91,176,.05);border-radius:50%}
+.viaje-route-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:end;margin-bottom:40px}
+.viaje-route-head h2{font-size:clamp(34px,3.5vw,48px);font-weight:400;line-height:1.05;letter-spacing:-.04em}
+.viaje-route-head p{font-size:13.5px;line-height:1.65;color:#626b73;max-width:560px}
+.viaje-stage-track{position:relative;padding:42px 26px 34px;background:#fff;border-radius:26px;box-shadow:0 18px 42px rgba(30,58,89,.07)}
+.viaje-stage-line{height:12px;border-radius:999px;background:linear-gradient(90deg,#ef3340,#f58b1f,#f3d739,#79be43,#20b3c5,#318ad4,#274a9c,#be4e9d,#68449e);margin:38px 22px 26px}
+.viaje-stages{display:grid;grid-template-columns:repeat(9,1fr);gap:8px}
+.viaje-stage{text-align:center;position:relative}
+.viaje-stage:before{content:"";position:absolute;left:50%;top:-42px;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:currentColor;border:5px solid #fff;box-shadow:0 0 0 2px currentColor}
+.viaje-stage:nth-child(1){color:#ef3340}.viaje-stage:nth-child(2){color:#f58b1f}.viaje-stage:nth-child(3){color:#e1bd16}.viaje-stage:nth-child(4){color:#62aa34}.viaje-stage:nth-child(5){color:#0fa4b7}.viaje-stage:nth-child(6){color:#2675bc}.viaje-stage:nth-child(7){color:#31408b}.viaje-stage:nth-child(8){color:#a83d8e}.viaje-stage:nth-child(9){color:#68449e}
+.viaje-stage strong{display:block;font-size:13px;color:#2a2d31;margin-bottom:5px}.viaje-stage span{display:block;font-size:10.5px;line-height:1.35;color:#747b82}
+.viaje-route-note{margin-top:18px;font-size:11.5px;line-height:1.55;color:#677079;text-align:center}
+
+.viaje-progress{padding:82px 0;background:linear-gradient(145deg,#173c8f,#1d6fbd);color:#fff;overflow:hidden;position:relative}
+.viaje-progress:before{content:"";position:absolute;left:-120px;bottom:-150px;width:360px;height:360px;border:48px solid rgba(255,255,255,.05);border-radius:50%}
+.viaje-progress-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
+.viaje-progress h2{font-size:clamp(34px,3.6vw,50px);font-weight:400;line-height:1.05;letter-spacing:-.04em;margin-bottom:18px}.viaje-progress p{font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.82);max-width:520px}
+.viaje-medal-board{background:#fff;border-radius:28px;padding:26px;box-shadow:0 24px 55px rgba(9,28,76,.28);transform:rotate(-1deg)}
+.viaje-medal-path{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:center}
+.viaje-medal{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:15px;color:#26355d;border:5px solid #fff;box-shadow:0 5px 0 rgba(39,53,93,.12)}
+.viaje-medal:nth-child(1){background:#ef3340;color:#fff}.viaje-medal:nth-child(2){background:#f58b1f}.viaje-medal:nth-child(3){background:#f4d83f}.viaje-medal:nth-child(4){background:#75bd43}.viaje-medal:nth-child(5){background:#16b3c7}.viaje-medal:nth-child(6){background:#3775c8;color:#fff}.viaje-medal:nth-child(7){background:#274a9c;color:#fff}.viaje-medal:nth-child(8){background:#be4e9d;color:#fff}.viaje-medal:nth-child(9){background:#68449e;color:#fff}.viaje-medal:nth-child(10){background:#eef2f5;color:#9da5ac}
+.viaje-medal-board small{display:block;margin-top:16px;text-align:center;color:#69717a;font-size:11px}
+
+/* eleva la metodología para que se sienta recorrido */
+.viaje-section.cream{background:#fff7e9!important}.steps-wrap{border:2px solid rgba(23,91,176,.08)}.step-card{box-shadow:0 8px 20px rgba(30,42,65,.05)}
+.threshold{background:#eef7ff!important;border-left-color:#175bb0!important}
+
+@media(max-width:900px){.viaje-hero-grid,.viaje-route-head,.viaje-progress-grid{grid-template-columns:1fr!important}.viaje-hero-visual{min-height:360px!important;transform:none!important}.viaje-stages{grid-template-columns:repeat(3,1fr);gap:26px 12px}.viaje-stage-line{display:none}.viaje-stage:before{position:static;transform:none;display:block;margin:0 auto 12px}.viaje-stage-track{padding:30px 20px}.viaje-progress-grid{gap:30px}}
+@media(max-width:560px){.viaje-hero-visual{min-height:300px!important}.viaje-visual-title{left:22px;top:24px;font-size:40px}.viaje-visual-sub{left:24px;top:122px}.viaje-characters{right:24px;bottom:38px;transform:scale(.8);transform-origin:bottom right}.viaje-route-section,.viaje-progress{padding:62px 0}.viaje-stages{grid-template-columns:repeat(2,1fr)}.viaje-medal-path{grid-template-columns:repeat(5,1fr);gap:8px}.viaje-medal-board{padding:18px}}
