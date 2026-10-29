@@ -18,8 +18,11 @@
 
   const style=document.createElement('style');
   style.textContent=`
-    .model-center,.model-node{cursor:pointer}
+    .model-center,.model-node{cursor:pointer;transition:transform .18s ease,filter .18s ease}
+    @media(hover:hover) and (pointer:fine){.model-center:hover,.model-node:hover{transform:translateY(-4px) scale(1.025);filter:drop-shadow(0 10px 14px rgba(35,38,42,.12))}}
     .model-center:focus-visible,.model-node:focus-visible{outline:3px solid rgba(134,68,144,.34);outline-offset:4px}
+    .model-interactive-hint{display:flex;align-items:center;gap:10px;width:max-content;max-width:100%;margin:20px auto 10px;padding:10px 15px;border:1px solid rgba(93,72,163,.12);border-radius:999px;background:rgba(255,255,255,.76);color:#5d48a3;font-size:12px;font-weight:600;line-height:1.3;box-shadow:0 6px 16px rgba(35,38,42,.04)}
+    .model-interactive-hint::before{content:'↗';display:grid;place-items:center;width:25px;height:25px;flex:0 0 25px;border-radius:50%;background:#5d48a3;color:#fff;font-size:13px}
     .model-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(20,25,30,.5);backdrop-filter:blur(4px)}
     .model-modal.is-open{display:flex}
     .model-modal-card{position:relative;width:min(100%,680px);max-height:min(82vh,720px);overflow:auto;background:#fff;border-radius:24px;padding:34px 34px 30px;box-shadow:0 30px 80px rgba(18,24,30,.28);animation:modelModalIn .18s ease-out}
@@ -30,9 +33,16 @@
     .model-modal-close:hover{background:#e8ecee;transform:scale(1.04)}
     body.model-modal-open{overflow:hidden}
     @keyframes modelModalIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
-    @media(max-width:560px){.model-modal{padding:16px;align-items:flex-end}.model-modal-card{width:100%;max-height:78vh;border-radius:22px 22px 16px 16px;padding:28px 22px 24px}.model-modal-card h3{font-size:22px;padding-right:38px}.model-modal-card p{font-size:14px;line-height:1.62}.model-modal-close{top:14px;right:14px}}
+    @media(max-width:560px){.model-interactive-hint{width:auto;margin:16px auto 8px;padding:9px 13px;font-size:11px}.model-modal{padding:16px;align-items:flex-end}.model-modal-card{width:100%;max-height:78vh;border-radius:22px 22px 16px 16px;padding:28px 22px 24px}.model-modal-card h3{font-size:22px;padding-right:38px}.model-modal-card p{font-size:14px;line-height:1.62}.model-modal-close{top:14px;right:14px}}
   `;
   document.head.appendChild(style);
+
+  if(!diagram.previousElementSibling?.classList.contains('model-interactive-hint')){
+    const hint=document.createElement('div');
+    hint.className='model-interactive-hint';
+    hint.textContent='Modelo interactivo · Selecciona cada círculo para conocer más';
+    diagram.insertAdjacentElement('beforebegin',hint);
+  }
 
   const modal=document.createElement('div');
   modal.className='model-modal';
