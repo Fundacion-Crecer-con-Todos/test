@@ -22,6 +22,8 @@
 .viaje-route-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:end;margin-bottom:40px}
 .viaje-route-head h2{font-size:clamp(34px,3.5vw,48px);font-weight:400;line-height:1.05;letter-spacing:-.04em}
 .viaje-route-head p{font-size:13.5px;line-height:1.65;color:#626b73;max-width:560px}
+.viaje-route-section .viaje-kicker{color:#175bb0!important}
+.viaje-route-section .viaje-kicker:before{background:var(--fcct-c)!important;box-shadow:11px 0 0 var(--fcct-p),22px 0 0 var(--fcct-o)!important}
 .viaje-stage-track{position:relative;padding:42px 26px 34px;background:#fff;border-radius:26px;box-shadow:0 18px 42px rgba(30,58,89,.07)}
 .viaje-stage-line{height:12px;border-radius:999px;background:linear-gradient(90deg,#ef3340,#f58b1f,#f3d739,#79be43,#20b3c5,#318ad4,#274a9c,#be4e9d,#68449e);margin:38px 22px 26px}
 .viaje-stages{display:grid;grid-template-columns:repeat(9,1fr);gap:8px}
