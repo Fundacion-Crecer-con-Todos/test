@@ -55,9 +55,9 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
               <g fill="#fff" font-family="Fredoka, sans-serif" font-weight="500" text-anchor="middle">
                 <text x="280" y="62" font-size="12"><tspan x="280">Movilización del sistema,</tspan><tspan x="280" dy="14">reconocimiento e incentivos</tspan></text>
                 <text x="450" y="188" font-size="12"><tspan x="450">Planeamiento y</tspan><tspan x="450" dy="14">monitoreo</tspan></text>
-                <text x="457" y="410" font-size="10"><tspan x="457">Recursos para la</tspan><tspan x="457" dy="14">continuidad</tspan></text>
+                <text x="418" y="384" font-size="10"><tspan x="418">Recursos para la</tspan><tspan x="418" dy="14">continuidad</tspan></text>
                 <text x="280" y="486" font-size="11.5"><tspan x="280">Condiciones para la</tspan><tspan x="280" dy="14">enseñanza y el aprendizaje</tspan></text>
-                <text x="103" y="410" font-size="10"><tspan x="103">Liderazgo y compromiso</tspan><tspan x="103" dy="14">político</tspan></text>
+                <text x="142" y="384" font-size="10"><tspan x="142">Liderazgo y compromiso</tspan><tspan x="142" dy="14">político</tspan></text>
                 <text x="110" y="188" font-size="12"><tspan x="110">Fortalecimiento</tspan><tspan x="110" dy="14">de la gestión</tspan></text>
                 <text x="280" y="170" font-size="10"><tspan x="280">Formación y acompañamiento a</tspan><tspan x="280" dy="12">docentes y equipos directivos</tspan></text>
                 <text x="390" y="271" font-size="10.5"><tspan x="390">Materiales</tspan><tspan x="390" dy="12">de calidad</tspan></text>
