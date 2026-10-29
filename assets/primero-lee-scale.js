@@ -15,8 +15,17 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
         </div>
       </div>
       <div class="scale-panel">
-        <div class="scale-map-wrap">
-          <img class="scale-map-image" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Regions_of_Chile_(Blank).png" alt="Mapa de las regiones de Chile" loading="lazy">
+        <div class="scale-map-stage">
+          <div class="scale-map-wrap">
+            <img class="scale-map-image" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Regions_of_Chile_(Blank).png" alt="Mapa de las regiones de Chile" loading="lazy">
+          </div>
+          <img class="scale-pin pin-1" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
+          <img class="scale-pin pin-2" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
+          <img class="scale-pin pin-3" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
+          <img class="scale-pin pin-4" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
+          <img class="scale-pin pin-5" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
+          <img class="scale-pin pin-6" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
+          <img class="scale-pin pin-7" src="/assets/primero-lee-logo.png" alt="" aria-hidden="true">
         </div>
         <div class="scale-stats">
           <div class="scale-stat"><span class="scale-arrow">▶</span><strong>15 regiones</strong></div>
@@ -43,15 +52,18 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
       .scale-blocks i:nth-child(4),.scale-blocks i:nth-child(7),.scale-blocks i:nth-child(11){background:#5b3f9b}
       .scale-blocks i:nth-child(5),.scale-blocks i:nth-child(12){background:#13b4ce}
       .scale-blocks i:nth-child(6),.scale-blocks i:nth-child(10){background:#c3549a}
-      .scale-panel{min-height:430px;display:grid;grid-template-columns:minmax(135px,.72fr) minmax(0,1.28fr);gap:20px;align-items:center;padding:30px 28px;border-radius:18px;background:#ececec;overflow:hidden}
-      .scale-map-wrap{display:flex;align-items:center;justify-content:center;height:100%;min-height:360px;overflow:hidden}
-      .scale-map-image{display:block;width:auto;max-width:100%;height:355px;object-fit:contain;filter:sepia(.1) saturate(.8) hue-rotate(210deg) contrast(1.08);mix-blend-mode:multiply}
-      .scale-stats{display:grid;gap:0}
-      .scale-stat{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:center;padding:23px 0}
-      .scale-arrow{font-size:22px;line-height:1;color:#5b3f9b;transform:scaleX(.9)}
-      .scale-stat strong{font-size:clamp(21px,2.3vw,31px);line-height:1.08;color:#5b3f9b;font-weight:700;letter-spacing:-.025em}
-      @media(max-width:900px){.scale-visual{grid-template-columns:1fr}.scale-intro{min-height:0;padding:32px 28px}.scale-blocks{margin-top:28px;padding-top:0}.scale-panel{min-height:380px}}
-      @media(max-width:620px){.scale-visual{padding:10px;border-radius:20px}.scale-intro{padding:26px 20px;border-radius:15px}.scale-intro h4{font-size:30px}.scale-intro p{font-size:13px}.scale-panel{grid-template-columns:105px minmax(0,1fr);gap:12px;min-height:330px;padding:20px 16px;border-radius:15px}.scale-map-wrap{min-height:290px}.scale-map-image{height:285px}.scale-stat{grid-template-columns:20px 1fr;gap:8px;padding:16px 0}.scale-arrow{font-size:16px}.scale-stat strong{font-size:18px}.scale-blocks i{width:18px;height:18px}}
+      .scale-panel{min-height:430px;display:grid;grid-template-columns:minmax(190px,.95fr) minmax(0,1.05fr);gap:18px;align-items:center;padding:26px 26px 26px 22px;border-radius:18px;background:#d9d9d9;overflow:hidden}
+      .scale-map-stage{position:relative;height:372px;display:flex;align-items:center;justify-content:center;overflow:visible}
+      .scale-map-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+      .scale-map-image{display:block;width:auto;max-width:100%;height:360px;object-fit:contain;filter:grayscale(1) contrast(.82) brightness(1.12);opacity:.95;mix-blend-mode:multiply}
+      .scale-pin{position:absolute;z-index:2;width:64px;height:auto;object-fit:contain;filter:drop-shadow(0 3px 7px rgba(33,24,42,.16));transform:translate(-50%,-50%) rotate(-2deg)}
+      .pin-1{left:54%;top:10%}.pin-2{left:49%;top:24%;transform:translate(-50%,-50%) rotate(2deg)}.pin-3{left:45%;top:39%}.pin-4{left:43%;top:53%;transform:translate(-50%,-50%) rotate(3deg)}.pin-5{left:42%;top:67%}.pin-6{left:40%;top:80%;transform:translate(-50%,-50%) rotate(2deg)}.pin-7{left:36%;top:91%}
+      .scale-stats{display:grid;gap:0;padding-left:4px}
+      .scale-stat{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;padding:20px 0}
+      .scale-arrow{font-size:24px;line-height:1;color:#5b3f9b;transform:scaleX(.82)}
+      .scale-stat strong{font-size:clamp(21px,2.3vw,31px);line-height:1.06;color:#5b3f9b;font-weight:700;letter-spacing:-.025em}
+      @media(max-width:900px){.scale-visual{grid-template-columns:1fr}.scale-intro{min-height:0;padding:32px 28px}.scale-blocks{margin-top:28px;padding-top:0}.scale-panel{min-height:390px}}
+      @media(max-width:620px){.scale-visual{padding:10px;border-radius:20px}.scale-intro{padding:26px 20px;border-radius:15px}.scale-intro h4{font-size:30px}.scale-intro p{font-size:13px}.scale-panel{grid-template-columns:130px minmax(0,1fr);gap:10px;min-height:330px;padding:18px 14px;border-radius:15px}.scale-map-stage{height:300px}.scale-map-image{height:292px}.scale-pin{width:46px}.scale-stat{grid-template-columns:20px 1fr;gap:7px;padding:14px 0}.scale-arrow{font-size:16px}.scale-stat strong{font-size:18px}.scale-blocks i{width:18px;height:18px}}
     `;
     document.head.appendChild(style);
   }
