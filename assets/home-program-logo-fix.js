@@ -50,10 +50,49 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       max-height:42px!important;
       max-width:105px!important;
     }
-    @media(max-width:560px){
+    #impacto .impact-grid{
+      display:grid!important;
+      grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr)!important;
+      gap:18px!important;
+      align-items:stretch!important;
+      margin-top:42px!important;
+    }
+    #impacto .impact-photo{
+      display:block!important;
+      min-height:610px!important;
+      border-radius:22px!important;
+      background:url('impacto-principal.jpg') center center/cover no-repeat!important;
+      overflow:hidden!important;
+    }
+    #impacto .impact-cards{
+      display:grid!important;
+      grid-template-columns:1fr!important;
+      gap:12px!important;
+      align-content:stretch!important;
+    }
+    #impacto .impact-cards>.impact-card:nth-child(n){
+      min-height:0!important;
+      padding:24px 26px!important;
+      border-radius:18px!important;
+      justify-content:center!important;
+    }
+    #impacto .impact-cards>.impact-card strong{
+      font-size:clamp(28px,2.6vw,38px)!important;
+      margin-bottom:10px!important;
+    }
+    @media(max-width:900px){
+      #impacto .impact-grid{grid-template-columns:1fr!important}
+      #impacto .impact-photo{min-height:420px!important}
+      #impacto .impact-cards{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+      #impacto .impact-cards>.impact-card:nth-child(n){min-height:220px!important}
+    }
+    @media(max-width:700px){
       #programas .acc-btn .program-title-with-logo{gap:10px!important}
       #programas .acc-btn .program-brand img{height:31px!important;max-height:31px!important;max-width:86px!important}
       #programas .acc-btn .program-brand--viaje img{height:34px!important;max-height:34px!important;max-width:82px!important}
+      #impacto .impact-photo{min-height:300px!important}
+      #impacto .impact-cards{grid-template-columns:1fr!important}
+      #impacto .impact-cards>.impact-card:nth-child(n){min-height:0!important}
     }
   `;
   document.head.appendChild(cleanupStyle);
@@ -72,4 +111,13 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       title.appendChild(brand);
     }
   });
+
+  const impactGrid=document.querySelector('#impacto .impact-grid');
+  if(impactGrid&&!impactGrid.querySelector('.impact-photo')){
+    const impactPhoto=document.createElement('div');
+    impactPhoto.className='impact-photo';
+    impactPhoto.setAttribute('role','img');
+    impactPhoto.setAttribute('aria-label','Niños y niñas participantes de Primero LEE');
+    impactGrid.prepend(impactPhoto);
+  }
 }
