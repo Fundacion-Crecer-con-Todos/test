@@ -2,7 +2,7 @@
 .transparency{background:#fff;padding:0 0 112px;scroll-margin-top:82px}
 
 /* HERO */
-.transparency-hero{position:relative;min-height:520px;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(90deg,rgba(36,25,43,.88) 0%,rgba(61,38,70,.73) 44%,rgba(20,77,84,.42) 100%),url('hero-home.jpg') center 50%/cover;padding-top:96px}
+.transparency-hero{position:relative;min-height:520px;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(90deg,rgba(36,25,43,.88) 0%,rgba(61,38,70,.73) 44%,rgba(20,77,84,.42) 100%),url('hero-home.jpg') center 30%/cover;padding-top:96px}
 .transparency-hero:before{content:"";position:absolute;left:-100px;top:140px;width:260px;height:260px;border:34px solid rgba(255,255,255,.08);border-radius:56px;transform:rotate(18deg)}
 .transparency-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(118deg,rgba(0,177,209,.16),transparent 42%,rgba(192,81,160,.14))}
 .transparency-hero .container{position:relative;z-index:2;padding-bottom:72px}
@@ -47,5 +47,5 @@
 .fecu-year:hover span{border-color:rgba(255,255,255,.5);transform:translate(1px,-1px)}
 .fecu-year:hover:before{border-color:rgba(255,255,255,.12);transform:rotate(22deg) scale(1.06)}
 
-@media(max-width:900px){.fecu-info-grid{grid-template-columns:1fr}.fecu-years{grid-template-columns:repeat(2,1fr)}.transparency-hero{min-height:455px;padding-top:88px}.transparency-hero .container{padding-bottom:60px}}
-@media(max-width:560px){.transparency{padding-bottom:80px}.transparency-hero{min-height:405px;padding-top:78px}.transparency-hero .container{padding-bottom:44px}.transparency-hero h1{font-size:44px}.transparency-body{padding-top:56px}.transparency-marker{font-size:10.5px}.transparency-marker .marker-dots{gap:4px;margin-right:12px}.transparency-marker .marker-dots i{width:7px;height:7px}.fecu-info{padding:28px 24px 30px;border-radius:16px}.fecu-info h3{font-size:26px}.fecu-info p{font-size:14px;line-height:1.72}.fecu-downloads{margin-top:54px;padding-top:40px}.fecu-downloads-head{display:block}.fecu-downloads-head p{margin-top:8px}.fecu-downloads h3{font-size:34px}.fecu-years{grid-template-columns:1fr}.fecu-year{min-height:104px}}
+@media(max-width:900px){.fecu-info-grid{grid-template-columns:1fr}.fecu-years{grid-template-columns:repeat(2,1fr)}.transparency-hero{min-height:455px;padding-top:88px;background-position:center 34%}.transparency-hero .container{padding-bottom:60px}}
+@media(max-width:560px){.transparency{padding-bottom:80px}.transparency-hero{min-height:405px;padding-top:78px;background-position:center 38%}.transparency-hero .container{padding-bottom:44px}.transparency-hero h1{font-size:44px}.transparency-body{padding-top:56px}.transparency-marker{font-size:10.5px}.transparency-marker .marker-dots{gap:4px;margin-right:12px}.transparency-marker .marker-dots i{width:7px;height:7px}.fecu-info{padding:28px 24px 30px;border-radius:16px}.fecu-info h3{font-size:26px}.fecu-info p{font-size:14px;line-height:1.72}.fecu-downloads{margin-top:54px;padding-top:40px}.fecu-downloads-head{display:block}.fecu-downloads-head p{margin-top:8px}.fecu-downloads h3{font-size:34px}.fecu-years{grid-template-columns:1fr}.fecu-year{min-height:104px}}
