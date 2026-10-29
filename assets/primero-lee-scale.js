@@ -113,28 +113,31 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
 
     const territoryStyle=document.createElement('style');
     territoryStyle.textContent=`
-      .territory-section{background:#fff;padding-top:84px;padding-bottom:84px}
-      .territory-section h2{max-width:820px}
-      .territory-grid{margin-top:34px;display:grid;grid-template-columns:minmax(420px,.95fr) minmax(0,1.05fr);gap:54px;align-items:center}
+      .territory-section{background:#fff;padding:76px 0;overflow:hidden}
+      .territory-section .container{width:min(100% - 40px,1320px);margin-inline:auto;box-sizing:border-box}
+      .territory-section h2{max-width:760px;margin-right:0}
+      .territory-grid{margin-top:32px;display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:42px;align-items:center;width:100%;min-width:0}
+      .territory-model,.territory-explain{min-width:0}
       .territory-model{display:flex;flex-direction:column;align-items:center}
-      .territory-outer{position:relative;width:min(100%,520px);aspect-ratio:1;border-radius:50%;background:#5d48a3;box-shadow:0 18px 44px rgba(74,55,133,.14)}
-      .territory-middle{position:absolute;inset:21%;border-radius:50%;background:#b23aa0;border:3px solid rgba(255,255,255,.9)}
-      .territory-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:29%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:#f28a31;color:#fff;font-size:clamp(13px,1.55vw,19px);font-weight:600;border:3px solid rgba(255,255,255,.9);text-align:center;padding:6px;box-sizing:border-box}
+      .territory-outer{position:relative;width:min(100%,470px);aspect-ratio:1;border-radius:50%;background:#5d48a3;box-shadow:0 18px 44px rgba(74,55,133,.12)}
+      .territory-middle{position:absolute;inset:20.5%;border-radius:50%;background:#b23aa0;border:3px solid rgba(255,255,255,.92)}
+      .territory-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:28%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:#f28a31;color:#fff;font-size:clamp(12px,1.2vw,17px);font-weight:600;border:3px solid rgba(255,255,255,.92);text-align:center;padding:4px;box-sizing:border-box;white-space:nowrap}
       .outer-label,.middle-label{position:absolute;color:#fff;text-align:center;font-weight:500;line-height:1.08;z-index:2;box-sizing:border-box}
-      .outer-label{font-size:clamp(7.5px,.76vw,10px);width:25%}
-      .middle-label{font-size:clamp(6.2px,.66vw,8.4px)}
-      .o1{left:37.5%;top:4.5%}.o2{right:5%;top:29%}.o3{right:5%;bottom:24%}.o4{left:37.5%;bottom:4.5%}.o5{left:5%;bottom:24%}.o6{left:5%;top:29%}
-      .m1{width:42%;left:29%;top:7.5%}.m2{width:22%;right:4%;top:38%}.m3{width:27%;right:9%;bottom:10%}.m4{width:30%;left:9%;bottom:10%}.m5{width:22%;left:4%;top:38%}
-      .territory-model small{margin-top:14px;font-size:10px;color:#7a8188;font-style:italic;text-align:center}
-      .territory-explain{display:grid;gap:28px}
-      .territory-note{display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start;padding-bottom:26px;border-bottom:1px solid #eee8f1}
+      .outer-label{font-size:clamp(7px,.62vw,9px);width:23%}
+      .middle-label{font-size:clamp(5.8px,.54vw,7.6px);line-height:1.05}
+      .o1{left:38.5%;top:5%}.o2{right:6%;top:29%}.o3{right:6%;bottom:24%}.o4{left:38.5%;bottom:5%}.o5{left:6%;bottom:24%}.o6{left:6%;top:29%}
+      .m1{width:44%;left:28%;top:7%}.m2{width:24%;right:4%;top:39%}.m3{width:30%;right:8%;bottom:10%}.m4{width:32%;left:8%;bottom:10%}.m5{width:24%;left:4%;top:39%}
+      .territory-model small{margin-top:12px;font-size:9px;color:#7a8188;font-style:italic;text-align:center}
+      .territory-explain{display:grid;gap:20px;width:100%;max-width:100%}
+      .territory-note{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;align-items:start;padding-bottom:22px;border-bottom:1px solid #eee8f1;min-width:0}
       .territory-note:last-child{border-bottom:0;padding-bottom:0}
+      .territory-note>div{min-width:0}
       .territory-swatch{width:34px;height:34px;border-radius:8px;display:block;margin-top:2px}
       .note-learning .territory-swatch{background:#f28a31}.note-school .territory-swatch{background:#b23aa0}.note-slep .territory-swatch{background:#5d48a3}
-      .territory-note h3{margin:0 0 8px;font-size:clamp(17px,1.7vw,23px);line-height:1.18;color:#5d48a3;font-weight:600;letter-spacing:-.02em}
-      .territory-note p{margin:0;font-size:13px;line-height:1.58;color:#545d66;max-width:620px}
-      @media(max-width:900px){.territory-grid{grid-template-columns:1fr;gap:38px}.territory-outer{width:min(100%,500px)}.territory-explain{max-width:680px;margin:0 auto;width:100%}}
-      @media(max-width:560px){.territory-section{padding-top:62px;padding-bottom:62px}.territory-grid{margin-top:26px;gap:30px}.territory-outer{width:min(100%,360px)}.outer-label{font-size:6.4px;width:26%}.middle-label{font-size:5.2px}.m1{width:42%}.m2,.m5{width:22%}.m3{width:27%}.m4{width:30%}.territory-center{font-size:12px}.territory-note{grid-template-columns:30px 1fr;gap:12px}.territory-swatch{width:30px;height:30px}.territory-note h3{font-size:17px}.territory-note p{font-size:12px}}
+      .territory-note h3{margin:0 0 8px;font-size:clamp(17px,1.45vw,22px);line-height:1.18;color:#5d48a3;font-weight:600;letter-spacing:-.02em;overflow-wrap:anywhere}
+      .territory-note p{margin:0;font-size:12.5px;line-height:1.55;color:#545d66;max-width:none;overflow-wrap:anywhere}
+      @media(max-width:980px){.territory-grid{grid-template-columns:1fr;gap:34px}.territory-outer{width:min(100%,470px)}.territory-explain{max-width:720px;margin:0 auto}.territory-section h2{max-width:760px}}
+      @media(max-width:560px){.territory-section{padding:58px 0}.territory-section .container{width:min(100% - 28px,1320px)}.territory-grid{margin-top:24px;gap:28px}.territory-outer{width:min(100%,340px)}.outer-label{font-size:6px;width:24%}.middle-label{font-size:5px}.territory-center{font-size:11px;width:30%}.territory-note{grid-template-columns:30px minmax(0,1fr);gap:11px}.territory-swatch{width:30px;height:30px}.territory-note h3{font-size:17px}.territory-note p{font-size:12px}}
     `;
     document.head.appendChild(territoryStyle);
   }
