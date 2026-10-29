@@ -70,7 +70,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     const section=document.createElement('section');
     section.className='primero-section territory-section';
     section.innerHTML=`
-      <div class="container reveal">
+      <div class="container">
         <span class="section-eyebrow">Cómo trabajamos en el territorio</span>
         <h2>Primero LEE en el aula, la escuela y el SLEP</h2>
         <div class="territory-grid">
