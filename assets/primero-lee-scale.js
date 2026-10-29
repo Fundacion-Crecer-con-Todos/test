@@ -1,4 +1,18 @@
 if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.html'){
+  const systemic=document.querySelector('.feature-systemic');
+  if(systemic){
+    systemic.style.gridColumn='1 / -1';
+    systemic.style.gridTemplateColumns='36px minmax(0,1fr)';
+    const figure=systemic.querySelector('.system-figure');
+    if(figure){
+      figure.style.gridColumn='1 / -1';
+      figure.style.width='100%';
+      figure.style.maxWidth='760px';
+      figure.style.margin='18px auto 2px';
+      figure.style.justifyContent='center';
+    }
+  }
+
   const card=document.querySelector('.feature-scalable');
   if(card&&!card.querySelector('.scale-visual')){
     const visual=document.createElement('div');
@@ -25,6 +39,8 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
 
     const style=document.createElement('style');
     style.textContent=`
+      .feature-systemic{grid-column:1/-1!important}
+      .feature-systemic .system-figure{grid-column:1/-1!important;width:100%;max-width:760px;margin:18px auto 2px;justify-content:center}
       .feature-scalable{grid-column:1/-1;align-content:start;overflow:hidden}
       .scale-visual{grid-column:1/-1;margin-top:16px;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:16px;align-items:stretch;background:#fff;border-radius:24px;padding:16px;border:1px solid rgba(134,68,144,.07);box-shadow:0 12px 30px rgba(35,38,42,.06)}
       .scale-intro{min-height:430px;padding:54px 36px;display:flex;flex-direction:column;justify-content:center;border-radius:18px;background:#fff}
