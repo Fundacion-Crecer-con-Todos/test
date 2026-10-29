@@ -64,4 +64,78 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     `;
     document.head.appendChild(style);
   }
+
+  const features=document.querySelector('.features-section');
+  if(features&&!document.querySelector('.territory-section')){
+    const section=document.createElement('section');
+    section.className='primero-section territory-section';
+    section.innerHTML=`
+      <div class="container reveal">
+        <span class="section-eyebrow">Cómo trabajamos en el territorio</span>
+        <h2>Primero LEE en el aula, la escuela y el SLEP</h2>
+        <div class="territory-grid">
+          <div class="territory-model" role="img" aria-label="Modelo de trabajo territorial de Primero LEE, con Aprendizaje al centro, Escuela en el segundo nivel y SLEP en el nivel territorial">
+            <div class="territory-outer">
+              <span class="outer-label o1">Movilización del sistema, reconocimiento e incentivos</span>
+              <span class="outer-label o2">Planeamiento y monitoreo</span>
+              <span class="outer-label o3">Recursos para la continuidad</span>
+              <span class="outer-label o4">Condiciones para la enseñanza y el aprendizaje</span>
+              <span class="outer-label o5">Liderazgo y compromiso político</span>
+              <span class="outer-label o6">Fortalecimiento de la gestión</span>
+              <div class="territory-middle">
+                <span class="middle-label m1">Formación y acompañamiento a docentes y equipos directivos</span>
+                <span class="middle-label m2">Materiales de calidad</span>
+                <span class="middle-label m3">Lineamientos pedagógico-curriculares</span>
+                <span class="middle-label m4">Reforzamiento y aceleración de aprendizajes</span>
+                <span class="middle-label m5">Evaluación de aprendizajes</span>
+                <div class="territory-center">Aprendizaje</div>
+              </div>
+            </div>
+            <small>Adaptado de “Factores de éxito compartidos”, Instituto Natura.</small>
+          </div>
+          <div class="territory-explain">
+            <article class="territory-note note-learning">
+              <span class="territory-swatch"></span>
+              <div><h3>Aprendizaje</h3><p>El centro de todo: que cada niño y niña aprenda a leer y comprender lo que lee a tiempo.</p></div>
+            </article>
+            <article class="territory-note note-school">
+              <span class="territory-swatch"></span>
+              <div><h3>Escuela: docentes, equipos directivos y UTP</h3><p>Lo que ocurre en el aula y en la gestión pedagógica: formación, materiales, evaluación y apoyo a quienes van más atrás.</p></div>
+            </article>
+            <article class="territory-note note-slep">
+              <span class="territory-swatch"></span>
+              <div><h3>SLEP: sostenedor y UATP</h3><p>Las condiciones para que la mejora sea efectiva y sostenible en el territorio: gestión, planificación, recursos y liderazgo.</p></div>
+            </article>
+          </div>
+        </div>
+      </div>`;
+    features.insertAdjacentElement('afterend',section);
+
+    const territoryStyle=document.createElement('style');
+    territoryStyle.textContent=`
+      .territory-section{background:#fff;padding-top:84px;padding-bottom:84px}
+      .territory-section h2{max-width:820px}
+      .territory-grid{margin-top:34px;display:grid;grid-template-columns:minmax(420px,.95fr) minmax(0,1.05fr);gap:54px;align-items:center}
+      .territory-model{display:flex;flex-direction:column;align-items:center}
+      .territory-outer{position:relative;width:min(100%,520px);aspect-ratio:1;border-radius:50%;background:#5d48a3;box-shadow:0 18px 44px rgba(74,55,133,.14)}
+      .territory-middle{position:absolute;inset:22%;border-radius:50%;background:#b23aa0;border:3px solid rgba(255,255,255,.9)}
+      .territory-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:34%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:#f28a31;color:#fff;font-size:clamp(15px,1.8vw,22px);font-weight:600;border:3px solid rgba(255,255,255,.9);text-align:center}
+      .outer-label,.middle-label{position:absolute;color:#fff;text-align:center;font-weight:500;line-height:1.18;z-index:2}
+      .outer-label{font-size:clamp(8px,.9vw,11px);width:29%}
+      .middle-label{font-size:clamp(7px,.8vw,10px);width:35%}
+      .o1{left:35.5%;top:4%}.o2{right:1%;top:28%}.o3{right:2%;bottom:23%}.o4{left:35%;bottom:4%}.o5{left:2%;bottom:23%}.o6{left:1%;top:28%}
+      .m1{left:33%;top:8%}.m2{right:3%;top:38%}.m3{right:12%;bottom:10%}.m4{left:11%;bottom:10%}.m5{left:2%;top:38%}
+      .territory-model small{margin-top:14px;font-size:10px;color:#7a8188;font-style:italic;text-align:center}
+      .territory-explain{display:grid;gap:28px}
+      .territory-note{display:grid;grid-template-columns:36px 1fr;gap:16px;align-items:start;padding-bottom:26px;border-bottom:1px solid #eee8f1}
+      .territory-note:last-child{border-bottom:0;padding-bottom:0}
+      .territory-swatch{width:34px;height:34px;border-radius:8px;display:block;margin-top:2px}
+      .note-learning .territory-swatch{background:#f28a31}.note-school .territory-swatch{background:#b23aa0}.note-slep .territory-swatch{background:#5d48a3}
+      .territory-note h3{margin:0 0 8px;font-size:clamp(17px,1.7vw,23px);line-height:1.18;color:#5d48a3;font-weight:600;letter-spacing:-.02em}
+      .territory-note p{margin:0;font-size:13px;line-height:1.58;color:#545d66;max-width:620px}
+      @media(max-width:900px){.territory-grid{grid-template-columns:1fr;gap:38px}.territory-outer{width:min(100%,500px)}.territory-explain{max-width:680px;margin:0 auto;width:100%}}
+      @media(max-width:560px){.territory-section{padding-top:62px;padding-bottom:62px}.territory-grid{margin-top:26px;gap:30px}.territory-outer{width:min(100%,360px)}.outer-label{font-size:7px}.middle-label{font-size:6.4px}.territory-note{grid-template-columns:30px 1fr;gap:12px}.territory-swatch{width:30px;height:30px}.territory-note h3{font-size:17px}.territory-note p{font-size:12px}}
+    `;
+    document.head.appendChild(territoryStyle);
+  }
 }
