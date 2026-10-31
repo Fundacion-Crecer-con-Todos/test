@@ -66,7 +66,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     .scale-visual{grid-column:1/-1;margin-top:16px;display:grid;grid-template-columns:minmax(360px,1fr) 520px;gap:10px;align-items:center;min-height:500px;background:#f7f3f8;border-radius:26px;padding:20px 22px;border:1px solid rgba(134,68,144,.07);box-shadow:0 12px 30px rgba(35,38,42,.06)}
     .scale-intro{padding:12px 8px 12px 4px}.scale-intro h4{margin:0;max-width:470px;font-size:clamp(36px,3.35vw,50px);line-height:1.03;letter-spacing:-.04em;font-weight:600;color:#13aeca}.scale-line{width:min(100%,280px);height:4px;margin:20px 0 18px;border-radius:999px;background:#13b4ce}.scale-intro p{max-width:430px;margin:0;font-size:14px;line-height:1.6;color:#59636b}
     .scale-coverage-card{position:relative;display:grid;grid-template-columns:210px 1fr;gap:4px;align-items:center;justify-self:end;width:520px;min-height:420px;padding:14px 18px;border-radius:24px;background:#e6e4e8;box-shadow:inset 0 0 0 1px rgba(93,72,163,.05);box-sizing:border-box}
-    .scale-brand{position:absolute;top:18px;left:20px;width:78px;height:auto;display:block;z-index:2;filter:none}
+    .scale-brand{position:absolute;top:18px;left:20px;width:78px;height:auto;display:block;z-index:2;mix-blend-mode:multiply;background:transparent}
     .scale-map-wrap{height:390px;display:flex;align-items:center;justify-content:center;overflow:hidden}
     .scale-map-image{display:block;width:190px;height:390px;max-width:none;object-fit:cover;object-position:center;filter:hue-rotate(58deg) saturate(1.65) brightness(1.08)}
     .scale-stats{display:grid;gap:2px;padding-left:2px}
