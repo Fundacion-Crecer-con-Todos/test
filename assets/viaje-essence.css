@@ -60,8 +60,9 @@
 /* Feedback Vale — audiencia */
 .viaje-section.soft .section-head{display:block!important;margin-bottom:30px!important}
 .viaje-section.soft .section-head h2{max-width:none!important;margin-bottom:14px!important}
-.viaje-section.soft .section-head p{max-width:760px!important;font-size:17px!important;line-height:1.5!important;color:#4f5961!important}
+.viaje-section.soft .section-head p{max-width:none!important;width:100%!important;font-size:17px!important;line-height:1.5!important;color:#4f5961!important;white-space:nowrap!important}
 .viaje-section.soft .audience-item p{font-size:15px!important;line-height:1.5!important;max-width:none!important}
+@media(max-width:900px){.viaje-section.soft .section-head p{white-space:normal!important}}
 
 /* Métricas integradas: dato + concepto en una misma unidad visual */
 .metric-card{justify-content:flex-start!important;gap:18px!important;min-height:170px!important;padding:26px 26px!important}
