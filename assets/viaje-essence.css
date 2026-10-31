@@ -56,3 +56,20 @@
 .viaje-hero-visual>.viaje-visual-title,.viaje-hero-visual>.viaje-visual-sub,.viaje-hero-visual>.viaje-orbits,.viaje-hero-visual>.viaje-characters{display:none!important}
 @media(max-width:900px){.viaje-hero-visual{min-height:0!important;aspect-ratio:720/440}}
 @media(max-width:560px){.viaje-hero-visual{min-height:0!important;aspect-ratio:720/440;border-radius:22px!important}}
+
+/* Feedback Vale — audiencia y métricas */
+.viaje-section.soft .section-head{display:block!important;margin-bottom:30px!important;max-width:900px}
+.viaje-section.soft .section-head h2{max-width:none!important;margin-bottom:12px!important}
+.viaje-section.soft .section-head p{max-width:760px!important;font-size:16px!important;line-height:1.55!important;color:#4e5961!important;font-weight:350!important}
+
+.metric-card{justify-content:flex-start!important;gap:12px!important;min-height:168px!important;padding:24px!important}
+.metric-card strong{font-size:clamp(38px,3.4vw,52px)!important;line-height:.95!important;font-weight:500!important;margin:0!important;color:#25262a!important}
+.metric-card p{font-size:13px!important;line-height:1.48!important;font-weight:350!important;color:#454c53!important;max-width:260px!important}
+.metric-card strong + p{margin-top:4px!important}
+.metric-card:nth-child(1) strong:after{content:" etapas";font-size:.4em;font-weight:500;letter-spacing:-.02em;vertical-align:middle;margin-left:7px}
+.metric-card:nth-child(2) strong:after{content:" pasos";font-size:.4em;font-weight:500;letter-spacing:-.02em;vertical-align:middle;margin-left:7px}
+.metric-card:nth-child(3) strong:after{content:" por sesión";font-size:.38em;font-weight:500;letter-spacing:-.02em;vertical-align:middle;margin-left:7px}
+.metric-card:nth-child(4) strong:after{content:" de implementación";font-size:.34em;font-weight:500;letter-spacing:-.02em;vertical-align:middle;margin-left:7px}
+
+@media(max-width:900px){.viaje-section.soft .section-head p{font-size:15px!important}.metric-card{min-height:155px!important}.metric-card p{max-width:none!important}}
+@media(max-width:560px){.viaje-section.soft .section-head p{font-size:14px!important}.metric-card{min-height:0!important;padding:20px!important}.metric-card strong{font-size:42px!important}}
