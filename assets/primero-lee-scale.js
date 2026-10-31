@@ -56,7 +56,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
       <div class="scale-panel scale-panel--regions">
         <div class="scale-map-wrap">
           <div class="scale-map-stage scale-map-stage--regions" aria-label="Cobertura territorial de Primero LEE en Chile">
-            <img class="scale-map-image scale-map-image--regions" src="/assets/primero-lee-territorio.svg" alt="Mapa de Chile que representa la cobertura territorial de Primero LEE" loading="lazy">
+            <img class="scale-map-image scale-map-image--regions" src="/assets/mapa.svg" alt="Mapa de Chile que representa la cobertura territorial de Primero LEE" loading="lazy">
           </div>
           <div class="scale-map-caption">Cobertura territorial de Primero LEE en Chile</div>
         </div>
