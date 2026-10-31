@@ -18,11 +18,14 @@
 
   const style=document.createElement('style');
   style.textContent=`
-    .model-interactive-hint{display:flex;justify-content:flex-start;align-items:center;gap:8px;width:max-content;max-width:calc(100% - 48px);margin:14px 0 4px 24px;padding:0;color:#5d48a3;font-size:13px;font-weight:600;line-height:1.2;text-align:left}
-    .model-interactive-hint span{display:inline-block;font-size:15px;line-height:1;color:#5d48a3}
     .model-center,.model-node{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+    .model-center::after,.model-node::after{content:'+';position:absolute;right:10px;bottom:10px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#5d48a3;border:2px solid rgba(93,72,163,.18);box-shadow:0 5px 14px rgba(42,34,74,.14);font-size:20px;font-weight:600;line-height:1;z-index:4;transition:transform .18s ease,background .18s ease,color .18s ease,border-color .18s ease}
     .model-center:focus-visible,.model-node:focus-visible{outline:3px solid rgba(134,68,144,.34);outline-offset:4px}
-    @media(hover:hover) and (pointer:fine){.model-node:hover{transform:translate(-50%,-50%) scale(1.055);box-shadow:0 14px 28px rgba(30,51,57,.2);filter:saturate(1.04)}.model-center:hover{transform:translate(-50%,-50%) scale(1.045);box-shadow:0 12px 26px rgba(22,57,66,.18)}}
+    @media(hover:hover) and (pointer:fine){
+      .model-node:hover{transform:translate(-50%,-50%) scale(1.045);box-shadow:0 14px 28px rgba(30,51,57,.18);filter:saturate(1.04)}
+      .model-center:hover{transform:translate(-50%,-50%) scale(1.04);box-shadow:0 12px 26px rgba(22,57,66,.16)}
+      .model-center:hover::after,.model-node:hover::after{transform:rotate(90deg) scale(1.06);background:#5d48a3;color:#fff;border-color:#5d48a3}
+    }
     .model-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(20,25,30,.5);backdrop-filter:blur(4px)}
     .model-modal.is-open{display:flex}
     .model-modal-card{position:relative;width:min(100%,680px);max-height:min(82vh,720px);overflow:auto;background:#fff;border-radius:24px;padding:34px 34px 30px;box-shadow:0 30px 80px rgba(18,24,30,.28);animation:modelModalIn .18s ease-out}
@@ -33,14 +36,12 @@
     .model-modal-close:hover{background:#e8ecee}
     body.model-modal-open{overflow:hidden}
     @keyframes modelModalIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
-    @media(max-width:560px){.model-interactive-hint{max-width:100%;margin:10px 0 8px 8px;font-size:11.5px}.model-modal{padding:16px;align-items:flex-end}.model-modal-card{width:100%;max-height:78vh;border-radius:22px 22px 16px 16px;padding:28px 22px 24px}.model-modal-card h3{font-size:22px;padding-right:38px}.model-modal-card p{font-size:14px;line-height:1.62}.model-modal-close{top:14px;right:14px}}
+    @media(max-width:560px){
+      .model-center::after,.model-node::after{right:7px;bottom:7px;width:24px;height:24px;font-size:17px}
+      .model-modal{padding:16px;align-items:flex-end}.model-modal-card{width:100%;max-height:78vh;border-radius:22px 22px 16px 16px;padding:28px 22px 24px}.model-modal-card h3{font-size:22px;padding-right:38px}.model-modal-card p{font-size:14px;line-height:1.62}.model-modal-close{top:14px;right:14px}
+    }
   `;
   document.head.appendChild(style);
-
-  const hint=document.createElement('div');
-  hint.className='model-interactive-hint';
-  hint.innerHTML='Explora cada componente <span aria-hidden="true">↓</span>';
-  diagram.insertAdjacentElement('beforebegin',hint);
 
   const modal=document.createElement('div');
   modal.className='model-modal';
