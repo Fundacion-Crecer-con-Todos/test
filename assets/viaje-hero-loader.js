@@ -15,16 +15,10 @@
 
   const steps=document.querySelector('.steps-wrap');
   if(steps){
-    try{
-      const seqParts=await Promise.all([1,2,3].map(i=>fetchText(`/assets/viaje-secuencia-part-${i}.txt?v=20261031-sequence-v2`)));
-      const seqB64=seqParts.join('').replace(/\s+/g,'');
-      const threshold=steps.querySelector('.threshold')?.textContent?.trim()||'';
-      steps.innerHTML=`<div class="viaje-sequence-image"><img alt="Secuencia de 6 pasos por letra organizada en Día 1 y Día 2"></div>${threshold?`<div class="threshold">${threshold}</div>`:''}`;
-      const img=steps.querySelector('.viaje-sequence-image img');
-      img.src=`data:image/jpeg;base64,${seqB64}`;
-      const style=document.createElement('style');
-      style.textContent=`.viaje-sequence-image{width:100%;display:flex;justify-content:center;align-items:center;background:transparent;border-radius:0;padding:0;box-sizing:border-box;overflow:visible}.viaje-sequence-image img{display:block;width:auto;height:auto;max-width:min(860px,100%);border-radius:0;image-rendering:auto}.steps-wrap{display:grid;gap:22px;justify-items:center}.steps-wrap .threshold{width:100%;margin-top:0}@media(max-width:900px){.viaje-sequence-image img{max-width:min(760px,100%)}}@media(max-width:700px){.viaje-sequence-image img{width:100%;max-width:100%}}`;
-      document.head.appendChild(style);
-    }catch(err){console.error('Viaje sequence image:',err)}
+    const threshold=steps.querySelector('.threshold')?.textContent?.trim()||'';
+    steps.innerHTML=`<div class="viaje-sequence-image"><img src="/assets/viajeporlasletras.jpg?v=20261031-uploaded" alt="Secuencia de 6 pasos por letra organizada en Día 1 y Día 2" loading="lazy"></div>${threshold?`<div class="threshold">${threshold}</div>`:''}`;
+    const style=document.createElement('style');
+    style.textContent=`.viaje-sequence-image{width:100%;display:flex;justify-content:center;align-items:center;background:transparent;padding:0;overflow:visible}.viaje-sequence-image img{display:block;width:min(100%,980px);height:auto;margin:0 auto;border-radius:14px}.steps-wrap{display:grid;gap:22px;justify-items:center}.steps-wrap .threshold{width:100%;margin-top:0}@media(max-width:700px){.viaje-sequence-image img{width:100%;border-radius:10px}}`;
+    document.head.appendChild(style);
   }
 })();
