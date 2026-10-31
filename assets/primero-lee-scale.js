@@ -37,6 +37,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
         <p>Experiencia implementando el programa en distintas realidades del sistema educativo.</p>
       </div>
       <div class="scale-coverage-card">
+        <img class="scale-brand" src="/assets/primero-lee-logo.png" alt="Primero LEE">
         <div class="scale-map-wrap" aria-label="Cobertura territorial de Primero LEE en Chile">
           <img class="scale-map-image" src="/assets/mapa.svg" alt="Mapa de Chile que representa la cobertura territorial de Primero LEE">
         </div>
@@ -64,7 +65,8 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     .feature-scalable{grid-column:1/-1;align-content:start;overflow:hidden}
     .scale-visual{grid-column:1/-1;margin-top:16px;display:grid;grid-template-columns:minmax(360px,1fr) 520px;gap:10px;align-items:center;min-height:500px;background:#f7f3f8;border-radius:26px;padding:20px 22px;border:1px solid rgba(134,68,144,.07);box-shadow:0 12px 30px rgba(35,38,42,.06)}
     .scale-intro{padding:12px 8px 12px 4px}.scale-intro h4{margin:0;max-width:470px;font-size:clamp(36px,3.35vw,50px);line-height:1.03;letter-spacing:-.04em;font-weight:600;color:#13aeca}.scale-line{width:min(100%,280px);height:4px;margin:20px 0 18px;border-radius:999px;background:#13b4ce}.scale-intro p{max-width:430px;margin:0;font-size:14px;line-height:1.6;color:#59636b}
-    .scale-coverage-card{display:grid;grid-template-columns:210px 1fr;gap:4px;align-items:center;justify-self:end;width:520px;min-height:420px;padding:14px 18px;border-radius:24px;background:#e6e4e8;box-shadow:inset 0 0 0 1px rgba(93,72,163,.05);box-sizing:border-box}
+    .scale-coverage-card{position:relative;display:grid;grid-template-columns:210px 1fr;gap:4px;align-items:center;justify-self:end;width:520px;min-height:420px;padding:14px 18px;border-radius:24px;background:#e6e4e8;box-shadow:inset 0 0 0 1px rgba(93,72,163,.05);box-sizing:border-box}
+    .scale-brand{position:absolute;top:18px;left:20px;width:78px;height:auto;display:block;z-index:2;filter:none}
     .scale-map-wrap{height:390px;display:flex;align-items:center;justify-content:center;overflow:hidden}
     .scale-map-image{display:block;width:190px;height:390px;max-width:none;object-fit:cover;object-position:center;filter:hue-rotate(58deg) saturate(1.65) brightness(1.08)}
     .scale-stats{display:grid;gap:2px;padding-left:2px}
@@ -72,9 +74,9 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     .scale-stat-arrow{display:block;color:#5b3f9b;font-size:21px;line-height:1}.scale-stat>div{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
     .scale-number{font-size:clamp(40px,3.15vw,52px);line-height:.9;color:#5b3f9b;font-weight:700;letter-spacing:-.05em}.scale-label{font-size:clamp(18px,1.5vw,22px);line-height:1;color:#5b3f9b;font-weight:700;letter-spacing:-.02em}.scale-label--big{font-size:clamp(18px,1.4vw,20px);line-height:1.08}
 
-    @media(max-width:1180px){.scale-visual{grid-template-columns:minmax(300px,1fr) 500px}.scale-coverage-card{width:500px;grid-template-columns:200px 1fr}.scale-map-image{width:180px}}
+    @media(max-width:1180px){.scale-visual{grid-template-columns:minmax(300px,1fr) 500px}.scale-coverage-card{width:500px;grid-template-columns:200px 1fr}.scale-map-image{width:180px}.scale-brand{width:72px}}
     @media(max-width:900px){.scale-visual{grid-template-columns:1fr;gap:18px;min-height:0;padding:24px}.scale-coverage-card{width:min(100%,520px);justify-self:center}.scale-intro h4{max-width:650px}.systemic-layer{grid-template-columns:1fr;gap:14px}.systemic-layer--school,.systemic-layer--classroom{margin-left:12px}.systemic-core{justify-self:start}.systemic-reference-note{max-width:100%;white-space:normal}}
-    @media(max-width:620px){.scale-visual{padding:14px;border-radius:20px}.scale-intro h4{font-size:32px}.scale-intro p{font-size:13px}.scale-coverage-card{grid-template-columns:1fr;gap:8px;width:100%;min-height:0;padding:18px 14px;border-radius:20px}.scale-map-wrap{height:300px}.scale-map-image{width:150px;height:300px}.scale-stats{padding:0 8px}.scale-stat{padding:13px 0}.scale-number{font-size:36px}.scale-label{font-size:18px}.scale-label--big{font-size:17px}.systemic-layer{padding:18px;border-radius:17px}.systemic-layer--school,.systemic-layer--classroom{margin-left:8px}.systemic-layer-copy{padding-right:0}.systemic-core{width:92px;height:92px;border-width:4px}}
+    @media(max-width:620px){.scale-visual{padding:14px;border-radius:20px}.scale-intro h4{font-size:32px}.scale-intro p{font-size:13px}.scale-coverage-card{grid-template-columns:1fr;gap:8px;width:100%;min-height:0;padding:18px 14px;border-radius:20px}.scale-brand{top:14px;left:14px;width:64px}.scale-map-wrap{height:300px}.scale-map-image{width:150px;height:300px}.scale-stats{padding:0 8px}.scale-stat{padding:13px 0}.scale-number{font-size:36px}.scale-label{font-size:18px}.scale-label--big{font-size:17px}.systemic-layer{padding:18px;border-radius:17px}.systemic-layer--school,.systemic-layer--classroom{margin-left:8px}.systemic-layer-copy{padding-right:0}.systemic-core{width:92px;height:92px;border-width:4px}}
   `;
   document.head.appendChild(style);
 }
