@@ -18,8 +18,11 @@
 
   const style=document.createElement('style');
   style.textContent=`
-    .model-center,.model-node{cursor:pointer}
+    .model-interactive-hint{display:flex;align-items:center;gap:9px;width:max-content;max-width:100%;margin:18px auto 0;padding:9px 14px;border-radius:999px;background:#fff;color:#5d48a3;border:1px solid rgba(93,72,163,.16);box-shadow:0 6px 18px rgba(93,72,163,.08);font-size:12px;font-weight:600;line-height:1.25}
+    .model-interactive-hint span{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#f1ebf7;color:#5d48a3;font-size:13px}
+    .model-center,.model-node{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
     .model-center:focus-visible,.model-node:focus-visible{outline:3px solid rgba(134,68,144,.34);outline-offset:4px}
+    @media(hover:hover) and (pointer:fine){.model-node:hover{transform:translate(-50%,-50%) scale(1.055);box-shadow:0 14px 28px rgba(30,51,57,.2);filter:saturate(1.04)}.model-center:hover{transform:translate(-50%,-50%) scale(1.045);box-shadow:0 12px 26px rgba(22,57,66,.18)}}
     .model-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(20,25,30,.5);backdrop-filter:blur(4px)}
     .model-modal.is-open{display:flex}
     .model-modal-card{position:relative;width:min(100%,680px);max-height:min(82vh,720px);overflow:auto;background:#fff;border-radius:24px;padding:34px 34px 30px;box-shadow:0 30px 80px rgba(18,24,30,.28);animation:modelModalIn .18s ease-out}
@@ -30,9 +33,14 @@
     .model-modal-close:hover{background:#e8ecee}
     body.model-modal-open{overflow:hidden}
     @keyframes modelModalIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
-    @media(max-width:560px){.model-modal{padding:16px;align-items:flex-end}.model-modal-card{width:100%;max-height:78vh;border-radius:22px 22px 16px 16px;padding:28px 22px 24px}.model-modal-card h3{font-size:22px;padding-right:38px}.model-modal-card p{font-size:14px;line-height:1.62}.model-modal-close{top:14px;right:14px}}
+    @media(max-width:560px){.model-interactive-hint{width:auto;margin-top:14px;border-radius:16px;font-size:11.5px;text-align:left}.model-modal{padding:16px;align-items:flex-end}.model-modal-card{width:100%;max-height:78vh;border-radius:22px 22px 16px 16px;padding:28px 22px 24px}.model-modal-card h3{font-size:22px;padding-right:38px}.model-modal-card p{font-size:14px;line-height:1.62}.model-modal-close{top:14px;right:14px}}
   `;
   document.head.appendChild(style);
+
+  const hint=document.createElement('div');
+  hint.className='model-interactive-hint';
+  hint.innerHTML='<span aria-hidden="true">↗</span>Haz clic en cada componente para conocer en qué consiste';
+  diagram.insertAdjacentElement('beforebegin',hint);
 
   const modal=document.createElement('div');
   modal.className='model-modal';
