@@ -51,8 +51,8 @@
 @media(max-width:560px){.viaje-hero-visual{min-height:300px!important}.viaje-visual-title{left:22px;top:24px;font-size:40px}.viaje-visual-sub{left:24px;top:122px}.viaje-characters{right:24px;bottom:38px;transform:scale(.8);transform-origin:bottom right}.viaje-route-section,.viaje-progress{padding:62px 0}.viaje-stages{grid-template-columns:repeat(2,1fr)}.viaje-medal-path{grid-template-columns:repeat(5,1fr);gap:8px}.viaje-medal-board{padding:18px}}
 
 /* Hero con arte oficial de Viaje por las Letras */
-.viaje-hero-visual{min-height:0!important;aspect-ratio:1198/728;background:#173c8f url('/assets/viaje-por-las-letras.jpg') center center/cover no-repeat!important;transform:none!important;box-shadow:0 24px 54px rgba(25,44,104,.24)!important}
+.viaje-hero-visual{min-height:0!important;aspect-ratio:720/440;background:#173c8f url('/assets/viaje-por-las-letras.jpg?v=20261031-1836') center center/cover no-repeat!important;transform:none!important;box-shadow:0 24px 54px rgba(25,44,104,.24)!important}
 .viaje-hero-visual:before,.viaje-hero-visual:after{content:none!important;display:none!important}
 .viaje-hero-visual>.viaje-visual-title,.viaje-hero-visual>.viaje-visual-sub,.viaje-hero-visual>.viaje-orbits,.viaje-hero-visual>.viaje-characters{display:none!important}
-@media(max-width:900px){.viaje-hero-visual{min-height:0!important;aspect-ratio:1198/728}}
-@media(max-width:560px){.viaje-hero-visual{min-height:0!important;aspect-ratio:1198/728;border-radius:22px!important}}
+@media(max-width:900px){.viaje-hero-visual{min-height:0!important;aspect-ratio:720/440}}
+@media(max-width:560px){.viaje-hero-visual{min-height:0!important;aspect-ratio:720/440;border-radius:22px!important}}
