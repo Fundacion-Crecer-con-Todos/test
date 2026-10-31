@@ -21,4 +21,12 @@
     style.textContent=`.viaje-sequence-image{width:100%;display:flex;justify-content:center;align-items:center;background:transparent;padding:0;overflow:visible}.viaje-sequence-image img{display:block;width:min(100%,980px);height:auto;margin:0 auto;border-radius:14px}.steps-wrap{display:grid;gap:22px;justify-items:center}.steps-wrap .threshold{width:100%;margin-top:0}@media(max-width:700px){.viaje-sequence-image img{width:100%;border-radius:10px}}`;
     document.head.appendChild(style);
   }
+
+  const medalBoard=document.querySelector('.viaje-medal-board');
+  if(medalBoard){
+    medalBoard.innerHTML=`<img class="viaje-tablero-image" src="/assets/tablero.png?v=20261031-tablero" alt="Tablero de progreso de Viaje por las Letras" loading="lazy">`;
+    const style=document.createElement('style');
+    style.textContent=`.viaje-medal-board{display:flex;align-items:center;justify-content:center;background:transparent!important;box-shadow:none!important;padding:0!important}.viaje-tablero-image{display:block;width:min(100%,760px);height:auto;margin:0 auto;border-radius:24px}@media(max-width:700px){.viaje-tablero-image{width:100%;border-radius:16px}}`;
+    document.head.appendChild(style);
+  }
 })();
