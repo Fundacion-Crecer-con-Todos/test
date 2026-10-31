@@ -32,81 +32,49 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     visual.setAttribute('aria-label','Implementación de Primero LEE en 15 regiones, 80 comunas y contextos urbanos y rurales');
     visual.innerHTML=`
       <div class="scale-intro">
-        <div>
-          <h4>Implementación en diversos contextos</h4>
-          <div class="scale-line"></div>
-          <p>Experiencia implementando el programa en distintas realidades del sistema educativo.</p>
-        </div>
+        <h4>Implementación en diversos contextos</h4>
+        <div class="scale-line"></div>
+        <p>Experiencia implementando el programa en distintas realidades del sistema educativo.</p>
       </div>
       <div class="scale-coverage-card">
-        <div class="scale-map-wrap">
-          <div class="scale-map-stage scale-map-stage--regions" aria-label="Cobertura territorial de Primero LEE en Chile">
-            <img class="scale-map-image scale-map-image--regions" src="/assets/mapa.svg" alt="Mapa de Chile que representa la cobertura territorial de Primero LEE" loading="lazy">
-          </div>
+        <div class="scale-map-wrap" aria-label="Cobertura territorial de Primero LEE en Chile">
+          <img class="scale-map-image" src="/assets/mapa.svg" alt="Mapa de Chile que representa la cobertura territorial de Primero LEE">
         </div>
-        <div class="scale-stats-card">
-          <div class="scale-stats">
-            <div class="scale-stat"><span class="scale-stat-arrow">▶</span><div><strong class="scale-number">15</strong><span class="scale-label">regiones</span></div></div>
-            <div class="scale-stat"><span class="scale-stat-arrow">▶</span><div><strong class="scale-number">80</strong><span class="scale-label">comunas</span></div></div>
-            <div class="scale-stat scale-stat--context"><span class="scale-stat-arrow">▶</span><div><strong class="scale-label scale-label--big">Presencia urbana y rural</strong></div></div>
-          </div>
+        <div class="scale-stats">
+          <div class="scale-stat"><span class="scale-stat-arrow">▶</span><div><strong class="scale-number">15</strong><span class="scale-label">regiones</span></div></div>
+          <div class="scale-stat"><span class="scale-stat-arrow">▶</span><div><strong class="scale-number">80</strong><span class="scale-label">comunas</span></div></div>
+          <div class="scale-stat"><span class="scale-stat-arrow">▶</span><div><strong class="scale-label scale-label--big">Presencia urbana y rural</strong></div></div>
         </div>
       </div>`;
     card.appendChild(visual);
   }
 
-  const features=document.querySelector('.features-section');
-  if(features&&!document.querySelector('.territory-section')){
-    const section=document.createElement('section');
-    section.className='primero-section territory-section';
-    section.innerHTML=`
-      <div class="container">
-        <span class="section-eyebrow">Cómo trabajamos en el territorio</span>
-        <h2>Primero LEE en el aula, la escuela y el SLEP</h2>
-        <div class="territory-grid">
-          <div class="territory-model">
-            <svg class="territory-svg" viewBox="0 0 560 560" role="img" aria-label="Modelo de trabajo territorial de Primero LEE">
-              <circle cx="280" cy="280" r="248" fill="#5d48a3"/>
-              <circle cx="280" cy="280" r="150" fill="#b23aa0" stroke="#fff" stroke-width="3"/>
-              <circle cx="280" cy="280" r="54" fill="#f28a31" stroke="#fff" stroke-width="3"/>
-              <g fill="#fff" font-family="Fredoka, sans-serif" font-weight="500" text-anchor="middle">
-                <text x="280" y="62" font-size="12"><tspan x="280">Movilización del sistema,</tspan><tspan x="280" dy="14">reconocimiento e incentivos</tspan></text>
-                <text x="450" y="188" font-size="12"><tspan x="450">Planeamiento y</tspan><tspan x="450" dy="14">monitoreo</tspan></text>
-                <text x="432" y="400" font-size="9.5"><tspan x="432">Recursos para</tspan><tspan x="432" dy="12">la continuidad</tspan></text>
-                <text x="280" y="486" font-size="11.5"><tspan x="280">Condiciones para la</tspan><tspan x="280" dy="14">enseñanza y el aprendizaje</tspan></text>
-                <text x="128" y="394" font-size="9.5"><tspan x="128">Liderazgo y</tspan><tspan x="128" dy="12">compromiso</tspan><tspan x="128" dy="12">político</tspan></text>
-                <text x="110" y="188" font-size="12"><tspan x="110">Fortalecimiento</tspan><tspan x="110" dy="14">de la gestión</tspan></text>
-                <text x="280" y="170" font-size="10"><tspan x="280">Formación y acompañamiento a</tspan><tspan x="280" dy="12">docentes y equipos directivos</tspan></text>
-                <text x="390" y="271" font-size="10.5"><tspan x="390">Materiales</tspan><tspan x="390" dy="12">de calidad</tspan></text>
-                <text x="345" y="360" font-size="8.8"><tspan x="345">Lineamientos</tspan><tspan x="345" dy="10.5">pedagógico-</tspan><tspan x="345" dy="10.5">curriculares</tspan></text>
-                <text x="215" y="360" font-size="8.8"><tspan x="215">Reforzamiento y</tspan><tspan x="215" dy="10.5">aceleración de</tspan><tspan x="215" dy="10.5">aprendizajes</tspan></text>
-                <text x="170" y="271" font-size="10.5"><tspan x="170">Evaluación de</tspan><tspan x="170" dy="12">aprendizajes</tspan></text>
-                <text x="280" y="287" font-size="18" font-weight="600">Aprendizaje</text>
-              </g>
-            </svg>
-            <small>Adaptado de “Factores de éxito compartidos”, Instituto Natura.</small>
-          </div>
-          <div class="territory-explain">
-            <article class="territory-note note-learning"><span class="territory-swatch"></span><div><h3>Aprendizaje</h3><p>El centro de todo: que cada niño y niña aprenda a leer y comprender lo que lee a tiempo.</p></div></article>
-            <article class="territory-note note-school"><span class="territory-swatch"></span><div><h3>Escuela: docentes, equipos directivos y UTP</h3><p>Lo que ocurre en el aula y en la gestión pedagógica: formación, materiales, evaluación y apoyo a quienes van más atrás.</p></div></article>
-            <article class="territory-note note-slep"><span class="territory-swatch"></span><div><h3>SLEP: sostenedor y UATP</h3><p>Las condiciones para que la mejora sea efectiva y sostenible en el territorio: gestión, planificación, recursos y liderazgo.</p></div></article>
-          </div>
-        </div>
-      </div>`;
-    features.insertAdjacentElement('afterend',section);
-  }
-
   const style=document.createElement('style');
   style.textContent=`
-    .feature-systemic{grid-column:1/-1!important}.systemic-reference{grid-column:1/-1!important;width:100%;margin:22px 0 2px}.systemic-reference-label{margin-bottom:12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5d48a3}.systemic-reference-stage{padding:16px;border-radius:26px;background:#f6f3f8;border:1px solid rgba(93,72,163,.08);box-shadow:0 12px 28px rgba(35,38,42,.05)}.systemic-layer{position:relative;display:grid;grid-template-columns:minmax(210px,.68fr) minmax(0,1.32fr);align-items:center;min-height:142px;border-radius:22px;padding:22px 24px 22px 28px;box-sizing:border-box}.systemic-layer--slep{background:#5d48a3;color:#fff}.systemic-layer--school{background:#b23aa0;color:#fff;margin-left:20px;min-height:116px}.systemic-layer--classroom{background:#20b5cf;color:#fff;margin-left:20px;min-height:90px}.systemic-layer-copy{padding-right:24px;min-width:0}.systemic-layer-copy span{display:block;margin-bottom:5px;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;opacity:.78}.systemic-layer-copy strong{display:block;font-size:clamp(17px,1.55vw,22px);line-height:1.08;font-weight:600;letter-spacing:-.025em}.systemic-layer-copy p{margin:7px 0 0;font-size:11.5px;line-height:1.4;color:rgba(255,255,255,.86)}.systemic-layer--school>.systemic-layer-copy,.systemic-layer--classroom>.systemic-layer-copy{align-self:center}.systemic-core{justify-self:end;width:124px;height:124px;margin-right:2px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#f28a31;color:#fff;border:5px solid rgba(255,255,255,.9);box-shadow:0 10px 24px rgba(76,52,29,.16)}.systemic-core span{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.9}.systemic-core strong{margin-top:4px;font-size:18px;line-height:1.02}.systemic-reference-note{margin:14px 4px 0;font-size:12.5px;line-height:1.5;color:#616a72;max-width:820px}
+    .feature-systemic{grid-column:1/-1!important}
+    .systemic-reference{grid-column:1/-1!important;width:100%;margin:22px 0 2px}
+    .systemic-reference-label{margin-bottom:12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5d48a3}
+    .systemic-reference-stage{padding:16px;border-radius:26px;background:#f6f3f8;border:1px solid rgba(93,72,163,.08);box-shadow:0 12px 28px rgba(35,38,42,.05)}
+    .systemic-layer{position:relative;display:grid;grid-template-columns:minmax(210px,.68fr) minmax(0,1.32fr);align-items:center;min-height:142px;border-radius:22px;padding:22px 24px 22px 28px;box-sizing:border-box}
+    .systemic-layer--slep{background:#5d48a3;color:#fff}.systemic-layer--school{background:#b23aa0;color:#fff;margin-left:20px;min-height:116px}.systemic-layer--classroom{background:#20b5cf;color:#fff;margin-left:20px;min-height:90px}
+    .systemic-layer-copy{padding-right:24px;min-width:0}.systemic-layer-copy span{display:block;margin-bottom:5px;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;opacity:.78}.systemic-layer-copy strong{display:block;font-size:clamp(17px,1.55vw,22px);line-height:1.08;font-weight:600;letter-spacing:-.025em}.systemic-layer-copy p{margin:7px 0 0;font-size:11.5px;line-height:1.4;color:rgba(255,255,255,.86)}
+    .systemic-core{justify-self:end;width:124px;height:124px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#f28a31;color:#fff;border:5px solid rgba(255,255,255,.9)}
+    .systemic-core span{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}.systemic-core strong{margin-top:4px;font-size:18px}.systemic-reference-note{margin:14px 4px 0;font-size:12.5px;line-height:1.5;color:#616a72;max-width:820px}
 
-    .feature-scalable{grid-column:1/-1;align-content:start;overflow:hidden}.scale-visual{grid-column:1/-1;margin-top:16px;display:grid;grid-template-columns:minmax(360px,1fr) 500px;gap:8px;align-items:center;min-height:500px;background:#f7f3f8;border-radius:26px;padding:20px 22px;border:1px solid rgba(134,68,144,.07);box-shadow:0 12px 30px rgba(35,38,42,.06)}.scale-intro{padding:12px 8px 12px 4px}.scale-intro h4{margin:0;max-width:470px;font-size:clamp(36px,3.35vw,50px);line-height:1.03;letter-spacing:-.04em;font-weight:600;color:#13aeca}.scale-line{width:min(100%,280px);height:4px;margin:20px 0 18px;border-radius:999px;background:#13b4ce}.scale-intro p{max-width:430px;margin:0;font-size:14px;line-height:1.6;color:#59636b}.scale-coverage-card{display:grid;grid-template-columns:205px 245px;gap:0;align-items:center;justify-self:end;width:500px;min-height:405px;padding:12px 18px 12px 8px;border-radius:24px;background:#e6e4e8;box-shadow:inset 0 0 0 1px rgba(93,72,163,.05);overflow:hidden;box-sizing:border-box}.scale-map-wrap{display:flex;align-items:center;justify-content:flex-end;min-width:0}.scale-map-stage--regions{width:100%;height:390px;display:flex;align-items:center;justify-content:flex-end;overflow:visible}.scale-map-image--regions{display:block;width:auto;max-width:none;height:390px;object-fit:contain;transform:scale(1.36);transform-origin:center right;filter:hue-rotate(58deg) saturate(1.65) brightness(1.08)}.scale-stats-card{position:relative;z-index:2;align-self:center;padding:0;margin-left:-8px}.scale-stats{display:grid;gap:0}.scale-stat{display:grid;grid-template-columns:20px minmax(0,1fr);gap:5px;align-items:center;padding:16px 0}.scale-stat-arrow{display:block;color:#5b3f9b;font-size:20px;line-height:1}.scale-stat>div{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap}.scale-number{font-size:clamp(40px,3vw,50px);line-height:.9;color:#5b3f9b;font-weight:700;letter-spacing:-.05em}.scale-label{font-size:clamp(18px,1.4vw,21px);line-height:1;color:#5b3f9b;font-weight:700;letter-spacing:-.02em}.scale-label--big{font-size:clamp(18px,1.35vw,20px);line-height:1.08}.scale-stat--context{padding-top:16px;padding-bottom:6px}
+    .feature-scalable{grid-column:1/-1;align-content:start;overflow:hidden}
+    .scale-visual{grid-column:1/-1;margin-top:16px;display:grid;grid-template-columns:minmax(360px,1fr) 520px;gap:10px;align-items:center;min-height:500px;background:#f7f3f8;border-radius:26px;padding:20px 22px;border:1px solid rgba(134,68,144,.07);box-shadow:0 12px 30px rgba(35,38,42,.06)}
+    .scale-intro{padding:12px 8px 12px 4px}.scale-intro h4{margin:0;max-width:470px;font-size:clamp(36px,3.35vw,50px);line-height:1.03;letter-spacing:-.04em;font-weight:600;color:#13aeca}.scale-line{width:min(100%,280px);height:4px;margin:20px 0 18px;border-radius:999px;background:#13b4ce}.scale-intro p{max-width:430px;margin:0;font-size:14px;line-height:1.6;color:#59636b}
+    .scale-coverage-card{display:grid;grid-template-columns:210px 1fr;gap:4px;align-items:center;justify-self:end;width:520px;min-height:420px;padding:14px 18px;border-radius:24px;background:#e6e4e8;box-shadow:inset 0 0 0 1px rgba(93,72,163,.05);box-sizing:border-box}
+    .scale-map-wrap{height:390px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .scale-map-image{display:block;width:190px;height:390px;max-width:none;object-fit:cover;object-position:center;filter:hue-rotate(58deg) saturate(1.65) brightness(1.08)}
+    .scale-stats{display:grid;gap:2px;padding-left:2px}
+    .scale-stat{display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px;align-items:center;padding:18px 0}
+    .scale-stat-arrow{display:block;color:#5b3f9b;font-size:21px;line-height:1}.scale-stat>div{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+    .scale-number{font-size:clamp(40px,3.15vw,52px);line-height:.9;color:#5b3f9b;font-weight:700;letter-spacing:-.05em}.scale-label{font-size:clamp(18px,1.5vw,22px);line-height:1;color:#5b3f9b;font-weight:700;letter-spacing:-.02em}.scale-label--big{font-size:clamp(18px,1.4vw,20px);line-height:1.08}
 
-    .territory-section{background:#fff;padding:76px 0;overflow:hidden}.territory-section .container{width:min(calc(100% - 40px),1320px);margin-inline:auto;box-sizing:border-box}.territory-section h2{max-width:760px}.territory-grid{margin-top:32px;display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:42px;align-items:center;width:100%;min-width:0}.territory-model,.territory-explain{min-width:0}.territory-model{display:flex;flex-direction:column;align-items:center}.territory-svg{display:block;width:min(100%,520px);height:auto;overflow:visible}.territory-model small{margin-top:12px;font-size:9px;color:#7a8188;font-style:italic;text-align:center}.territory-explain{display:grid;gap:20px;width:100%;max-width:100%}.territory-note{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;align-items:start;padding-bottom:22px;border-bottom:1px solid #eee8f1;min-width:0}.territory-note:last-child{border-bottom:0;padding-bottom:0}.territory-note>div{min-width:0}.territory-swatch{width:34px;height:34px;border-radius:8px;display:block;margin-top:2px}.note-learning .territory-swatch{background:#f28a31}.note-school .territory-swatch{background:#b23aa0}.note-slep .territory-swatch{background:#5d48a3}.territory-note h3{margin:0 0 8px;font-size:clamp(17px,1.45vw,22px);line-height:1.18;color:#5d48a3;font-weight:600;letter-spacing:-.02em;overflow-wrap:anywhere}.territory-note p{margin:0;font-size:12.5px;line-height:1.55;color:#545d66;max-width:none;overflow-wrap:anywhere}
-    @media(max-width:1180px){.scale-visual{grid-template-columns:minmax(300px,1fr) 470px;gap:8px;padding:18px}.scale-coverage-card{width:470px;grid-template-columns:190px 230px;padding:10px 16px 10px 8px}.scale-map-image--regions{transform:scale(1.28)}.territory-grid{grid-template-columns:1fr;gap:34px}.territory-model{max-width:560px;margin:0 auto;width:100%}.territory-explain{max-width:720px;margin:0 auto}.territory-section h2{max-width:760px}}
-    @media(max-width:900px){.scale-visual{grid-template-columns:1fr;gap:18px;min-height:0;padding:24px}.scale-intro{padding:8px 4px 0}.scale-intro h4{max-width:650px}.scale-coverage-card{width:min(100%,500px);justify-self:center;grid-template-columns:205px 245px;min-height:390px}.scale-map-stage--regions{height:360px}.scale-map-image--regions{height:356px;transform:scale(1.18)}.systemic-reference-stage{padding:12px}.systemic-layer{grid-template-columns:1fr;gap:14px;min-height:0;padding:22px}.systemic-layer--school,.systemic-layer--classroom{margin-left:12px}.systemic-core{justify-self:start;width:106px;height:106px}.systemic-layer-copy{padding-right:0}}
-    @media(max-width:620px){.scale-visual{padding:14px;border-radius:20px}.scale-intro{padding:8px 6px 2px}.scale-intro h4{font-size:32px}.scale-intro p{font-size:13px}.scale-coverage-card{grid-template-columns:1fr;gap:6px;min-height:0;padding:18px 14px;border-radius:20px;width:100%}.scale-map-wrap{justify-content:center}.scale-map-stage--regions{height:320px;justify-content:center}.scale-map-image--regions{height:312px;transform:none}.scale-stats-card{padding:0 8px 6px;margin-left:0}.scale-stat{grid-template-columns:22px 1fr;gap:8px;padding:13px 0}.scale-stat-arrow{font-size:20px}.scale-number{font-size:36px}.scale-label{font-size:18px}.scale-label--big{font-size:17px}.systemic-reference-stage{padding:9px;border-radius:20px}.systemic-layer{padding:18px;border-radius:17px}.systemic-layer--school,.systemic-layer--classroom{margin-left:8px}.systemic-layer-copy strong{font-size:18px}.systemic-layer-copy p{font-size:11px}.systemic-core{width:92px;height:92px;border-width:4px}.systemic-core strong{font-size:15px}.systemic-reference-note{font-size:11.5px}}
-    @media(max-width:560px){.territory-section{padding:58px 0}.territory-section .container{width:min(calc(100% - 28px),1320px)}.territory-grid{margin-top:24px;gap:28px}.territory-svg{width:min(100%,360px)}.territory-note{grid-template-columns:30px minmax(0,1fr);gap:11px}.territory-swatch{width:30px;height:30px}.territory-note h3{font-size:17px}.territory-note p{font-size:12px}}
+    @media(max-width:1180px){.scale-visual{grid-template-columns:minmax(300px,1fr) 500px}.scale-coverage-card{width:500px;grid-template-columns:200px 1fr}.scale-map-image{width:180px}}
+    @media(max-width:900px){.scale-visual{grid-template-columns:1fr;gap:18px;min-height:0;padding:24px}.scale-coverage-card{width:min(100%,520px);justify-self:center}.scale-intro h4{max-width:650px}.systemic-layer{grid-template-columns:1fr;gap:14px}.systemic-layer--school,.systemic-layer--classroom{margin-left:12px}.systemic-core{justify-self:start}}
+    @media(max-width:620px){.scale-visual{padding:14px;border-radius:20px}.scale-intro h4{font-size:32px}.scale-intro p{font-size:13px}.scale-coverage-card{grid-template-columns:1fr;gap:8px;width:100%;min-height:0;padding:18px 14px;border-radius:20px}.scale-map-wrap{height:300px}.scale-map-image{width:150px;height:300px}.scale-stats{padding:0 8px}.scale-stat{padding:13px 0}.scale-number{font-size:36px}.scale-label{font-size:18px}.scale-label--big{font-size:17px}.systemic-layer{padding:18px;border-radius:17px}.systemic-layer--school,.systemic-layer--classroom{margin-left:8px}.systemic-layer-copy{padding-right:0}.systemic-core{width:92px;height:92px;border-width:4px}}
   `;
   document.head.appendChild(style);
 }
