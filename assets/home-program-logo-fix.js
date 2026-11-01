@@ -21,7 +21,7 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
     #impacto .impact-cards>.impact-card h3{font-size:15px!important;line-height:1.3!important;margin:0 0 7px!important}
     #impacto .impact-cards>.impact-card p{font-size:12.5px!important;line-height:1.5!important;margin:0!important}
 
-    .home-alliances{padding:88px 0;background:linear-gradient(180deg,#fff 0%,#f7fbfc 100%)}
+    .home-alliances{padding:88px 0;background:#f4edf6}
     .home-alliances .home-alliances-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:end;margin-bottom:34px}
     .home-alliances .tag{margin-bottom:14px}
     .home-alliances h2{margin:0;max-width:760px;font-size:clamp(34px,4vw,52px);line-height:1.05;letter-spacing:-.04em;font-weight:400;color:var(--fcct-ink)}
