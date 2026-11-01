@@ -87,7 +87,7 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       const section=document.createElement('section');
       section.className='home-alliances';
       section.innerHTML=`
-        <div class="container reveal">
+        <div class="container">
           <div class="home-alliances-head">
             <div>
               <span class="tag">Alianzas</span>
