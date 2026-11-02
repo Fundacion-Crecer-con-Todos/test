@@ -1,3 +1,14 @@
+(()=>{
+  if(document.querySelector('.fcct-utility'))return;
+  const utilityStyle=document.createElement('style');
+  utilityStyle.textContent=`.fcct-utility{position:relative;z-index:1200;background:#171717;color:#fff;border-top:3px solid #f0d4dc}.fcct-utility__inner{width:min(100% - 40px,1500px);min-height:46px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px}.fcct-utility__label{font-size:12.5px;line-height:1.2;letter-spacing:.055em;text-transform:uppercase;color:rgba(255,255,255,.62);white-space:nowrap}.fcct-utility__actions{display:flex;align-items:center;gap:9px}.fcct-utility__link{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:6px 12px;border:1px solid rgba(255,255,255,.24);border-radius:8px;color:#fff!important;text-decoration:none!important;font-size:12px;font-weight:500;line-height:1;white-space:nowrap;transition:background .18s ease,border-color .18s ease,transform .18s ease}.fcct-utility__link:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.42);transform:translateY(-1px)}@media(max-width:720px){.fcct-utility__inner{width:min(100% - 24px,1500px);min-height:auto;padding:8px 0;gap:8px;flex-direction:column;align-items:flex-start}.fcct-utility__label{font-size:10.5px;white-space:normal}.fcct-utility__actions{width:100%;gap:7px}.fcct-utility__link{flex:1;min-height:29px;padding:6px 7px;font-size:10.5px;text-align:center}}`;
+  document.head.appendChild(utilityStyle);
+  const utilityBar=document.createElement('aside');
+  utilityBar.className='fcct-utility';
+  utilityBar.setAttribute('aria-label','Accesos y recursos');
+  utilityBar.innerHTML='<div class="fcct-utility__inner"><span class="fcct-utility__label">Accesos y recursos</span><div class="fcct-utility__actions"><a class="fcct-utility__link" href="https://fundacioncrecer.nnodes.com/login" target="_blank" rel="noopener noreferrer">Acceso plataforma</a><a class="fcct-utility__link" href="https://capacitaciones.fundacioncrecer.net/login/index.php" target="_blank" rel="noopener noreferrer">Acceso capacitación</a></div></div>';
+  document.body.prepend(utilityBar);
+})();
 const favicon=document.createElement('link');favicon.rel='icon';favicon.type='image/jpeg';favicon.href='/assets/favicon.jpg';document.head.appendChild(favicon);
 const heroStyle=document.createElement('link');heroStyle.rel='stylesheet';heroStyle.href='/assets/hero-refresh.css';document.head.appendChild(heroStyle);
 const accentStyle=document.createElement('link');accentStyle.rel='stylesheet';accentStyle.href='/assets/theme-accent.css?v=all-wide-sections-20261022';document.head.appendChild(accentStyle);
