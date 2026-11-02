@@ -3,6 +3,10 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
 
   const cleanupStyle=document.createElement('style');
   cleanupStyle.textContent=`
+    .fcct-utility{display:none!important}
+    .access-card{transition:background .18s ease,border-color .18s ease!important}
+    .access-card:hover{transform:none!important;background:rgba(255,255,255,.16)!important;border-color:rgba(255,255,255,.42)!important}
+
     #programas .program-copy .acc-item:first-child .acc-btn>span:first-child:after{display:none!important;content:none!important}
     #programas .acc-btn .program-title-with-logo{display:inline-flex!important;align-items:center!important;gap:16px!important;min-width:0!important}
     #programas .acc-btn .program-brand{display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;margin:0!important;padding:0!important;min-height:0!important;height:auto!important;width:auto!important;overflow:visible!important;background:transparent!important;border:0!important;box-shadow:none!important;flex:0 0 auto!important}
