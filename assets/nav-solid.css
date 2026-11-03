@@ -17,6 +17,20 @@
   box-shadow:0 8px 24px rgba(25,31,38,.07)!important;
 }
 
+/* Cleaner hover for quick access cards */
+.access-card{
+  transform:none!important;
+  transition:background .18s ease,border-color .18s ease,box-shadow .18s ease!important;
+}
+.access-card:hover,
+.access-card:focus-visible{
+  transform:none!important;
+  background:rgba(255,255,255,.16)!important;
+  border-color:rgba(255,255,255,.42)!important;
+  box-shadow:0 10px 24px rgba(58,24,74,.18)!important;
+  outline:none!important;
+}
+
 @media(max-width:900px){
   .nav-wrap{
     top:0!important;
