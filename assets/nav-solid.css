@@ -18,16 +18,19 @@
 }
 
 /* Cleaner hover for quick access cards */
-.access-card{
+.join .join-card.access-hub .access-card{
   transform:none!important;
+  background:#fff!important;
+  border-color:rgba(134,68,144,.14)!important;
+  color:#864490!important;
   transition:background .18s ease,border-color .18s ease,box-shadow .18s ease!important;
 }
-.access-card:hover,
-.access-card:focus-visible{
+.join .join-card.access-hub .access-card:hover,
+.join .join-card.access-hub .access-card:focus-visible{
   transform:none!important;
-  background:rgba(255,255,255,.16)!important;
-  border-color:rgba(255,255,255,.42)!important;
-  box-shadow:0 10px 24px rgba(58,24,74,.18)!important;
+  background:#f5eef6!important;
+  border-color:rgba(134,68,144,.34)!important;
+  box-shadow:0 10px 26px rgba(58,24,74,.14)!important;
   outline:none!important;
 }
 
