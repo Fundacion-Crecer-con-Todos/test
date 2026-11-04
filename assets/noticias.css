@@ -57,3 +57,16 @@
 
 @media(max-width:980px){.news-feature{grid-template-columns:1fr}.news-feature-media{min-height:360px}.news-feature-copy{padding:34px}.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.news-hero:before{right:-220px}.news-hero:after{right:30px}}
 @media(max-width:700px){.news-home{padding:72px 0}.news-home-head{align-items:flex-start;flex-direction:column}.news-feature{border-radius:18px}.news-feature-media{min-height:240px}.news-feature-copy{padding:28px 23px}.news-feature h3{font-size:31px}.news-grid{grid-template-columns:1fr}.news-hero{padding:74px 0 64px}.news-hero:before{right:-245px;top:-175px;width:380px;height:380px;border-width:40px}.news-hero:after{display:none}.news-hero h1{font-size:52px}.news-hero p{font-size:16px;max-width:92%}.article-head{padding:56px 0 30px}.article-head h1{font-size:43px}.article-deck{font-size:17px}.article-hero{padding:0 18px;margin-bottom:42px}.article-hero img{border-radius:17px}.article-layout{width:calc(100% - 40px);padding:0 0 80px}.article-body{font-size:16px}.article-body p{text-align:left}.article-body h2{margin-top:45px}.article-body blockquote{margin:32px 0;padding:23px 22px;font-size:17px}}
+
+/* Filtros editoriales */
+.news-filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px}
+.news-filter{cursor:pointer;border:1px solid #dfe8ea;background:#fff;color:#54656b;border-radius:100px;padding:12px 19px;font:500 14px/1.3 inherit;font-family:inherit;transition:background .2s,color .2s,border-color .2s}
+.news-filter:hover{border-color:#008da8;color:#008da8}
+.news-filter.is-active{background:#008da8;border-color:#008da8;color:#fff}
+.news-card[hidden],.news-empty[hidden]{display:none!important}
+.news-category{display:block;color:#008da8;font-size:11px;font-weight:650;letter-spacing:.065em;text-transform:uppercase;margin-bottom:10px}
+.news-card .news-date{margin-bottom:15px;text-transform:none;letter-spacing:0;font-weight:400}
+.news-empty{padding:60px 15px;color:#647077;text-align:center;font-size:16px}
+.article-source{margin-top:32px}
+.article-source a{color:#008da8;text-underline-offset:4px;font-weight:600}
+@media(max-width:700px){.news-filters{gap:8px}.news-filter{padding:10px 14px;font-size:12px}}
