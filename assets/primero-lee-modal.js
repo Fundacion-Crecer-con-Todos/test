@@ -7,8 +7,7 @@
   document.querySelectorAll('.model-detail,.model-interactive-hint').forEach(el=>el.remove());
 
   const content=[
-    {title:'Primero LEE',text:'Primero LEE se basa en un modelo pedagógico balanceado que desarrolla de manera sistemática los distintos ejes del lenguaje: lectura, escritura y comunicación oral. Para ello, cuenta con planificaciones estructuradas y una Guía del Estudiante que articulan el trabajo en torno a unidades temáticas y la lectura de cuentos, facilitando una implementación organizada y consistente en el aula.'},
-    {title:'Programa innovador y equilibrado',text:'El programa articula una propuesta pedagógica estructurada y equilibrada para trabajar lectura, escritura y comunicación oral de manera sistemática, con unidades temáticas, cuentos y recursos que facilitan una implementación consistente en el aula.'},
+    {title:'Programa innovador y equilibrado',text:'Primero LEE se basa en un modelo pedagógico balanceado que desarrolla de manera sistemática los distintos ejes del lenguaje: lectura, escritura y comunicación oral. Para ello, cuenta con planificaciones estructuradas y una Guía del Estudiante que articulan el trabajo en torno a unidades temáticas y la lectura de cuentos, facilitando una implementación organizada y consistente en el aula.'},
     {title:'Sistema de evaluación y monitoreo',text:'Primero LEE cuenta con un sistema de evaluación permanente que permite monitorear el avance de los aprendizajes a lo largo del año. Los resultados se disponibilizan a través de una plataforma de resultados, reportería e informes, facilitando la identificación de brechas y la toma de decisiones pedagógicas basadas en evidencia, tanto a nivel de curso como de cada estudiante.'},
     {title:'Apoyo a niños y niñas con aprendizajes descendidos',text:'Primero LEE cuenta con programas de refuerzo focalizados para estudiantes que presentan mayores brechas de aprendizaje. A partir de los resultados de las evaluaciones, se identifican sus necesidades y se entregan recursos pedagógicos específicos a través de Primero LEE+, Refuerzo Lector y Plan de Aceleramiento, para fortalecer habilidades clave y favorecer el avance de cada estudiante.'},
     {title:'Acompañamiento',text:'Primero LEE cuenta con mentoras que acompañan a docentes y equipos directivos en cada escuela, a través de visitas presenciales y acompañamiento virtual. Estas instancias incluyen modelaje de estrategias, retroalimentación, reflexión pedagógica y análisis de dato, contribuyendo al desarrollo de capacidades y a la sostenibilidad de la mejora en el tiempo.'},
@@ -18,14 +17,17 @@
 
   const style=document.createElement('style');
   style.textContent=`
-    .model-center,.model-node{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
-    .model-center::after,.model-node::after{content:'+';position:absolute;right:10px;bottom:10px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#5d48a3;border:2px solid rgba(93,72,163,.18);box-shadow:0 5px 14px rgba(42,34,74,.14);font-size:20px;font-weight:600;line-height:1;z-index:4;transition:transform .18s ease,background .18s ease,color .18s ease,border-color .18s ease}
-    .model-center:focus-visible,.model-node:focus-visible{outline:3px solid rgba(134,68,144,.34);outline-offset:4px}
+    .model-node{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+    .model-node::after{content:'+';position:absolute;right:10px;bottom:10px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#5d48a3;border:2px solid rgba(93,72,163,.18);box-shadow:0 5px 14px rgba(42,34,74,.14);font-size:20px;font-weight:600;line-height:1;z-index:4;transition:transform .18s ease,background .18s ease,color .18s ease,border-color .18s ease}
+    .model-node:focus-visible{outline:3px solid rgba(134,68,144,.34);outline-offset:4px}
     @media(hover:hover) and (pointer:fine){
       .model-node:hover{transform:translate(-50%,-50%) scale(1.045);box-shadow:0 14px 28px rgba(30,51,57,.18);filter:saturate(1.04)}
-      .model-center:hover{transform:translate(-50%,-50%) scale(1.04);box-shadow:0 12px 26px rgba(22,57,66,.16)}
-      .model-center:hover::after,.model-node:hover::after{transform:rotate(90deg) scale(1.06);background:#5d48a3;color:#fff;border-color:#5d48a3}
+      .model-node:hover::after{transform:rotate(90deg) scale(1.06);background:#5d48a3;color:#fff;border-color:#5d48a3}
     }
+
+    /* El centro es solo la identidad visual: no abre información duplicada. */
+    .model-center{cursor:default!important}
+    .model-center::after{content:none!important;display:none!important}
     .model-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(20,25,30,.5);backdrop-filter:blur(4px)}
     .model-modal.is-open{display:flex}
     .model-modal-card{position:relative;width:min(100%,680px);max-height:min(82vh,720px);overflow:auto;background:#fff;border-radius:24px;padding:34px 34px 30px;box-shadow:0 30px 80px rgba(18,24,30,.28);animation:modelModalIn .18s ease-out}
@@ -37,7 +39,7 @@
     body.model-modal-open{overflow:hidden}
     @keyframes modelModalIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
     @media(max-width:560px){
-      .model-center::after,.model-node::after{right:7px;bottom:7px;width:24px;height:24px;font-size:17px}
+      .model-node::after{right:7px;bottom:7px;width:24px;height:24px;font-size:17px}
       .model-modal{padding:16px;align-items:flex-end}.model-modal-card{width:100%;max-height:78vh;border-radius:22px 22px 16px 16px;padding:28px 22px 24px}.model-modal-card h3{font-size:22px;padding-right:38px}.model-modal-card p{font-size:14px;line-height:1.62}.model-modal-close{top:14px;right:14px}
     }
   `;
@@ -76,7 +78,9 @@
   modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))closeModal()});
 
-  const items=[diagram.querySelector('.model-center'),...diagram.querySelectorAll('.model-node')];
+  const items=[...diagram.querySelectorAll('.model-node')];
+  const center=diagram.querySelector('.model-center');
+  if(center){center.removeAttribute('role');center.removeAttribute('tabindex');center.removeAttribute('aria-label');center.style.cursor='default';}
   items.forEach((el,i)=>{
     if(!el)return;
     el.setAttribute('role','button');
@@ -85,7 +89,7 @@
   });
 
   document.addEventListener('click',e=>{
-    const trigger=e.target.closest('.model-center,.model-node');
+    const trigger=e.target.closest('.model-node');
     if(!trigger||!diagram.contains(trigger))return;
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -94,7 +98,7 @@
   },true);
 
   document.addEventListener('keydown',e=>{
-    const trigger=e.target.closest&&e.target.closest('.model-center,.model-node');
+    const trigger=e.target.closest&&e.target.closest('.model-node');
     if(!trigger||!diagram.contains(trigger))return;
     if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopImmediatePropagation();const i=items.indexOf(trigger);if(i>=0)openModal(i,trigger)}
   },true);
