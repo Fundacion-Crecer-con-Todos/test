@@ -42,9 +42,9 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
           <img class="scale-map-image" src="/assets/mapa.svg" alt="Mapa de Chile que representa la cobertura territorial de Primero LEE">
         </div>
         <div class="scale-stats">
-          <div class="scale-stat"><span class="scale-stat-arrow">▶</span><div><strong class="scale-number">15</strong><span class="scale-label">regiones</span></div></div>
-          <div class="scale-stat"><span class="scale-stat-arrow">▶</span><div><strong class="scale-number">80</strong><span class="scale-label">comunas</span></div></div>
-          <div class="scale-stat"><span class="scale-stat-arrow">▶</span><div><strong class="scale-label scale-label--big">Presencia urbana y rural</strong></div></div>
+          <div class="scale-stat"><span class="scale-stat-arrow" aria-hidden="true"></span><div><strong class="scale-number">15</strong><span class="scale-label">regiones</span></div></div>
+          <div class="scale-stat"><span class="scale-stat-arrow" aria-hidden="true"></span><div><strong class="scale-number">80</strong><span class="scale-label">comunas</span></div></div>
+          <div class="scale-stat"><span class="scale-stat-arrow" aria-hidden="true"></span><div><strong class="scale-label scale-label--big">Presencia urbana y rural</strong></div></div>
         </div>
       </div>`;
     card.appendChild(visual);
@@ -71,7 +71,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     .scale-map-image{display:block;width:190px;height:390px;max-width:none;object-fit:cover;object-position:center;filter:hue-rotate(58deg) saturate(1.65) brightness(1.08)}
     .scale-stats{display:grid;gap:2px;padding-left:2px}
     .scale-stat{display:grid;grid-template-columns:22px minmax(0,1fr);gap:6px;align-items:center;padding:18px 0}
-    .scale-stat-arrow{display:block;color:#5b3f9b;font-size:21px;line-height:1}.scale-stat>div{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+    .scale-stat-arrow{display:block;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:15px solid #5b3f9b;font-size:0;line-height:0;flex:none}.scale-stat>div{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
     .scale-number{font-size:clamp(40px,3.15vw,52px);line-height:.9;color:#5b3f9b;font-weight:700;letter-spacing:-.05em}.scale-label{font-size:clamp(18px,1.5vw,22px);line-height:1;color:#5b3f9b;font-weight:700;letter-spacing:-.02em}.scale-label--big{font-size:clamp(18px,1.4vw,20px);line-height:1.08}
 
     @media(max-width:1180px){.scale-visual{grid-template-columns:minmax(300px,1fr) 500px}.scale-coverage-card{width:500px;grid-template-columns:200px 1fr}.scale-map-image{width:180px}.scale-brand{width:72px}}
