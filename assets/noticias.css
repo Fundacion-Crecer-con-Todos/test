@@ -70,3 +70,14 @@
 .article-source{margin-top:32px}
 .article-source a{color:#008da8;text-underline-offset:4px;font-weight:600}
 @media(max-width:700px){.news-filters{gap:8px}.news-filter{padding:10px 14px;font-size:12px}}
+
+/* Columna de opinión en el home */
+.news-home-opinion{display:grid;grid-template-columns:minmax(220px,35%) 1fr;gap:0;margin-top:22px;background:#f6f8f9;color:inherit;text-decoration:none;overflow:hidden;border-radius:20px}
+.news-home-opinion-media{min-height:245px;background:#e6eeee;overflow:hidden}
+.news-home-opinion-media img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .35s ease}
+.news-home-opinion:hover img{transform:scale(1.025)}
+.news-home-opinion-copy{padding:28px 34px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.news-home-opinion-copy .news-date{margin-bottom:13px}
+.news-home-opinion-copy h3{font-size:clamp(23px,2.6vw,33px);line-height:1.12;letter-spacing:-.03em;font-weight:500;color:var(--fcct-ink,#25282a);margin:0 0 13px}
+.news-home-opinion-copy p{font-size:14px;line-height:1.6;color:#59666c;margin:0 0 19px}
+@media(max-width:700px){.news-home-opinion{grid-template-columns:1fr}.news-home-opinion-media{min-height:215px;aspect-ratio:16/10}.news-home-opinion-copy{padding:25px 23px}.news-home-opinion-copy h3{font-size:25px}}
