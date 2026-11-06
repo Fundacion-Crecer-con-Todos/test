@@ -45,3 +45,28 @@
 .slep-logo-grid .logo-card--del-pino img{max-width:100%;max-height:94px;transform:scale(1.22);transform-origin:center}
 @media(max-width:900px){.slep-logo-grid .logo-card--del-pino img{max-height:82px;transform:scale(1.18)}}
 @media(max-width:620px){.slep-logo-grid .logo-card--del-pino{padding:12px}.slep-logo-grid .logo-card--del-pino img{max-height:72px;transform:scale(1.12)}}
+
+/* Optical logo size balancing — Fundaciones and Sostenedores (2026-11-06).
+   Keep the existing card dimensions and logo order unchanged. */
+.logo-card img[alt="Fundación Trifolium"]{transform:scale(1.75);transform-origin:center}
+.logo-card img[alt="Fundación Liguria"]{transform:scale(1.6);transform-origin:center}
+.logo-card img[alt="Fundación Viento Sur"]{transform:scale(1.85);transform-origin:center}
+.logo-card img[alt="Fundación Teraike"]{transform:scale(1.4);transform-origin:center}
+.logo-card img[alt="Juan Piamarta"]{transform:scale(1.45);transform-origin:center}
+.logo-card img[alt="JAN"]{transform:scale(1.55);transform-origin:center}
+@media(max-width:900px){
+  .logo-card img[alt="Fundación Trifolium"]{transform:scale(1.5)}
+  .logo-card img[alt="Fundación Liguria"]{transform:scale(1.42)}
+  .logo-card img[alt="Fundación Viento Sur"]{transform:scale(1.55)}
+  .logo-card img[alt="Fundación Teraike"]{transform:scale(1.3)}
+  .logo-card img[alt="Juan Piamarta"]{transform:scale(1.3)}
+  .logo-card img[alt="JAN"]{transform:scale(1.38)}
+}
+@media(max-width:620px){
+  .logo-card img[alt="Fundación Trifolium"]{transform:scale(1.36)}
+  .logo-card img[alt="Fundación Liguria"]{transform:scale(1.28)}
+  .logo-card img[alt="Fundación Viento Sur"]{transform:scale(1.42)}
+  .logo-card img[alt="Fundación Teraike"]{transform:scale(1.2)}
+  .logo-card img[alt="Juan Piamarta"]{transform:scale(1.2)}
+  .logo-card img[alt="JAN"]{transform:scale(1.28)}
+}
