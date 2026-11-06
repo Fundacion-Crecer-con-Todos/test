@@ -15,3 +15,15 @@
 
 @media(max-width:900px){.history-hero-grid,.mission-grid{grid-template-columns:1fr}.history-hero-grid{gap:38px}.mission-grid{gap:24px}.history-photo,.mission-image{min-height:390px}.principles-grid{grid-template-columns:1fr}.history-page .join-card{min-height:290px!important;padding-top:44px!important;padding-bottom:44px!important;padding-left:24px!important;padding-right:24px!important}}
 @media(max-width:560px){.history-hero{padding:112px 0 64px}.history-hero h1{font-size:38px;line-height:1.07;margin-bottom:20px}.history-hero p{font-size:14px;line-height:1.78}.history-photo{min-height:310px;transform:none}.history-section{padding:70px 0}.mission-copy{padding:24px}.mission-copy strong{line-height:1.22;margin:18px 0}.mission-copy p{line-height:1.75}.mission-image{min-height:310px}.vision-quote{font-size:38px;line-height:1.1;margin-top:22px}.principle-card summary{padding:18px;min-height:88px;gap:12px;grid-template-columns:48px 1fr auto}.principle-icon{width:44px;height:44px;border-radius:14px}.principle-icon svg{width:22px;height:22px}.principle-title{font-size:15px}.principle-body{padding:0 18px 20px}.principle-body p{font-size:13px}.history-page .join-card{min-height:280px!important;padding:40px 16px!important}.history-page .join-card h2{font-size:34px!important}.history-page .join-card p{font-size:13.5px!important}.history-page .join-card a{margin-top:22px}}
+
+/* FRAETE: six colored seals requested for Our Story. */
+.principle-card summary{grid-template-columns:88px minmax(0,1fr) auto;min-height:112px}
+.principle-icon{width:84px;height:88px;background:transparent;border:0;border-radius:0;box-shadow:none;display:flex;align-items:center;justify-content:center}
+.principle-icon .principle-seal{display:block;width:82px;height:84px;color:var(--seal-color);fill:none;stroke:none}
+.principle-copy{gap:0}
+.principle-value{display:block;margin-top:12px;color:#4a4751;font-size:.95em;font-weight:700}
+@media(max-width:560px){
+ .principle-card summary{grid-template-columns:66px minmax(0,1fr) auto;gap:10px;min-height:96px}
+ .principle-icon{width:64px;height:68px}
+ .principle-icon .principle-seal{width:64px;height:67px}
+}
