@@ -1,12 +1,27 @@
 (()=>{
 const params=new URLSearchParams(location.search);const isEN=params.get('lang')==='en';
 const langLink=document.querySelector('.lang');
-if(langLink){if(isEN){langLink.innerHTML='<span class="lang-flag" aria-hidden="true">🇨🇱</span><span>ES</span>';langLink.setAttribute('aria-label','Cambiar idioma a español');langLink.title='Cambiar a español';const u=new URL(location.href);u.searchParams.delete('lang');langLink.href=u.pathname+u.search+u.hash}else{langLink.innerHTML='<span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span>';langLink.setAttribute('aria-label','Switch language to English');langLink.title='Switch to English';const u=new URL(location.href);u.searchParams.set('lang','en');langLink.href=u.pathname+u.search+u.hash}}
+if(langLink){
+  // Local SVG images avoid OS/browser-dependent emoji flags (e.g. "US" text on Windows).
+  const target=isEN?'es':'en';
+  const flag=target==='es'?'cl':'us';
+  langLink.innerHTML='<img class="lang-flag" src="/assets/flag-'+flag+'.svg" width="20" height="14" alt="" aria-hidden="true"><span>'+target.toUpperCase()+'</span>';
+  langLink.setAttribute('aria-label',isEN?'Cambiar idioma a español':'Switch language to English');
+  langLink.title=isEN?'Cambiar a español':'Switch to English';
+  const u=new URL(location.href);
+  if(isEN)u.searchParams.delete('lang');else u.searchParams.set('lang','en');
+  langLink.href=u.pathname+u.search+u.hash;
+  langLink.style.display='inline-flex';
+  langLink.style.alignItems='center';
+  langLink.style.gap='5px';
+  const flagImage=langLink.querySelector('.lang-flag');
+  Object.assign(flagImage.style,{display:'block',width:'20px',height:'14px',objectFit:'cover',borderRadius:'2px',flexShrink:'0'});
+}
 if(!isEN)return;
 document.documentElement.lang='en';
 
 const common={
-'Qué hacemos':'What we do','Quiénes somos':'Who we are','Nuestra historia':'Our story','Equipo':'Team','Directorio':'Board','Alianzas':'Partnerships','Recursos':'Resources','Acceso plataforma':'Platform access','Acceso capacitación':'Training access','Transparencia':'Transparency','Contacto':'Contact','Contáctanos →':'Contact us →','Colabora con nosotros →':'Partner with us →','Conversemos':'Let’s talk','Mantente conectado con nuestro impacto':'Stay connected with our impact','Conoce historias, resultados y novedades de Primero LEE y del trabajo que realizamos junto a escuelas y docentes en todo Chile.':'Discover stories, results and updates from Primero LEE and the work we carry out with schools and teachers across Chile.','Diseño y Desarrollo por':'Design and development by','Juntos podemos transformar el futuro de más niños y niñas.':'Together, we can transform the future of more children.','Cada alianza, aporte o colaboración nos ayuda a seguir fortaleciendo la lectura y escritura en comunidades educativas de todo Chile.':'Every partnership, contribution or collaboration helps us continue strengthening reading and writing in educational communities across Chile.','Volver arriba':'Back to top','Abrir menú':'Open menu'};
+'Nuestro trabajo':'Our work','Catálogo':'Catalogue','Noticias':'News','Impacto':'Impact','Accesos y recursos':'Access and resources','Columna de opinión':'Opinion column','Noticia':'News','Leer columna →':'Read column →','Leer noticia →':'Read article →','4 de noviembre de 2026 · lowsignal':'November 4, 2026 · lowsignal','13 de octubre de 2026':'October 13, 2026','Qué hacemos':'What we do','Quiénes somos':'Who we are','Nuestra historia':'Our story','Equipo':'Team','Directorio':'Board','Alianzas':'Partnerships','Recursos':'Resources','Acceso plataforma':'Platform access','Acceso capacitación':'Training access','Transparencia':'Transparency','Contacto':'Contact','Contáctanos →':'Contact us →','Colabora con nosotros →':'Partner with us →','Conversemos':'Let’s talk','Mantente conectado con nuestro impacto':'Stay connected with our impact','Conoce historias, resultados y novedades de Primero LEE y del trabajo que realizamos junto a escuelas y docentes en todo Chile.':'Discover stories, results and updates from Primero LEE and the work we carry out with schools and teachers across Chile.','Diseño y Desarrollo por':'Design and development by','Juntos podemos transformar el futuro de más niños y niñas.':'Together, we can transform the future of more children.','Cada alianza, aporte o colaboración nos ayuda a seguir fortaleciendo la lectura y escritura en comunidades educativas de todo Chile.':'Every partnership, contribution or collaboration helps us continue strengthening reading and writing in educational communities across Chile.','Volver arriba':'Back to top','Abrir menú':'Open menu'};
 function translateExact(map){const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);const nodes=[];while(w.nextNode())nodes.push(w.currentNode);nodes.forEach(n=>{const t=n.nodeValue.trim();if(map[t]){const lead=n.nodeValue.match(/^\s*/)[0],trail=n.nodeValue.match(/\s*$/)[0];n.nodeValue=lead+map[t]+trail}})}
 translateExact(common);
 
