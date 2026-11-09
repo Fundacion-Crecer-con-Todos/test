@@ -24,7 +24,7 @@ const btns=[...document.querySelectorAll('.nav-btn')];const closeNavDrops=(excep
 const navWrap=document.querySelector('.nav-wrap');let ticking=false;function motionScroll(){const y=window.scrollY;if(navWrap)navWrap.classList.toggle('scrolled',y>28);const steps=document.querySelector('.steps');if(steps){const shift=Math.max(-8,Math.min(12,(y-500)*.012));steps.style.transform=`translateY(${shift}px) rotate(${7+shift*.08}deg)`}const hs=document.querySelector('.hero-stat');if(hs&&y<850){hs.style.setProperty('--hero-shift',Math.min(12,y*.018)+'px')}ticking=false}addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(motionScroll);ticking=true}},{passive:true});motionScroll();
 // Team portraits are loaded only when visible by the dedicated team-page observer.
 document.querySelectorAll('.drop a[href="/app"]').forEach(a=>{a.href='https://play.google.com/store/apps/details?id=fundacion.crecer.primeroLee&hl=es_CL';a.target='_blank';a.rel='noopener noreferrer'});
-const i18nScript=document.createElement('script');i18nScript.src='/assets/i18n.js?v=container-wide-v3-20261022';document.body.appendChild(i18nScript);
+// Translations load directly via a versioned deferred script in every HTML page.
 
 if(location.pathname==='/'||location.pathname==='/index.html'){
   const impactCards=document.querySelector('#impacto .impact-cards');
