@@ -59,7 +59,7 @@ if(additionalTranslations[path])translateExact(additionalTranslations[path]);
 // Final UI pass: translate text split across markup, accessibility labels,
 // image descriptions, and metadata that ordinary text-node translation misses.
 const allTranslations=Object.assign({},common,maps[path]||{},additionalTranslations['*']||{},additionalTranslations[path]||{});
-const normalizeText=s=>s.replace(/\\uFE0E/g,'').replace(/\\s+/g,' ').trim();
+const normalizeText=s=>s.replace(/\uFE0E/g,'').replace(/\s+/g,' ').trim();
 const normalizedTranslations=new Map(Object.entries(allTranslations).map(([k,v])=>[normalizeText(k),v]));
 function translateUI(root=document.body){
   const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
@@ -69,8 +69,8 @@ function translateUI(root=document.body){
     const source=normalizeText(node.nodeValue);
     const value=normalizedTranslations.get(source);
     if(value!==undefined&&value!==source){
-      const lead=node.nodeValue.match(/^\\s*/)?.[0]||'';
-      const trail=node.nodeValue.match(/\\s*$/)?.[0]||'';
+      const lead=node.nodeValue.match(/^\s*/)?.[0]||'';
+      const trail=node.nodeValue.match(/\s*$/)?.[0]||'';
       node.nodeValue=lead+value+trail;
     }
   }
