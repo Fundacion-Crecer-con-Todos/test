@@ -15,6 +15,10 @@
     {title:'Trabajo con familias',text:'Primero LEE promueve la participación de las familias en el proceso de aprendizaje de niños y niñas, entregando orientaciones y recursos que les permiten acompañar y reforzar la lectura y la escritura desde el hogar. De esta manera, se busca fortalecer el vínculo entre la escuela y las familias y favorecer el desarrollo de hábitos lectores.'}
   ];
 
+  const isEnglish=new URLSearchParams(location.search).get('lang')==='en';
+  const englishContent=[{"title":"Innovative and balanced program","text":"Primero LEE uses a balanced teaching model that systematically develops reading, writing and oral communication. Structured lesson plans and a Student Guide connect learning through thematic units and storytelling, helping teachers deliver consistent, well-organized instruction in the classroom."},{"title":"Assessment and monitoring system","text":"Primero LEE includes ongoing assessment throughout the year to monitor students’ learning progress. Results are available through a reporting platform with dashboards and reports, helping educators identify learning gaps and make evidence-based decisions for both classes and individual students."},{"title":"Support for students who are falling behind","text":"Primero LEE offers targeted reinforcement programs for students experiencing greater learning gaps. Assessment results help identify their needs, and tailored teaching resources are provided through Primero LEE+, Reading Reinforcement and the Acceleration Plan to strengthen key skills and help every student make progress."},{"title":"Ongoing coaching and support","text":"Primero LEE mentors support teachers and school leadership teams through in-person visits and online coaching. These sessions include instructional modeling, feedback, pedagogical reflection and data analysis, helping schools build capacity and sustain improvement over time."},{"title":"Training","text":"Primero LEE provides ongoing professional development for teachers and school leadership teams, covering key content and teaching strategies for reading and writing. Training strengthens their knowledge, improves program implementation and increases its impact on students’ learning."},{"title":"Working with families","text":"Primero LEE encourages families to take part in their children’s learning by providing guidance and resources to support reading and writing at home. This helps strengthen school–family relationships and develop lasting reading habits."}];
+  const localizedContent=isEnglish?englishContent:content;
+
   const style=document.createElement('style');
   style.textContent=`
     .model-node{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
@@ -52,6 +56,7 @@
   modal.setAttribute('aria-hidden','true');
   modal.innerHTML='<div class="model-modal-card"><button class="model-modal-close" type="button" aria-label="Cerrar">×</button><span class="model-modal-kicker">Modelo Primero LEE</span><h3></h3><p></p></div>';
   document.body.appendChild(modal);
+  if(isEnglish){modal.querySelector('.model-modal-kicker').textContent='Primero LEE Model';modal.querySelector('.model-modal-close').setAttribute('aria-label','Close');}
 
   const title=modal.querySelector('h3');
   const body=modal.querySelector('p');
@@ -60,8 +65,8 @@
 
   function openModal(i,trigger){
     lastTrigger=trigger||null;
-    title.textContent=content[i].title;
-    body.textContent=content[i].text;
+    title.textContent=localizedContent[i].title;
+    body.textContent=localizedContent[i].text;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden','false');
     document.body.classList.add('model-modal-open');
@@ -85,7 +90,7 @@
     if(!el)return;
     el.setAttribute('role','button');
     el.setAttribute('tabindex','0');
-    el.setAttribute('aria-label','Ver información: '+content[i].title);
+    el.setAttribute('aria-label',(isEnglish?'View information: ':'Ver información: ')+localizedContent[i].title);
   });
 
   document.addEventListener('click',e=>{
