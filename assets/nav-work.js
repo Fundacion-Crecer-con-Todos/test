@@ -32,6 +32,12 @@
   work.className='item nav-work-item';
   work.innerHTML=`<button class="nav-btn" aria-expanded="false">Nuestro trabajo <span class="chev" aria-hidden="true">⌄</span></button><div class="drop"><a href="/noticias">Noticias</a><a href="/impacto">Impacto</a><a href="/alianzas">Alianzas</a><a href="/transparencia">Transparencia</a></div>`;
   links.insertBefore(work,resourcesItem||links.querySelector('.lang')||null);
+  if(new URLSearchParams(location.search).get('lang')==='en'){
+    const labels=['Our work','News','Impact','Partnerships','Transparency'];
+    const navButton=work.querySelector('.nav-btn');if(navButton?.firstChild)navButton.firstChild.nodeValue=labels[0]+' ';
+    work.querySelectorAll('.drop a').forEach((a,i)=>{a.textContent=labels[i+1];const u=new URL(a.getAttribute('href'),location.origin);u.searchParams.set('lang','en');a.setAttribute('href',u.pathname+u.search)});
+  }
+
 
   const btn=work.querySelector('.nav-btn');
   const drop=work.querySelector('.drop');
