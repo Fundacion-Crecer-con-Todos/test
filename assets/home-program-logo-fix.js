@@ -116,4 +116,24 @@ if(location.pathname==='/'||location.pathname==='/index.html'){
       faq.parentNode.insertBefore(section,faq);
     }
   }
+  // Localize home sections built after the main translation script has run.
+  if(new URLSearchParams(location.search).get('lang')==='en'){
+    const translated={
+      'Alianzas':'Partnerships',
+      'Crecemos junto a quienes comparten nuestra misión.':'We grow alongside those who share our mission.',
+      'Trabajamos con servicios locales de educación pública, fundaciones, empresas, sostenedores y redes que hacen posible llevar nuestros programas a más comunidades educativas.':'We work with local public education services, foundations, companies, school administrators and networks that help bring our programs to more educational communities.',
+      '40+ organizaciones aliadas':'40+ partner organizations',
+      'Conoce nuestras alianzas':'Explore our partnerships',
+      'Conoce nuestras alianzas →':'Explore our partnerships →',
+      'Servicios Locales de Educación Pública aliados':'Partner Local Public Education Services',
+      'Niños y niñas participantes de Primero LEE':'Children participating in Primero LEE'
+    };
+    document.querySelectorAll('.home-alliances,.impact-photo').forEach(root=>{
+      const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+      while(walker.nextNode()){const node=walker.currentNode;const key=node.nodeValue.trim();if(translated[key])node.nodeValue=node.nodeValue.replace(key,translated[key]);}
+      root.querySelectorAll('[aria-label],[alt]').forEach(el=>{for(const k of ['aria-label','alt']){const val=el.getAttribute(k);if(translated[val])el.setAttribute(k,translated[val]);}});
+      root.querySelectorAll('a[href^="/"]').forEach(a=>{const u=new URL(a.getAttribute('href'),location.origin);u.searchParams.set('lang','en');a.setAttribute('href',u.pathname+u.search+u.hash)});
+    });
+  }
+
 }
