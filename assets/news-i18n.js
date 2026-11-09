@@ -11,10 +11,11 @@ const translateExact=(map)=>{
   while(walker.nextNode()) nodes.push(walker.currentNode);
   nodes.forEach(n=>{
     const t=n.nodeValue.trim();
-    if(map[t]){
+    const key=Object.prototype.hasOwnProperty.call(map,t)?t:t.replace(/\uFE0E/g,'');
+    if(Object.prototype.hasOwnProperty.call(map,key)){
       const lead=n.nodeValue.match(/^\s*/)[0];
       const trail=n.nodeValue.match(/\s*$/)[0];
-      n.nodeValue=lead+map[t]+trail;
+      n.nodeValue=lead+map[key]+trail;
     }
   });
 };
