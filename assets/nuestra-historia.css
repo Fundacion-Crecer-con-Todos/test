@@ -27,3 +27,8 @@
  .principle-icon{width:64px;height:68px}
  .principle-icon .principle-seal{width:64px;height:67px}
 }
+
+/* Valores siempre visibles bajo el nombre de cada principio */
+.principle-copy{gap:6px}
+.principle-value-label{display:block;font-size:12px;line-height:1.4;font-weight:600;color:#68616e}
+@media(max-width:560px){.principle-value-label{font-size:11.5px}}
