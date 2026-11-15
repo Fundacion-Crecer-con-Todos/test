@@ -22,7 +22,7 @@ footer{background:var(--fcct-c)!important;color:#fff!important}.footer-grid-v2 .
 .history-page .principle-card:nth-child(4) .principle-no::after{content:'Responsabilidad'}
 .history-page .principle-card:nth-child(5) .principle-no::after{content:'Colaboración'}
 .history-page .principle-card:nth-child(6) .principle-no::after{content:'Motivación'}
-.history-page .principle-value{display:none!important}
+/* Los valores se muestran dentro de las tarjetas desplegadas. */
 @media(max-width:560px){.history-page .principle-card summary{grid-template-columns:1fr auto!important}.history-page .principle-no{grid-column:1;min-width:0;margin-bottom:2px}.history-page .principle-title{grid-column:1}.history-page .principle-toggle{grid-column:2;grid-row:1/3}}
 
 /* End theme-accent.css */
