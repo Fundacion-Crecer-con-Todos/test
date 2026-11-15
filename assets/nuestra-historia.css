@@ -32,3 +32,9 @@
 .principle-copy{gap:6px}
 .principle-value-label{display:block;font-size:12px;line-height:1.4;font-weight:600;color:#68616e}
 @media(max-width:560px){.principle-value-label{font-size:11.5px}}
+
+/* Corrección de los sellos: figuras contenidas y centradas */
+.principle-icon{display:flex!important;align-items:center!important;justify-content:center!important;overflow:visible!important}
+.principle-icon .principle-seal{display:block!important;overflow:visible!important;flex:none!important}
+.principle-body .principle-value{display:block!important;margin:16px 0 0!important;padding:0!important;font-size:14px!important;line-height:1.5!important;color:#282b31!important;font-weight:700!important;visibility:visible!important;opacity:1!important}
+@media(max-width:560px){.principle-body .principle-value{font-size:13px!important}}
