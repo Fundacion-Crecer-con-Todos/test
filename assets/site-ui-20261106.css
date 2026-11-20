@@ -182,3 +182,15 @@ footer{background:var(--fcct-c)!important;color:#fff!important}.footer-grid-v2 .
 @media(max-width:700px){.news-home-grid{gap:20px}.news-home-grid .news-feature{min-height:0}.news-home-grid .news-feature-media{min-height:225px;max-height:290px}.news-home-grid .news-feature-copy{padding:27px 23px}.news-home-grid .news-feature h3{font-size:29px}}
 
 /* End noticias.css */
+/* Home: tres noticias en la sección original, sin bloque de actualidad duplicado */
+.news-home .news-home-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.news-home .news-feature{display:flex;flex-direction:column;min-width:0;min-height:0;border-radius:20px;overflow:hidden;background:#f3f8f9}
+.news-home .news-feature-media{display:block;min-height:0;aspect-ratio:16/10;overflow:hidden;flex-shrink:0}
+.news-home .news-feature-media img{width:100%;height:100%;object-fit:cover}
+.news-home .news-feature-copy{padding:24px;flex:1;display:flex;flex-direction:column;justify-content:flex-start}
+.news-home .news-feature h3{font-size:clamp(18px,1.6vw,23px);line-height:1.23;letter-spacing:-.025em;margin:10px 0 12px}
+.news-home .news-feature p{font-size:13px;line-height:1.6;margin:0 0 22px;flex:1}
+.news-home .news-date{font-size:11px;margin:7px 0 0;letter-spacing:.03em}
+.news-home .news-feature .news-read{margin-top:auto;font-size:13px}
+@media(max-width:900px){.news-home .news-home-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.news-home .news-feature:last-child{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.news-home .news-feature:last-child .news-feature-media{height:100%;aspect-ratio:auto}}
+@media(max-width:650px){.news-home .news-home-grid{grid-template-columns:1fr;gap:15px}.news-home .news-feature:last-child{grid-column:auto;display:flex}.news-home .news-feature:last-child .news-feature-media{height:auto;aspect-ratio:16/10}.news-home .news-feature-copy{padding:21px}.news-home .news-feature h3{font-size:21px}.news-home .news-home-head .title{font-size:clamp(32px,8vw,43px)}}
