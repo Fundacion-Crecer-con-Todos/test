@@ -57,7 +57,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
       const geography=make('g'),pins=make('g');
       svg.append(geography,pins);
       const names={CLRM:'Región Metropolitana',CLLI:'O’Higgins',CLBI:'Biobío',CLAI:'Aysén',CLMA:'Magallanes'};
-      const confirmed=new Set(['CLAP','CLTA','CLCO','CLVS','CLRM','CLBI','CLAR']);
+      const confirmed=new Set(['CLAP','CLTA','CLAN','CLAT','CLCO','CLVS','CLRM','CLLI','CLML','CLNB','CLBI','CLAR','CLLR','CLLL','CLAI']);
       const points=new Map([...xml.querySelectorAll('g[id="label_points"] circle')].map(el=>[el.id,el]));
       const select=(path,label)=>{svg.querySelectorAll('.is-selected').forEach(el=>el.classList.remove('is-selected'));path.classList.add('is-selected');caption.textContent=label};
       xml.querySelectorAll('g[id="features"] path').forEach(src=>{
@@ -79,7 +79,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
       const mq=matchMedia('(max-width:620px)');
       const layout=()=>{const b=geography.getBBox();const pad=22;if(mq.matches){geography.removeAttribute('transform');pins.removeAttribute('transform');svg.setAttribute('viewBox',[b.x-pad,b.y-pad,b.width+2*pad,b.height+2*pad].join(' '))}else{const t='matrix(0 1 -1 0 0 0)';/* north left, south right */const rotate='matrix(0 -1 1 0 0 0)';geography.setAttribute('transform',rotate);pins.setAttribute('transform',rotate);svg.setAttribute('viewBox',[b.y-pad,-b.x-b.width-pad,b.height+2*pad,b.width+2*pad].join(' '))}};
       layout();mq.addEventListener('change',layout);
-      const legend=document.createElement('span');legend.className='scale-map-legend';legend.textContent=en?'Markers: regions with identified mentoring teams':'Marcadores: regiones con equipos de mentoras identificados';caption.after(legend);
+      const legend=document.createElement('span');legend.className='scale-map-legend';legend.textContent=en?'Markers: program coverage (provisional)':'Marcadores: presencia del programa (por confirmar)';caption.after(legend);
     }).catch(()=>{caption.textContent=prompt;});
 
   }
