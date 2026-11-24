@@ -79,7 +79,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
       const mq=matchMedia('(max-width:620px)');
       const layout=()=>{const b=geography.getBBox();const pad=22;if(mq.matches){geography.removeAttribute('transform');pins.removeAttribute('transform');svg.setAttribute('viewBox',[b.x-pad,b.y-pad,b.width+2*pad,b.height+2*pad].join(' '))}else{const t='matrix(0 1 -1 0 0 0)';/* north left, south right */const rotate='matrix(0 -1 1 0 0 0)';geography.setAttribute('transform',rotate);pins.setAttribute('transform',rotate);svg.setAttribute('viewBox',[b.y-pad,-b.x-b.width-pad,b.height+2*pad,b.width+2*pad].join(' '))}};
       layout();mq.addEventListener('change',layout);
-      const legend=document.createElement('span');legend.className='scale-map-legend';legend.textContent=en?'Markers: program coverage (provisional)':'Marcadores: presencia del programa (por confirmar)';caption.after(legend);
+
     }).catch(()=>{caption.textContent=prompt;});
 
   }
