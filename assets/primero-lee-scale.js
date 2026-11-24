@@ -31,29 +31,63 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     visual.className='scale-visual';
     visual.setAttribute('aria-label','Implementación de Primero LEE en 15 regiones, 80 comunas y contextos urbanos y rurales');
     visual.innerHTML=`
-      <div class="scale-intro">
-        <h4>Implementación en diversos contextos</h4>
-        <div class="scale-line"></div>
-        <p>Experiencia implementando el programa en distintas realidades del sistema educativo.</p>
-      </div>
+      <div class="scale-intro"><h4>Nuestra presencia territorial</h4><p>Experiencia implementando el programa en distintas realidades del sistema educativo.</p></div>
       <div class="scale-coverage-card">
-        <img class="scale-brand" src="/assets/primero-lee-logo.png" alt="Primero LEE">
         <div class="scale-map-wrap" aria-label="Cobertura territorial de Primero LEE en Chile">
           <img class="scale-map-image" src="/assets/mapa.svg" alt="Mapa de Chile que representa la cobertura territorial de Primero LEE">
         </div>
+        <div class="scale-map-caption" aria-live="polite">Explora las regiones de Chile</div>
         <div class="scale-stats">
-          <div class="scale-stat"><span class="scale-stat-arrow" aria-hidden="true"></span><div><strong class="scale-number">15</strong><span class="scale-label">regiones</span></div></div>
-          <div class="scale-stat"><span class="scale-stat-arrow" aria-hidden="true"></span><div><strong class="scale-number">80</strong><span class="scale-label">comunas</span></div></div>
-          <div class="scale-stat"><span class="scale-stat-arrow" aria-hidden="true"></span><div><strong class="scale-label scale-label--big">Presencia urbana y rural</strong></div></div>
+          <div class="scale-stat"><div><strong class="scale-number">15</strong><span class="scale-label">regiones</span></div></div>
+          <div class="scale-stat"><div><strong class="scale-number">80</strong><span class="scale-label">comunas</span></div></div>
+          <div class="scale-stat"><div><strong class="scale-label scale-label--big">Presencia urbana y rural</strong></div></div>
         </div>
       </div>`;
     card.appendChild(visual);
+    const wrap=visual.querySelector('.scale-map-wrap');
+    const caption=visual.querySelector('.scale-map-caption');
+    const en=new URLSearchParams(location.search).get('lang')==='en';
+    const prompt=en?'Explore the regions of Chile':'Explora las regiones de Chile';
+    caption.textContent=prompt;
+    fetch('/assets/mapa.svg').then(response=>{if(!response.ok)throw Error('Map unavailable');return response.text()}).then(source=>{
+      const xml=new DOMParser().parseFromString(source,'image/svg+xml');
+      const ns='http://www.w3.org/2000/svg';
+      const make=(tag,attrs={})=>{const el=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>el.setAttribute(k,v));return el};
+      const svg=make('svg',{role:'group','aria-label':en?'Interactive map of Chile':'Mapa interactivo de Chile',class:'scale-map-svg'});
+      const geography=make('g'),pins=make('g');
+      svg.append(geography,pins);
+      const names={CLRM:'Región Metropolitana',CLLI:'O’Higgins',CLBI:'Biobío',CLAI:'Aysén',CLMA:'Magallanes'};
+      const confirmed=new Set(['CLAP','CLTA','CLCO','CLVS','CLRM','CLBI','CLAR']);
+      const points=new Map([...xml.querySelectorAll('g[id="label_points"] circle')].map(el=>[el.id,el]));
+      const select=(path,label)=>{svg.querySelectorAll('.is-selected').forEach(el=>el.classList.remove('is-selected'));path.classList.add('is-selected');caption.textContent=label};
+      xml.querySelectorAll('g[id="features"] path').forEach(src=>{
+        const id=src.id,label=names[id]||src.getAttribute('name');
+        const path=make('path',{d:src.getAttribute('d'),class:'scale-region'+(confirmed.has(id)?' known-region':''),tabindex:'0',role:'button','aria-label':label});
+        const title=make('title');title.textContent=label;path.append(title);
+        const activate=()=>select(path,label);
+        path.addEventListener('pointerenter',activate);path.addEventListener('focus',activate);path.addEventListener('click',activate);path.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate()}});
+        geography.append(path);
+        if(confirmed.has(id)&&points.has(id)){
+          const point=points.get(id),cx=point.getAttribute('cx'),cy=point.getAttribute('cy');
+          const dot=make('g',{class:'scale-region-pin','aria-hidden':'true'});
+          dot.append(make('circle',{cx,cy,r:10,class:'pin-halo'}),make('circle',{cx,cy,r:5,class:'pin-core'}));
+          pins.append(dot);
+        }
+      });
+      if(geography.children.length!==16)throw Error('Incomplete geography');
+      wrap.replaceChildren(svg);
+      const mq=matchMedia('(max-width:620px)');
+      const layout=()=>{const b=geography.getBBox();const pad=22;if(mq.matches){geography.removeAttribute('transform');pins.removeAttribute('transform');svg.setAttribute('viewBox',[b.x-pad,b.y-pad,b.width+2*pad,b.height+2*pad].join(' '))}else{const t='matrix(0 1 -1 0 0 0)';/* north left, south right */const rotate='matrix(0 -1 1 0 0 0)';geography.setAttribute('transform',rotate);pins.setAttribute('transform',rotate);svg.setAttribute('viewBox',[b.y-pad,-b.x-b.width-pad,b.height+2*pad,b.width+2*pad].join(' '))}};
+      layout();mq.addEventListener('change',layout);
+      const legend=document.createElement('span');legend.className='scale-map-legend';legend.textContent=en?'Markers: regions with identified mentoring teams':'Marcadores: regiones con equipos de mentoras identificados';caption.after(legend);
+    }).catch(()=>{caption.textContent=prompt;});
+
   }
 
 
   // Localize content generated by this script after its markup is inserted.
   if(new URLSearchParams(location.search).get('lang')==='en'){
-    const translated={"Niveles de implementación":"Implementation levels","Sostenedor / SLEP":"School operator / SLEP","Condiciones para sostener la mejora":"Conditions for sustained improvement","Liderazgo, planificación, recursos y continuidad para escalar el trabajo en el territorio.":"Leadership, planning, resources and continuity to scale the work across the territory.","Escuela":"School","Equipos directivos y UTP":"School leadership and curriculum teams","Gestión pedagógica, acompañamiento y desarrollo de capacidades para sostener la implementación.":"Instructional leadership, coaching and capacity building to sustain implementation.","Aula":"Classroom","Docentes y estudiantes":"Teachers and students","Enseñanza, materiales, evaluación y apoyo para que cada niño y niña avance.":"Teaching, materials, assessment and support to help every child progress.","Aprendizaje":"Learning","Un modelo sistémico: cada nivel del sistema aporta capacidades y condiciones para que los aprendizajes se sostengan en el tiempo.":"A system-wide model: each level provides the capacity and conditions needed for lasting learning outcomes.","Implementación en diversos contextos":"Implementation across diverse contexts","Experiencia implementando el programa en distintas realidades del sistema educativo.":"Experience implementing the program in a range of educational settings.","regiones":"regions","comunas":"municipalities","Presencia urbana y rural":"Urban and rural presence"};
+    const translated={"Niveles de implementación":"Implementation levels","Sostenedor / SLEP":"School operator / SLEP","Condiciones para sostener la mejora":"Conditions for sustained improvement","Liderazgo, planificación, recursos y continuidad para escalar el trabajo en el territorio.":"Leadership, planning, resources and continuity to scale the work across the territory.","Escuela":"School","Equipos directivos y UTP":"School leadership and curriculum teams","Gestión pedagógica, acompañamiento y desarrollo de capacidades para sostener la implementación.":"Instructional leadership, coaching and capacity building to sustain implementation.","Aula":"Classroom","Docentes y estudiantes":"Teachers and students","Enseñanza, materiales, evaluación y apoyo para que cada niño y niña avance.":"Teaching, materials, assessment and support to help every child progress.","Aprendizaje":"Learning","Un modelo sistémico: cada nivel del sistema aporta capacidades y condiciones para que los aprendizajes se sostengan en el tiempo.":"A system-wide model: each level provides the capacity and conditions needed for lasting learning outcomes.","Nuestra presencia territorial":"Our geographic presence","Experiencia implementando el programa en distintas realidades del sistema educativo.":"Experience implementing the program in a range of educational settings.","regiones":"regions","comunas":"municipalities","Presencia urbana y rural":"Urban and rural presence"};
     for(const root of document.querySelectorAll('.systemic-reference,.scale-visual')){
       const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
       while(walker.nextNode()){
@@ -99,6 +133,25 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
     @media(max-width:1180px){.scale-visual{grid-template-columns:minmax(300px,1fr) 500px}.scale-coverage-card{width:500px;grid-template-columns:200px 1fr}.scale-map-image{width:180px}.scale-brand{width:72px}}
     @media(max-width:900px){.scale-visual{grid-template-columns:1fr;gap:18px;min-height:0;padding:24px}.scale-coverage-card{width:min(100%,520px);justify-self:center}.scale-intro h4{max-width:650px}.systemic-layer{grid-template-columns:1fr;gap:14px}.systemic-layer--school,.systemic-layer--classroom{margin-left:12px}.systemic-core{justify-self:start}.systemic-reference-note{max-width:100%;white-space:normal}}
     @media(max-width:620px){.scale-visual{padding:14px;border-radius:20px}.scale-intro h4{font-size:32px}.scale-intro p{font-size:13px}.scale-coverage-card{grid-template-columns:1fr;gap:8px;width:100%;min-height:0;padding:18px 14px;border-radius:20px}.scale-brand{top:14px;left:14px;width:64px}.scale-map-wrap{height:300px}.scale-map-image{width:150px;height:300px}.scale-stats{padding:0 8px}.scale-stat{padding:13px 0}.scale-number{font-size:36px}.scale-label{font-size:18px}.scale-label--big{font-size:17px}.systemic-layer{padding:18px;border-radius:17px}.systemic-layer--school,.systemic-layer--classroom{margin-left:8px}.systemic-layer-copy{padding-right:0}.systemic-core{width:min(100%,220px);height:auto;min-height:76px;padding:12px 16px;box-sizing:border-box;border-width:3px;border-radius:15px;justify-self:center;box-shadow:0 5px 14px rgba(30,65,75,.13)}.systemic-core span{font-size:10px}.systemic-core strong{font-size:18px;line-height:1.15}.systemic-layer--classroom{gap:10px}}
+
+    /* Geographic coverage refresh: scoped to the map only. */
+    .feature-scalable .scale-visual{display:block;min-height:0;padding:clamp(20px,3vw,40px);background:#f7f3f8;box-shadow:none}
+    .feature-scalable .scale-intro{padding:0;text-align:center;margin:0 auto 24px}
+    .feature-scalable .scale-intro h4{max-width:none;font-size:clamp(30px,3.5vw,46px);line-height:1.12}
+    .feature-scalable .scale-intro p{max-width:660px;margin:12px auto 0}
+    .feature-scalable .scale-coverage-card{display:flex;flex-direction:column;align-items:stretch;gap:12px;width:100%;min-height:0;padding:18px 0 0;background:transparent;box-shadow:none}
+    .feature-scalable .scale-map-wrap{height:auto;min-height:180px;overflow:visible;width:100%}
+    .feature-scalable .scale-map-svg{display:block;width:100%;height:auto;max-height:350px;overflow:visible}
+    .feature-scalable .scale-map-image{width:100%;height:240px;object-fit:contain;filter:none}
+    .scale-map-svg .scale-region{fill:#cce9ed;stroke:#fff;stroke-width:1.4;stroke-linejoin:round;cursor:pointer;transition:fill .18s ease;outline:none}
+    .scale-map-svg .known-region{fill:#7bc9d2}
+    .scale-map-svg .scale-region:hover,.scale-map-svg .scale-region:focus,.scale-map-svg .scale-region.is-selected{fill:#a993d1;stroke:#5b3f9b;stroke-width:2}
+    .scale-region-pin{pointer-events:none}.pin-halo{fill:#5b3f9b;opacity:.2}.pin-core{fill:#5b3f9b;stroke:#fff;stroke-width:1.6}
+    .scale-map-caption{text-align:center;font-weight:600;color:#5b3f9b;font-size:16px;min-height:24px}.scale-map-legend{text-align:center;color:#687078;font-size:11px}
+    .feature-scalable .scale-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0 0;padding:0}
+    .feature-scalable .scale-stat{display:flex;align-items:center;justify-content:center;text-align:center;padding:22px 12px;background:#fff;border:1px solid #e9e1ed;border-radius:16px;min-width:0}
+    .feature-scalable .scale-stat>div{justify-content:center;align-items:center;flex-direction:column;gap:9px}
+    @media(max-width:620px){.feature-scalable .scale-visual{padding:18px 14px}.feature-scalable .scale-map-svg{max-height:480px;width:100%;height:460px}.feature-scalable .scale-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.feature-scalable .scale-stat:last-child{grid-column:1/-1}.feature-scalable .scale-stat{padding:16px 8px}.feature-scalable .scale-intro h4{font-size:30px}}
   `;
   document.head.appendChild(style);
 }
