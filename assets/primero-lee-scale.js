@@ -57,7 +57,7 @@ if(location.pathname==='/primero-lee'||location.pathname==='/primero-lee/index.h
       const geography=make('g'),pins=make('g');
       svg.append(geography,pins);
       const names={CLRM:'Región Metropolitana',CLLI:'O’Higgins',CLBI:'Biobío',CLAI:'Aysén',CLMA:'Magallanes'};
-      const confirmed=new Set(['CLAP','CLTA','CLAN','CLAT','CLCO','CLVS','CLRM','CLLI','CLML','CLNB','CLBI','CLAR','CLLR','CLLL','CLAI']);
+      const confirmed=new Set(['CLAP','CLTA','CLAN','CLAT','CLCO','CLVS','CLRM','CLLI','CLML','CLNB','CLBI','CLAR','CLLR','CLLL','CLMA']);
       const points=new Map([...xml.querySelectorAll('g[id="label_points"] circle')].map(el=>[el.id,el]));
       const select=(path,label)=>{svg.querySelectorAll('.is-selected').forEach(el=>el.classList.remove('is-selected'));path.classList.add('is-selected');caption.textContent=label};
       xml.querySelectorAll('g[id="features"] path').forEach(src=>{
